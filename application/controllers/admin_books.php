@@ -62,7 +62,7 @@ class admin_books extends CI_Controller {
 
         $this->load->helper("form");
         $this->load->library("form_validation");
-        $this->form_validation->set_rules("book_id", "Book Id", "required");
+       // $this->form_validation->set_rules("book_id", "Book Id", "required");
         $this->form_validation->set_rules("book_title", "Book Title", "required");
         $this->form_validation->set_rules("author", "Author Name", "required");
         $this->form_validation->set_rules("publications", "Publications", "required");

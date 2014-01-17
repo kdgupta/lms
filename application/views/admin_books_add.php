@@ -6,8 +6,8 @@ echo validation_errors();
 echo form_open("admin_books/addbooks");
 ?>
 <table>
-    <tr> <td> <label for="book_id">Book Id</label>
-        <td> <input type="text" name="book_id" size="11" ><br>
+    <tr> <td> <label for="book_id"></label>
+        <td> <input type="hidden" name="book_id" size="11" ><br>
 
     <tr> <td>  <label for="book_title" >Book Title</label>
         <td>   <input type="text" name="book_title" size="11" ><br>
