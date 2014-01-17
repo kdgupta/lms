@@ -6,6 +6,7 @@
         <th> Author Name </th>
         <th> Publication </th>
         <th> Edition </th>
+        <th> Isbn Number </th>
         <th> Price </th>
 
         <th> Actions</th>
@@ -20,6 +21,7 @@
             <td><?php echo $row['author']; ?></td>
             <td><?php echo $row['publications']; ?></td> 
             <td><?php echo $row['edition']; ?></td>
+            <td><?php echo $row['isbn'];?></td>
             <td><?php echo $row['price']; ?></td>
             
 

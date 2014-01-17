@@ -20,6 +20,8 @@ echo form_open("admin_books/addbooks");
 
     <tr> <td> <label for="edition">Edition</label>
         <td> <input type="text" name="edition" size="11" ><br>
+            <tr> <td> <label for="isbn">Isbn Number </label>
+        <td> <input type="text" name="isbn" size="11" ><br>
 
     <tr> <td> <label for="price">Price</label>
         <td>  <input type="text" name="price" size="11" ><br></tr>
