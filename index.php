@@ -1,5 +1,5 @@
 <?php
-define('WEBSITE', 'http://localhost/bms/index.php/');
+define('WEBSITE', '/');
 
 /*
  *---------------------------------------------------------------

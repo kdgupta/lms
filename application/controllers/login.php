@@ -7,15 +7,17 @@
 
 if (!defined('BASEPATH'))
     exit('No direct script access allowed');
+require_once 'app_controller.php';
 
-class Login extends CI_Controller {
-function __construct() {
+class Login extends App_controller {
+
+    function __construct() {
         parent::__construct();
-        //$this->load->view('dashboard');
     }
+
     public function login_form() {
         $this->load->helper("form");
-        $this->load->view('login_view');
+        $this->layout->view('login_view');
 
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             //$this->output->enable_profiler(TRUE);
@@ -27,9 +29,9 @@ function __construct() {
             // $this->db->where("emp_id",$empid);
             //$this->db->update("users");    
             // $this->load->helper("form");
-          //  echo "<pre>";
-          //  print_r($this->input->post('email'));
-          //  die;
+            //  echo "<pre>";
+            //  print_r($this->input->post('email'));
+            //  die;
             $data = array(
                 "email" => $this->input->post('email'),
                 "password" => $this->input->post('password'));
@@ -40,12 +42,11 @@ function __construct() {
                 $this->load->helper('url');
                 redirect('/admin/dashboard');
             } else {
-          echo "<pre>";
-           print_r("Username or Password is wrong ");
+                echo "<pre>";
+                print_r("Username or Password is wrong ");
                 header('location :' . WEBSITE . 'login_form');
             }
         }
     }
 
 }
-
