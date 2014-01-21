@@ -1,9 +1,15 @@
-<?php
+    <?php
 
 if (!defined('BASEPATH'))
     exit('No direct script access allowed');
+require_once 'app_controller.php';
 
-class admin_books extends CI_Controller {
+
+class admin_books extends App_controller {
+     function __construct() {
+        parent::__construct();
+        //$this->load->view('dashboard');
+    }
 
     public function editbooks() {
         //$this->output->enable_profiler(TRUE);
@@ -12,7 +18,7 @@ class admin_books extends CI_Controller {
         $this->load->helper("form");
         if (!empty($bookid)) {
             $data["userdata"] = $this->books->get_bookdata_by_id($bookid);
-            $this->load->view('admin_books_edit', $data);
+            $this->layout->view('admin_books_edit', $data);
         } else {
             if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 //  $this->output->enable_profiler(TRUE);
@@ -69,7 +75,7 @@ class admin_books extends CI_Controller {
         $this->form_validation->set_rules("price", "Price", "required");
 
         if ($this->form_validation->run() == false) {
-            $this->load->view("admin_books_add");
+            $this->layout->view("admin_books_add");
         } else {
             $bookid = $_POST["book_id"];
             $booktitle= $_POST["book_title"];
@@ -98,7 +104,7 @@ class admin_books extends CI_Controller {
         $this->load->model("books");
         $data["userdata"] = $this->books->books_data();
        
-        $this->load->view("view_books", $data);
+        $this->layout->view("view_books", $data);
 
         //$this->load->view('admin_dashboard');
     }

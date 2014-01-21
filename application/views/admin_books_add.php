@@ -5,25 +5,83 @@ echo validation_errors();
 // Using the form helper to help create the start of the form code
 echo form_open("admin_books/addbooks");
 ?>
-<table>
-    <tr> <td> <label for="book_id">Book Id</label>
-        <td> <input type="text" name="book_id" size="11" ><br>
 
-    <tr> <td>  <label for="book_title" >Book Title</label>
-        <td>   <input type="text" name="book_title" size="11" ><br>
 
-    <tr> <td> <label for="author">Author Name</label>
-        <td> <input type="text" name="author" size="11" ><br>
 
-    <tr> <td> <label for="publications">Publications</label>
-        <td> <input type="text" name="publications" size="11" ><br>
 
-    <tr> <td> <label for="edition">Edition</label>
-        <td> <input type="text" name="edition" size="11" ><br>
 
-    <tr> <td> <label for="price">Price</label>
-        <td>  <input type="text" name="price" size="11" ><br></tr>
-    <tr> <td> <input type="submit" name="submit" value="Add Books">
-</table>
-</form>
-</html>
+
+      
+    <form class="form-horizontal" role="form" method="post" >
+   <div class="row">
+   <div class="form-group"> 
+   <div class="col-sm-2 "></div>
+    <label for="book_id" class="col-lg-3  control-label"><font size="3">Book Id</font></label>
+    <div class="col-lg-4">
+     <input type="text" name="book_id" class="form-control"  placeholder="book_id">
+    </div>
+    </div>
+     </div>  
+        <div class="row">
+   <div class="form-group"> 
+   <div class="col-sm-2 "></div>
+    <label for="book_title" class="col-lg-3  control-label"><font size="3">Book Title</label>
+    <div class="col-lg-4">
+     <input type="text" name="book_title" class="form-control"  placeholder="book_title">
+    </div>
+    </div>
+     </div>
+        <div class="row">
+   <div class="form-group"> 
+   <div class="col-sm-2 pull-left"></div>
+    <label for="author_name" class="col-lg-3 pull-left control-label"><font size="3">Author Name</label>
+    <div class="col-lg-4">
+     <input type="text" name="author" class="form-control"  placeholder="author_name">
+    </div>
+    </div>
+     </div>
+  <div class="row">  
+  <div class="form-group">
+      <div class="col-sm-2"></div>
+    <label for="publication" class="col-lg-3 control-label"><font size="3">Publication</label>
+    <div class="col-lg-4">
+      <input type="text" name="publications" class="form-control"  placeholder="publication">
+    </div>
+  </div>
+    </div> 
+        <div class="row">  
+  <div class="form-group">
+      <div class="col-sm-2"></div>
+    <label for="edition" class="col-lg-3 control-label"><font size="3">Edition</label>
+    <div class="col-lg-4">
+      <input type="text"  name="edition" class="form-control"  placeholder="edition">
+    </div>
+  </div>
+    </div>
+        <div class="row">  
+  <div class="form-group">
+      <div class="col-sm-2"></div>
+    <label for="price"  class="col-lg-3 control-label">Price</label>
+    <div class="col-lg-4">
+      <input type="text" name="price" class="form-control"  placeholder="price">
+    </div>
+  </div>
+    </div>    
+    
+           
+     <br>
+     <div class="col-lg-5"></div>
+     <div class="col-lg-4">
+      <input type="submit" name="submit" value="Add Book" class="btn btn-lg btn-primary btn-block" >
+  
+  
+    </div>
+      <label class="checkbox">
+
+                </label>  
+
+    </form>
+
+   
+        
+   

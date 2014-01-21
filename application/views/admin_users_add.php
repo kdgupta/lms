@@ -1,3 +1,8 @@
+
+
+
+
+
 <?php
 // Display any form validation error messages
 echo validation_errors();
@@ -5,29 +10,96 @@ echo validation_errors();
 // Using the form helper to help create the start of the form code
 echo form_open("admin_users/createuser");
 ?>
-<table>
-    <tr> <td> <label for="emp_id">Employee Id</label>
-        <td> <input type="text" name="emp_id" size="11" ><br>
 
-    <tr> <td>  <label for="firstname" >First Name</label>
-        <td>   <input type="text" name="firstname" size="8" ><br>
 
-    <tr> <td> <label for="lastname">Last Name</label>
-        <td> <input type="text" name="lastname" size="8" ><br>
 
-    <tr> <td> <label for="email">Email Address</label>
-        <td> <input type="text" name="email" size="12" ><br>
 
-    <tr> <td> <label for="password">Password</label>
-        <td> <input type="password" name="password" size="8" ><br>
 
-    <tr> <td> <label for="designation">Designation</label>
-        <td>  <input type="text" name="designation" size="8" ><br></tr>
 
-    <tr> <td> <input type="radio" name="is_active" value='1'>Active<br>
-        <td align="right"> <input type="radio" name="is_active" value='0'>Inactive<br>
+      
+    <form class="form-horizontal" role="form" method="post" >
+   <div class="row">
+   <div class="form-group"> 
+   <div class="col-sm-2 "></div>
+    <label for="emp_id" class="col-lg-3 control-label">Emp Id</label>
+    <div class="col-lg-4">
+     <input type="text" name="emp_id" class="form-control"  placeholder="emp_id">
+    </div>
+    </div>
+     </div>  
+        <div class="row">
+   <div class="form-group"> 
+   <div class="col-sm-2 pull-left"></div>
+    <label for="firstname" class="col-lg-3 pull-left control-label">First Name</label>
+    <div class="col-lg-4">
+     <input type="text" name="firstname" class="form-control"  placeholder="firstname">
+    </div>
+    </div>
+     </div>
+        <div class="row">
+   <div class="form-group"> 
+   <div class="col-sm-2"></div>
+    <label for="lastname" class="col-lg-3 control-label">Last Name</label>
+    <div class="col-lg-4">
+     <input type="text" name="lastname" class="form-control"  placeholder="lastname">
+    </div>
+    </div>
+     </div>
+  <div class="row">  
+  <div class="form-group">
+      <div class="col-sm-2"></div>
+    <label for="email" class="col-lg-3 control-label">Email</label>
+    <div class="col-lg-4">
+      <input type="text" name="email" class="form-control"  placeholder="email">
+    </div>
+  </div>
+    </div> 
+        <div class="row">  
+  <div class="form-group">
+      <div class="col-sm-2"></div>
+    <label for="password" class="col-lg-3 control-label">Password</label>
+    <div class="col-lg-4">
+      <input type="password"  name="password" class="form-control"  placeholder="password">
+    </div>
+  </div>
+    </div>
+        <div class="row">  
+  <div class="form-group">
+      <div class="col-sm-2"></div>
+    <label for="designation"  class="col-lg-3 control-label">Designation</label>
+    <div class="col-lg-4">
+      <input type="text" name="designation" class="form-control"  placeholder="designation">
+    </div>
+  </div>
+    </div>  
+        
+         <div class="row">
+             <div class="form-group">
+      <div class="col-sm-4"></div>
+       <div class="col-lg-4">
+        <input type="radio" name="is_active" value='1' ><font size="3">Active</font>
+        <div class="col-sm-2"></div>
+        <input type="radio" name="is_active" value='0' ><font size="3">Inactive</font>
+       </div>
+      </div>
+            
+           
+           
+      
+           
+     <br>
+     <div class="col-lg-5"></div>
+     <div class="col-lg-4">
+      <input type="submit" name="submit" value="Add User" class="btn btn-lg btn-primary btn-block" >
+  
+  
+    </div>
+      <label class="checkbox">
 
-    <tr> <td> <input type="submit" name="submit" value="Submit">
-</table>
-</form>
-</html>
+                </label>  
+
+    </form>
+
+   
+        
+   

@@ -42,9 +42,10 @@ class Login extends App_controller {
                 $this->load->helper('url');
                 redirect('/admin/dashboard');
             } else {
-                echo "<pre>";
-                print_r("Username or Password is wrong ");
-                header('location :' . WEBSITE . 'login_form');
+                //echo "<pre>";
+                 $this->layout->view('error_view');
+               // print_r("Username or Password is wrong ");
+                //header('location :' . WEBSITE . 'login_form');
             }
         }
     }
