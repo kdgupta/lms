@@ -1,5 +1,6 @@
 <?php
-define('WEBSITE', '/');
+define('WEBSITE', 'http://localhost/lms/index.php/');
+define('UI_LIB', 'http://localhost/lms/ui-lib/');
 
 /*
  *---------------------------------------------------------------
