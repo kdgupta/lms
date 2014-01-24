@@ -6,15 +6,15 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta name="description" content="">
         <meta name="author" content="">
-        <link rel="shortcut icon" href="<?= WEBSITE ?>ui-lib/bootstrap/ico/favicon.png">
+        <link rel="shortcut icon" href="<?= UI_LINK ?>ui-lib/bootstrap/ico/favicon.png">
 
         <title><?php echo $title ?></title>
 
-        <link href="<?= WEBSITE ?>ui-lib/bootstrap/css/bootstrap.css" rel="stylesheet">
+        <link href="<?= UI_LINK ?>ui-lib/bootstrap/css/bootstrap.css" rel="stylesheet">
 
         <!-- Custom styles for this template -->
-        <link href="<?= WEBSITE ?>ui-lib/css/starter-template.css" rel="stylesheet">
-        <script src="<?= WEBSITE ?>ui-lib/jquery/jquery-1.10.2.min.js"></script>
+        <link href="<?= UI_LINK ?>ui-lib/css/starter-template.css" rel="stylesheet">
+        <script src="<?= UI_LINK ?>ui-lib/jquery/jquery-1.10.2.min.js"></script>
         <!-- Just for debugging purposes. Don't actually copy this line! -->
         <!--[if lt IE 9]><script src="../../docs-assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
 

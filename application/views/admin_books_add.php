@@ -20,12 +20,16 @@ echo form_open("admin_books/addbooks");
 
     <tr> <td> <label for="edition">Edition</label>
         <td> <input type="text" name="edition" size="11" ><br>
-            <tr> <td> <label for="isbn">Isbn Number </label>
-        <td> <input type="text" name="isbn" size="11" ><br>
 
+    <tr> <td> <label for="isbn">Isbn Number </label>
+        <td> <input type="text" name="isbn" size="11" ><br>
     <tr> <td> <label for="price">Price</label>
         <td>  <input type="text" name="price" size="11" ><br></tr>
-    <tr> <td> <input type="submit" name="submit" value="Add Books">
+    
+    <tr> <td> <input type="radio" name="available" value='1' checked >Available<br>
+       
+       <tr> <td> <input type="submit" name="submit" value="Add Books">
+
 </table>
 </form>
 </html>

@@ -9,7 +9,7 @@
     <div class="row">
         <div class="col-lg-4"></div>
         <div class="col-lg-4">
-            <form class="form-signin" role="form">
+            <form class="form-signin" role="form" method ="post">
                 <h2 class="form-signin-heading">Sign in </h2>
                 <input type="text" name="email" align="right" class="form-control" placeholder="Email address" required="" autofocus="">
                 <input type="password" name="password" class="form-control" placeholder="Password" required="">

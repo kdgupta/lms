@@ -6,22 +6,27 @@
 ?>
 <form action ="assign_books" method ="post">
      <table>
+                
+
     <tr> <td> <label for="book_id"></label>
          <input type="hidden" name="book_id" value="<?= $bookdata['book_id'] ?>">  
-         <tr> <td> <label for="book_id">Book Name</label>
+     <input type="hidden" name="user" value="<?= $bookdata['']?>">  
+
+    <tr> <td> <label for="book_id">Book Name</label>
          <input type="text" name="book_title" size="5" value="<?= $bookdata['book_title'] ?>">  
         <td><td><td><lable for ="emp_id">Users </lable> 
-    <td> <select name="emp_id"><?php foreach($userdata as $row){
-         
-?>
-         <?php if($row['is_active']==1){
-             ?>
+    <td>
+  <select name="emp_id">
+      <?php  foreach($userdata as $row) { ?>
+
+         <?php if($row['is_active']==1){  ?>
   <option value="<?php echo  $row['emp_id']; ?>" ><?php echo  $row['firstname']; ?><?php echo  $row['lastname']; ?></option>
-         <?php } else { ;} 
-     }?>
-    </td> </tr>
+          <?php } }?>
   
-</select>
+       </select>
+   </td> 
+  </tr>
+
     <tr> <td> <input type="submit" name="submit" value=" Assign Book">
 </table>
 </form>

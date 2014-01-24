@@ -1,5 +1,5 @@
 <?php ?>
-<a href="<?= WEBSITE ?>admin_users/admin_users_add">Add New Book</a>
+<a href="<?= WEBSITE ?>admin_users/createuser">Add New User</a>
 <table  border="5">
     <tr> <th> Emp_id</th>
         <th> First name </th>
@@ -26,7 +26,7 @@
 
             <td><a href="<?= WEBSITE ?>admin_users/edituser?emp_id=<?php echo $row['emp_id']; ?>">
                     Edit</a>|<a href="<?= WEBSITE ?>admin_users/deleteuser?emp_id=<?php echo $row['emp_id']; ?> ">Delete</a></td>
-
+         
         </tr>
     <?php } ?>
 </table>
