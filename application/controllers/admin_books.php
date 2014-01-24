@@ -35,6 +35,7 @@ class admin_books extends App_controller {
                     "author" => $this->input->post('author'),
                     "publications" => $this->input->post('publications'),
                     "edition" => $this->input->post('edition'),
+                    "isbn" => $this->input->post('isbn'),
                     "price" => $this->input->post('price'));
                     
                $tre = $this->books->update_books_data($data, $this->input->post('book_id'));
@@ -67,11 +68,12 @@ class admin_books extends App_controller {
 
         $this->load->helper("form");
         $this->load->library("form_validation");
-        $this->form_validation->set_rules("book_id", "Book Id", "required");
+       // $this->form_validation->set_rules("book_id", "Book Id", "required");
         $this->form_validation->set_rules("book_title", "Book Title", "required");
         $this->form_validation->set_rules("author", "Author Name", "required");
         $this->form_validation->set_rules("publications", "Publications", "required");
         $this->form_validation->set_rules("edition", "Edition", "required");
+        $this->form_validation->set_rules("isbn", "Isbn Number", "required");
         $this->form_validation->set_rules("price", "Price", "required");
 
         if ($this->form_validation->run() == false) {
@@ -82,12 +84,14 @@ class admin_books extends App_controller {
             $author = $_POST["author"];
             $publications = $_POST["publications"];
             $edition = $_POST["edition"];
+            $isbn = $_POST["isbn"];
             $price = $_POST["price"];
             $data = array("book_id" => $bookid,
                 "book_title" => $booktitle,
                 "author" => $author,
                 "publications" => $publications,
                 "edition" => $edition,
+                "isbn" => $isbn,
                 "price" => $price);
             $this->load->model("books");
          $ret =  $this->books->insert_books($data);

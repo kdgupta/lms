@@ -6,9 +6,16 @@ echo validation_errors();
 echo form_open("admin_books/addbooks");
 ?>
 
+<table>
+    
+    <tr> <td> <label for="book_id"></label>
+        <td> <input type="hidden" name="book_id" size="11" ><br>
 
 
 
+
+
+    
 
 
       
@@ -16,9 +23,9 @@ echo form_open("admin_books/addbooks");
    <div class="row">
    <div class="form-group"> 
    <div class="col-sm-2 "></div>
-    <label for="book_id" class="col-lg-3  control-label"><font size="3">Book Id</font></label>
+    <label for="book_id" class="col-lg-3  control-label"><font size="3"></font></label>
     <div class="col-lg-4">
-     <input type="text" name="book_id" class="form-control"  placeholder="book_id">
+     <input type="hidden" name="book_id" class="form-control"  placeholder="book_id">
     </div>
     </div>
      </div>  
@@ -55,6 +62,16 @@ echo form_open("admin_books/addbooks");
     <label for="edition" class="col-lg-3 control-label"><font size="3">Edition</label>
     <div class="col-lg-4">
       <input type="text"  name="edition" class="form-control"  placeholder="edition">
+    </div>
+  </div>
+    </div>
+        
+         <div class="row">  
+  <div class="form-group">
+      <div class="col-sm-2"></div>
+    <label for="isbn" class="col-lg-3 control-label"><font size="3">Isbn</label>
+    <div class="col-lg-4">
+      <input type="text"  name="isbn" class="form-control"  placeholder="isbn">
     </div>
   </div>
     </div>

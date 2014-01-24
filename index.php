@@ -1,5 +1,6 @@
 <?php
 define('WEBSITE', 'http://localhost/lms/index.php/');
+
 define('UI_LIB', 'http://localhost/lms/ui-lib/');
 
 /*
@@ -205,3 +206,5 @@ require_once BASEPATH.'core/CodeIgniter.php';
 
 /* End of file index.php */
 /* Location: ./index.php */
+        
+  
