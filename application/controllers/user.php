@@ -15,10 +15,10 @@ class Admin extends App_controller {
     public function dashboard() {
 
         $this->load->helper("form");
-        $this->layout->view('admin_dashboard');
+        $this->layout->view('user_dashboard');
     }
 
 }
 
 /* End of file welcome.php */
-/* Location: ./application/controllers/welcome.php */
+/* Location: 

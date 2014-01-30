@@ -3,13 +3,22 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
+ 
+   //Start session
+   $this->load->library('session');
+
+   //Try retriving data:
+  // $session_id = $this->session->userdata('session_id');
+  
+
+
 ?>
 
 <div class="container">
     <div class="row">
         <div class="col-lg-4"></div>
         <div class="col-lg-4">
-            <form class="form-signin" role="form" method ="post">
+            <form class="form-signin" role="form" method="post">
                 <h2 class="form-signin-heading">Sign in </h2>
                 <input type="text" name="email" align="right" class="form-control" placeholder="Email address" required="" autofocus="">
                 <input type="password" name="password" class="form-control" placeholder="Password" required="">

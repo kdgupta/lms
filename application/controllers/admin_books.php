@@ -1,11 +1,13 @@
 <?php
-ini_set('display_errors',1);
-ini_set('display_startup_errors',1);
-error_reporting(1);
+
 if (!defined('BASEPATH'))
     exit('No direct script access allowed');
+require_once 'app_controller.php';
 
-class admin_books extends CI_Controller {
+class admin_books extends App_controller {
+    function __construct() {
+        parent::__construct();
+    }
 
     public function editbooks() {
         //$this->output->enable_profiler(TRUE);
@@ -16,7 +18,7 @@ class admin_books extends CI_Controller {
         if (!empty($bookid)) {
 
             $data["userdata"] = $this->books->get_bookdata_by_id($bookid);
-            $this->load->view('admin_books_edit', $data);
+            $this->layout->view('admin_books_edit', $data);
         } else {
             if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 //  $this->output->enable_profiler(TRUE);
@@ -43,6 +45,7 @@ class admin_books extends CI_Controller {
                 if ($tre == true) {
                     header('location: viewbooks');
                 }
+               
             }
         }
 
@@ -75,13 +78,15 @@ class admin_books extends CI_Controller {
         $this->form_validation->set_rules("edition", "Edition", "required");
         $this->form_validation->set_rules("isbn", "Isbn Number", "required");
         $this->form_validation->set_rules("price", "Price", "required");
-        $this->form_validation->set_rules("available", "Availability", "required");
+       // $this->form_validation->set_rules("available", "Availability", "required");
         // $this->form_validation->set_rules("availability", "Availability", "required");
         if ($_SERVER['REQUEST_METHOD'] === 'GET') {
-            $this->load->view("admin_books_add");
+            $this->layout->view("admin_books_add");
+        
+            
         } else {
             if ($this->form_validation->run() == false) {
-                $this->load->view("admin_books_add");
+                $this->layout->view("admin_books_add");
             } else {
                 $bookid = $_POST["book_id"];
                 $booktitle = $_POST["book_title"];
@@ -90,15 +95,15 @@ class admin_books extends CI_Controller {
                 $edition = $_POST["edition"];
                 $isbn = $_POST["isbn"];
                 $price = $_POST["price"];
-                $available = $_POST["available"];
+               // $available = $_POST["available"];
                 $data = array("book_id" => $bookid,
                     "book_title" => $booktitle,
                     "author" => $author,
                     "publications" => $publications,
                     "edition" => $edition,
                     "isbn" => $isbn,
-                    "price" => $price,
-                    "available" => $available);
+                    "price" => $price);
+                   // "available" => $available);
                 $this->load->model("books");
                 $ret = $this->books->insert_books($data);
                 if ($ret == true) {
@@ -113,9 +118,11 @@ class admin_books extends CI_Controller {
         // $this->output->enable_profiler(TRUE);
 
         $this->load->model("books");
-        $data["userdata"] = $this->books->books_data();
+       $empid= $this->input->post('emp_id');
+      
+        $data["userdata"] = $this->books->books_data($empid);
 
-        $this->load->view("view_books", $data);
+        $this->layout->view("view_books", $data);
 
         //$this->load->view('admin_dashboard');
     }
@@ -123,9 +130,9 @@ class admin_books extends CI_Controller {
     public function assign_books() {
 
         
-       $employeeId=  $_POST['emp_id'];
+      
         
-        $bookid =     $_GET['book_id'];
+   $bookid =  $_GET['book_id'];
         
         $this->load->model(array("assignbook_model", "assignuser_model"));
         //$this->load->helper("form");
@@ -133,8 +140,8 @@ class admin_books extends CI_Controller {
             $data["bookdata"] = $this->assignbook_model->get_book_by_id($bookid);
             //print_r($data);die;
             //  $this->load->model("assignuser_model");
-            $data["userdata"] = $this->assignuser_model->assignuser_data($employeeId);
-            $this->load->view('assign_books', $data);
+            $data["userdata"] = $this->assignuser_model->assignuser_data();
+            $this->layout->view('assign_books', $data);
         }
         else {
             if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -144,7 +151,7 @@ class admin_books extends CI_Controller {
                     "emp_id" => $empid);
                 $this->load->model("assignbook_model");
 
-                $ret = $this->assignbook_model->assignedbook_records($data);
+               $ret = $this->assignbook_model->assignedbook_records($data);
 
                 if ($ret == true) {
                     header('location: viewbooks');
@@ -154,15 +161,29 @@ class admin_books extends CI_Controller {
     }
     public function return_book(){
         
-        $bookid = $this->input->get('book_id');
-        $this->load->model("assignbook_model");
-         if (!empty($bookid)) {
-            $ret= $this->assignbook_model->return_book($bookid);
+        $bookid =  $_GET['book_id'];
+        
+        $this->load->model(array("assignbook_model", "assignuser_model"));
+        //$this->load->helper("form");
+        if (!empty($bookid)) {
+            $data["bookdata"] = $this->assignbook_model->get_book_by_id($bookid);
+            //print_r($data);die;
+            //  $this->load->model("assignuser_model");
+            $data['userdata'] = $this->assignuser_model->returnuser_data($bookid);
+            // $this->layout->view('view_books', $data);
+        
+               // $this->load->model("assignbook_model");
+           echo "<pre>";
+                print_r ( $data['userdata']);
+               die;  
+            $ret= $this->assignbook_model->return_book($empid);
+            
             if ($ret == true) {
                     header('location: viewbooks');
                 }
          }
-    }
+        }
+    
 
     public function assigned_user_records() {
 
@@ -175,8 +196,11 @@ class admin_books extends CI_Controller {
            // $bookid = $data['book_id'];
             // $data["userdata"] = $this->assignuser_model->assignuser_data();
             //$data["bookdata"] = $this->user_records->get_book_record_by_id($bookid,$empid); 
-            $this->load->view('view_user_records', $data);
+            $this->layout->view('view_user_records', $data);
         }
     }
 
 }
+
+/* End of file welcome.php */
+/* Location: ./application/controllers/welcome.php */

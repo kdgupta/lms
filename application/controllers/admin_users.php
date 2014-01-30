@@ -3,8 +3,14 @@
 
 if (!defined('BASEPATH'))
     exit('No direct script access allowed');
+require_once 'app_controller.php';
 
-class Admin_users extends CI_Controller {
+
+class Admin_users extends App_controller  {
+    function __construct() {
+        parent::__construct();
+        //$this->load->view('dashboard');
+    }
 
     public function edituser() {
         // $this->output->enable_profiler(TRUE);
@@ -13,7 +19,7 @@ class Admin_users extends CI_Controller {
         $this->load->helper("form");
         if (!empty($empid)) {
             $data["userdata"] = $this->users->get_userdata_by_id($empid);
-            $this->load->view('admin_users_edit', $data);
+            $this->layout->view('admin_users_edit', $data);
         } else {
             if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 //  $this->output->enable_profiler(TRUE);
@@ -68,12 +74,18 @@ class Admin_users extends CI_Controller {
         $this->form_validation->set_rules("password", "Password", "required");
         $this->form_validation->set_rules("designation", "Designation", "required");
         $this->form_validation->set_rules("is_active", "Active", "required");
+
         if ($_SERVER['REQUEST_METHOD'] === 'GET') {
-            $this->load->view("admin_users_add");
-        } else {
-            if ($this->form_validation->run() == false) {
-                $this->load->view("admin_users_add");
-            } else {
+            $this->layout->view("admin_users_add");
+        }
+
+       else{
+           if ($this->form_validation->run() == false) {
+       
+            $this->layout->view("admin_users_add");
+
+        } 
+          else {
                 $empid = $_POST["emp_id"];
                 $first = $_POST["firstname"];
                 $last = $_POST["lastname"];
@@ -98,6 +110,7 @@ class Admin_users extends CI_Controller {
             }
         }
     }
+    
 
     public function viewusers() {
         // $this->output->enable_profiler(TRUE);
@@ -105,7 +118,11 @@ class Admin_users extends CI_Controller {
         $this->load->model("users");
         $data["userdata"] = $this->users->users_data();
 
-        $this->load->view("view_users", $data);
+
+      
+       
+        $this->layout->view("view_users", $data);
+
 
         //$this->load->view('admin_dashboard');
     }

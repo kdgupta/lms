@@ -1,15 +1,23 @@
 <?php ?>
-<a href="<?= WEBSITE ?>admin_users/createuser">Add New User</a>
-<table  border="5">
-    <tr> <th> Emp_id</th>
-        <th> First name </th>
-        <th> Last name </th>
-        <th> Email </th>
-        <th> Designation </th>
-        <th> Active </th>
-        <th> Roles </th>
+ <div class="col-lg-4"> </div>
+   
+    <div class="col-lg-3">
+<button  onclick="location.href='<?=WEBSITE?>admin_users/createuser'" class="btn btn-lg btn-primary btn-block">
+     Add New User</button> </div> <br><br> <br>    
 
-        <th> Actions</th>
+    <table align="center" border="5" >
+     
+     
+
+    <tr> <th style="text-align: center;"> <font size="3">Emp_id</font></th>
+        <th style="text-align: center;"> <font size="3">First name </font></th>
+        <th style="text-align: center;"> <font size="3">Last name</font> </th>
+        <th style="text-align: center;"> <font size="3">Email</font></th>
+        <th style="text-align: center;"><font size="3"> Designation </font></th>
+        <th style="text-align: center;"><font size="3"> Active </font></th>
+        <th style="text-align: center;"><font size="3"> Roles </font></th>
+
+        <th style="text-align: center;"> <font size="3">Actions</font></th>
 
 
     </tr>
@@ -23,12 +31,15 @@
             <td><?php echo $row['designation']; ?></td>
             <td><?php echo $row['is_active']; ?></td>
             <td><?php echo $row['role_name']; ?></td>
+             <td> <button style="background-color:skyblue"  onclick="location.href='<?= WEBSITE ?>admin_users/edituser?emp_id=<?php echo $row['emp_id']; ?>'">
+    Edit </button>
+    <button style="background-color:skyblue" onclick="location.href='<?= WEBSITE ?>admin_users/deleteuser?emp_id=<?php echo $row['emp_id']; ?>'">
+     Delete</button>
+               </td></tr>
 
-            <td><a href="<?= WEBSITE ?>admin_users/edituser?emp_id=<?php echo $row['emp_id']; ?>">
-                    Edit</a>|<a href="<?= WEBSITE ?>admin_users/deleteuser?emp_id=<?php echo $row['emp_id']; ?> ">Delete</a></td>
-         
-        </tr>
+            
     <?php } ?>
 </table>
+    </div>
 </form>
-</html>
+</body>

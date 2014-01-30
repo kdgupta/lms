@@ -2,6 +2,8 @@
 define('WEBSITE', 'http://localhost/lms/index.php/');
 define('UI_LINK', 'http://localhost/lms/');
 
+define('UI_LIB', 'http://localhost/lms/ui-lib/');
+
 /*
  *---------------------------------------------------------------
  * APPLICATION ENVIRONMENT
@@ -205,3 +207,5 @@ require_once BASEPATH.'core/CodeIgniter.php';
 
 /* End of file index.php */
 /* Location: ./index.php */
+        
+  

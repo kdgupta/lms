@@ -6,15 +6,15 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta name="description" content="">
         <meta name="author" content="">
-        <link rel="shortcut icon" href="<?= UI_LINK ?>ui-lib/bootstrap/ico/favicon.png">
+        <link rel="shortcut icon" href="<?= UI_LIB ?>bootstrap/ico/favicon.png">
 
         <title><?php echo $title ?></title>
 
-        <link href="<?= UI_LINK ?>ui-lib/bootstrap/css/bootstrap.css" rel="stylesheet">
+        <link href="<?= UI_LIB ?>bootstrap/css/bootstrap.css" rel="stylesheet">
 
         <!-- Custom styles for this template -->
-        <link href="<?= UI_LINK ?>ui-lib/css/starter-template.css" rel="stylesheet">
-        <script src="<?= UI_LINK ?>ui-lib/jquery/jquery-1.10.2.min.js"></script>
+        <link href="<?= UI_LIB ?>css/starter-template.css" rel="stylesheet">
+        <script src="<?= UI_LIB ?>jquery/jquery-1.10.2.min.js"></script>
         <!-- Just for debugging purposes. Don't actually copy this line! -->
         <!--[if lt IE 9]><script src="../../docs-assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
 
@@ -36,7 +36,7 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="/" style="color: #FFFFFF;"><b>LMS</b></a>
+                    <a class="navbar-brand" style="color: #FFFFFF;"><b>LMS</b></a>
                 </div>
                 <div class="collapse navbar-collapse">
                     <ul class="nav navbar-nav">
@@ -71,10 +71,11 @@
         ================================================== -->
         <!-- Placed at the end of the document so the pages load faster -->
 
-        <script src="<?= WEBSITE ?>ui-lib/bootstrap/js/bootstrap.min.js"></script>
+        <script src="<?= UI_LIB ?>bootstrap/js/bootstrap.min.js"></script>
 
         <div id="footer">
-            <div class="container" align="center">
+            <div class="container" align="center" width="100"
+                    height="100" style="position:absolute; right:5%;bottom:20%;">
                 <p>Powered By: <a taget="_blank" href="http://www.tradus.com">OMS Team</a><br>
                     Please give us your suggestions Email: <a taget="_blank" href="mailto:oms@tradus.com">contact@tradus.com</a>
                 </p>
