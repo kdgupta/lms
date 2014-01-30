@@ -1,6 +1,6 @@
 <?php
 
-class user_records extends CI_Model {
+class user_assigned_books extends CI_Model {
     /*  public function get_user_record_by_id($empid) {
       if (!empty($empid)) {
       $this->load->database();
@@ -13,16 +13,17 @@ class user_records extends CI_Model {
       return array_shift($query->result_array());
       } */
 
-    public function assignedbook($empid) {
+    public function assignedbook() {
         $this->load->database();
         //$query = $this->db->query("select  * from books");
+        $email = $this->session->userdata('email');
         $query = $this->db->query("select p.emp_id, p.firstname, p.lastname,
              r.book_id,r.book_title,r.author,r.publications,r.edition,r.isbn,
              r.price,q.issue_date,q.return_date
              from users as p
              join 
             users_books_records as q on p.emp_id = q.emp_id join books as r on q.book_id
-            =  r.book_id where q.emp_id= $empid ");
+            =  r.book_id where p.email= '$email' ");
         return $query->result_array();
     }
 

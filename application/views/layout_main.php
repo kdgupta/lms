@@ -38,6 +38,12 @@
                     </button>
                     <a class="navbar-brand" style="color: #FFFFFF;"><b>LMS</b></a>
                 </div>
+
+
+
+
+
+
                 <div class="collapse navbar-collapse">
                     <ul class="nav navbar-nav">
                         <!--                        <li class="active"><a href="#">Home</a></li>
@@ -75,7 +81,7 @@
 
         <div id="footer">
             <div class="container" align="center" width="100"
-                    height="100" style="position:absolute; right:5%;bottom:20%;">
+                 height="100" style="position:absolute; right:5%;bottom:20%;">
                 <p>Powered By: <a taget="_blank" href="http://www.tradus.com">OMS Team</a><br>
                     Please give us your suggestions Email: <a taget="_blank" href="mailto:oms@tradus.com">contact@tradus.com</a>
                 </p>

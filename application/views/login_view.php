@@ -3,6 +3,12 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
+
+//Start session
+$this->load->library('session');
+
+//Try retriving data:
+$session_id = $this->session->userdata('session_id');
 ?>
 
 <div class="container">

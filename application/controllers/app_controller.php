@@ -22,10 +22,17 @@ class App_controller extends CI_Controller {
      */
     function __construct() {
         parent::__construct();
-        
+
         $this->load->library('layout');
         $this->layout->setLayout('layout_main');
         $this->layout->setTitle('LMS');
+        $this->load->library('session');
+        $this->load->helper('url');
+        //$this->load->library('auth');
+//       if($this->session->userdata('login_state')==FALSE);
+//        {
+//           redirect('/login/login_form');  
+//        }
     }
 
 }

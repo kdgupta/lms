@@ -14,10 +14,10 @@
 
 </div>
 
-<table  border="5">
-    <tr><th>Emp id</th>
+<table  border="5" align="center">
+    <tr>
         <th>User Name</th>
-        <th> Book_id</th>
+
         <th> Book Title </th>
         <th> Author Name </th>
         <th> Publication </th>
@@ -32,9 +32,9 @@
     </tr>
     <?php foreach ($record as $row) {
         ?>
-        <tr><td>   <?php echo $row['emp_id']; ?> </td>
+        <tr>
             <td>   <?php echo $row['firstname']; ?><?php echo" "; ?><?php echo $row['lastname']; ?></td>
-            <td>   <?php echo $row['book_id']; ?> </td>
+
             <td><?php echo $row['book_title']; ?></td>
             <td><?php echo $row['author']; ?></td>
             <td><?php echo $row['publications']; ?></td> 
@@ -53,7 +53,7 @@
     <div class="col-lg-2 "></div>
     <div class="col-sm-1 pull-top" >
 
-        <button style="background-color:skyblue" onclick="location.href = '<?= WEBSITE ?>admin_books/viewbooks'">
+        <button style="background-color:skyblue" onclick="location.href = '<?= WEBSITE ?>user/dashboard'">
             Back</button></div>
 </div>
 </form>
