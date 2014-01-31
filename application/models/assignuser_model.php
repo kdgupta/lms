@@ -18,11 +18,13 @@ class assignuser_model extends CI_Model {
         $this->load->database();
         //$this->db->where('is_active', );
 
-        $query = $this->db->query("select p.emp_id,p.firstname,p.lastname, p.is_active,max(q.date) from users as p
-                   inner join users_books_records as q on q.emp_id=p.emp_id ");
+        $query = $this->db->query("SELECT  u.emp_id,u.firstname,u.lastname,u.is_active FROM(SELECT MAX(rec_id) AS id ,emp_id FROM users_books_records
+        group by book_id) a  JOIN users_books_records ubr ON ubr.rec_id=a.id
+           JOIN users u ON u.emp_id=ubr.emp_id
+          right JOIN books b ON b.book_id=ubr.book_id where ubr.book_id= $book_id");
 
-
-// print_r($query);die;
+//echo"<pre>";
+ //print_r($query);die;
 
         return $query->result_array();
     }

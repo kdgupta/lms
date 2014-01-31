@@ -119,7 +119,8 @@ class admin_books extends App_controller {
 
         $this->load->model("books");
        $empid= $this->input->post('emp_id');
-      
+         //$empid =  $_POST['emp_id'];
+     // print_r( $empid);
         $data["userdata"] = $this->books->books_data($empid);
 
         $this->layout->view("view_books", $data);
@@ -128,10 +129,7 @@ class admin_books extends App_controller {
     }
 
     public function assign_books() {
-
-        
-      
-        
+     
    $bookid =  $_GET['book_id'];
         
         $this->load->model(array("assignbook_model", "assignuser_model"));
@@ -155,6 +153,7 @@ class admin_books extends App_controller {
 
                 if ($ret == true) {
                     header('location: viewbooks');
+                    //$this->viewbooks();
                 }
             }
         }
@@ -173,9 +172,11 @@ class admin_books extends App_controller {
             // $this->layout->view('view_books', $data);
         
                // $this->load->model("assignbook_model");
-           echo "<pre>";
-                print_r ( $data['userdata']);
-               die;  
+          
+                 $empid = $data['userdata'][0]['emp_id'];
+                  //echo "<pre>";
+                 //print_r($empid);
+                 //die;
             $ret= $this->assignbook_model->return_book($empid);
             
             if ($ret == true) {

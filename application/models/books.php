@@ -67,12 +67,11 @@ class books extends CI_Model {
         //$query = $this->db->query("select  * from books");
        // $this->db->where('q.issue_date==q.lst_act');
         
-      $query = $this->db->query("SELECT b.book_id,b.book_title,b.author,b.publications,
-       b.edition,b.price,b.isbn,b.available,ubr.emp_id,MAX(ubr.date)as date,ubr.activity,
-       u.firstname,u.lastname FROM `users_books_records` ubr
-     INNER JOIN users u ON u.emp_id=ubr.emp_id
-       RIGHT JOIN  books b ON b.`book_id`=ubr.`book_id`
-       GROUP BY  b.book_id ");
+      $query = $this->db->query(" SELECT ubr.*, b.* , u.firstname,u.lastname FROM
+          (SELECT MAX(date) AS date ,emp_id FROM users_books_records
+        GROUP BY book_id) a  JOIN users_books_records ubr ON ubr.date=a.date
+        JOIN users u ON u.emp_id=ubr.emp_id
+        right JOIN books b ON b.book_id=ubr.book_id ");
          return $query->result_array();
         //echo "<pre>";print_r($query->result_array());die;
     }
