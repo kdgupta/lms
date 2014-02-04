@@ -21,8 +21,10 @@ echo validation_errors();
 
 // Using the form helper to help create the start of the form code
 
+
 echo form_open(WEBSITE . "admin_books/addbooks");
 ?>
+
 
 
 
@@ -65,8 +67,9 @@ echo form_open(WEBSITE . "admin_books/addbooks");
             <div class="col-lg-4">
                 <input type="text" name="publications" class="form-control"  placeholder="publication">
             </div>
-        </div>
-    </div> 
+        </div>      
+    </div>  
+
     <div class="row">  
         <div class="form-group">
             <div class="col-sm-2"></div>
@@ -97,10 +100,15 @@ echo form_open(WEBSITE . "admin_books/addbooks");
     </div>    
 
 
+
     <br>
     <div class="col-lg-5"></div>
     <div class="col-lg-4">
         <input type="submit" name="submit" value="Add Book" class="btn btn-lg btn-primary btn-block" >
+
+
+
+
 
 
     </div>
@@ -109,6 +117,7 @@ echo form_open(WEBSITE . "admin_books/addbooks");
     </label>  
 
 </form>
+
 
 
 

@@ -36,12 +36,12 @@ class login extends CI_Controller {
                 $session['user_info'] = $this->login_users->set_user_info($role_id);
                 //print_r($session['data']['validated']);
 
-                $session['user_action'] = $this->login_users->set_user_action($this->session->userdata('role_name'));
+               // $session['user_action'] = $this->login_users->set_user_action($this->session->userdata('role_name'));
             }
 
             $this->load->model('auth');
 
-
+          // echo  $this->session->userdata('role_name');die;
             if ($this->auth->isallowed("admin", "dashboard")) {
 
 
@@ -65,7 +65,9 @@ class login extends CI_Controller {
 
 
 
+
                 print_r("Username or Password is wrong ");
+
                 header('location :' . WEBSITE . 'login_form');
             }
         }

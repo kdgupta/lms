@@ -1,5 +1,6 @@
 <?php
 define('WEBSITE', 'http://localhost/lms/index.php/');
+define('UI_LINK', 'http://localhost/lms/');
 
 define('UI_LIB', 'http://localhost/lms/ui-lib/');
 

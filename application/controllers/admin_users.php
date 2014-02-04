@@ -1,3 +1,4 @@
+
 <?php
 
 if (!defined('BASEPATH'))
@@ -28,6 +29,7 @@ class admin_users extends App_controller {
 
             if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
+//  $this->output->enable_profiler(TRUE);
 
                 $data = array("emp_id" => $this->input->post('emp_id'),
                     "firstname" => $this->input->post('firstname'),
@@ -37,8 +39,10 @@ class admin_users extends App_controller {
                     "designation" => $this->input->post('designation'),
                     "is_active" => $this->input->post('is_active'));
 
+
                 $tre = $this->users->update_users_data($data, $this->input->post('emp_id'));
                 if ($tre == true) {
+
 
                     header('location: viewusers');
                 }
@@ -53,7 +57,6 @@ class admin_users extends App_controller {
 
         $empid = $this->input->get('emp_id');
         $this->load->model("users");
-
 
         $ret = $this->users->delete_users($empid);
         if ($ret == true) {
@@ -78,6 +81,7 @@ class admin_users extends App_controller {
         $this->form_validation->set_rules("is_active", "Active", "required");
 
 
+
         if ($_SERVER['REQUEST_METHOD'] === 'GET') {
 
 
@@ -87,6 +91,7 @@ class admin_users extends App_controller {
             if ($this->form_validation->run() == false) {
                 $this->layout->view("admin_users_add");
             } else {
+
                 $empid = $_POST["emp_id"];
                 $first = $_POST["firstname"];
                 $last = $_POST["lastname"];
@@ -101,6 +106,7 @@ class admin_users extends App_controller {
                     "password" => $password,
                     "designation" => $designation,
                     "is_active" => $active);
+
                 $this->load->model("users");
                 $ret = $this->users->insert_users($data);
                 if ($ret == true) {
@@ -118,8 +124,6 @@ class admin_users extends App_controller {
         $this->load->model("users");
 
         $data["userdata"] = $this->users->users_data();
-
-
 
         $this->layout->view("view_users", $data);
     }

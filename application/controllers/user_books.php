@@ -15,7 +15,6 @@ class user_books extends App_controller {
 
     function __construct() {
         parent::__construct();
-        //$this->load->view('dashboard');
     }
 
     public function viewbooks() {
@@ -25,28 +24,21 @@ class user_books extends App_controller {
 
 
         $this->layout->view("user_view_books", $data);
-
-//$this->load->view('admin_dashboard');
     }
 
     public function assigned_books() {
 
+  $empid = $this->input->get('emp_id');
 
-        // $empid = $this->input->get('emp_id');
-//$bookid = $this->input->get('book_id');
-        $this->load->model("user_assigned_books");
+        $this->load->model("user_records");
+        if (!empty($empid)) {
 
-//$data["userdata"] = $this->user_records->get_user_record_by_id($empid);
-        $data["record"] = $this->user_assigned_books->assignedbook();
-
+            $data["record"] = $this->user_records->assignedbook($empid);
 
 
-// $bookid = $data['book_id'];
-// $data["userdata"] = $this->assignuser_model->assignuser_data();
-//$data["bookdata"] = $this->user_records->get_book_record_by_id($bookid,$empid); 
-        $this->layout->view('view_assigned_books', $data);
-    }
+            $this->layout->view('view_user_records', $data);
+        }
 
 }
-
+}
 ?>

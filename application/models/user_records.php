@@ -18,7 +18,7 @@ class user_records extends CI_Model {
         //$query = $this->db->query("select  * from books");
         $query = $this->db->query("select p.emp_id, p.firstname, p.lastname,
              r.book_id,r.book_title,r.author,r.publications,r.edition,r.isbn,
-             r.price,q.issue_date,q.return_date
+             r.price,r.available,q.date,q.activity
              from users as p
              join 
             users_books_records as q on p.emp_id = q.emp_id join books as r on q.book_id

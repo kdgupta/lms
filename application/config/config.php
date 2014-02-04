@@ -1,3 +1,4 @@
+
 <?php
 
 if (!defined('BASEPATH'))
@@ -18,7 +19,10 @@ if (!defined('BASEPATH'))
   | path to your installation.
   |
  */
-$config['base_url'] = '';
+
+
+$config['base_url']	= '';
+
 
 /*
   |--------------------------------------------------------------------------
@@ -220,6 +224,7 @@ $config['log_date_format'] = 'Y-m-d H:i:s';
 $config['cache_path'] = '';
 
 /*
+
   |--------------------------------------------------------------------------
   | Encryption Key
   |--------------------------------------------------------------------------
@@ -228,7 +233,9 @@ $config['cache_path'] = '';
   | MUST set an encryption key.  See the user guide for info.
   |
  */
-$config['encryption_key'] = '';
+
+
+
 
 /*
   |--------------------------------------------------------------------------

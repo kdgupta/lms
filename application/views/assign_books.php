@@ -19,6 +19,7 @@
 </div>
 
 <form action ="assign_books" method ="post">
+
     <table>
         <tr> <td> <label for="book_id"></label>
                 <input type="hidden" name="book_id" value="<?= $bookdata['book_id'] ?>">  
@@ -49,6 +50,7 @@
             <input type="submit" name="submit" value="Assign Book" class="btn btn-lg btn-primary btn-block" >
         </div>
     </div>
+
 
 </form>
 </html>

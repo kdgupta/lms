@@ -6,7 +6,7 @@ class assignbook_model extends CI_Model {
         if (!empty($bookid)) {
             $this->load->database();
 
-            //$this->db->where('book_id', $this->input->get('book_id'));
+//$this->db->where('book_id', $this->input->get('book_id'));
             $iId = $this->input->get('book_id');
             $sQry = "select * from books where book_id= $iId";
             $query = $this->db->query($sQry);
@@ -20,20 +20,24 @@ class assignbook_model extends CI_Model {
         $rr = $this->input->post('emp_id');
         $rt = $this->input->post('book_id');
         $this->db->trans_start();
-        // $this->db->where('emp_id', $data['emp_id']);
-        $this->db->query("INSERT INTO users_books_records(emp_id,book_id,issue_date)
-               VALUES($rr,$rt,now())");
+// $this->db->where('emp_id', $data['emp_id']);
+        $this->db->query("INSERT INTO users_books_records(emp_id,book_id,date,activity)
+               VALUES($rr,$rt,now(),'1')");
         $this->db->query("UPDATE books SET available='2' where book_id= $rt ");
 
         $ret = $this->db->trans_complete();
         return $ret;
     }
 
-    public function return_book($bookid) {
+    public function return_book($empid) {
         $this->load->database();
+
+//$rr = $data['emp_id'];
         $rt = $this->input->get('book_id');
         $this->db->trans_start();
-        $this->db->query("UPDATE users_books_records SET return_date= now() where book_id= $rt ");
+// $this->db->where('emp_id', $data['emp_id']);
+        $this->db->query("INSERT INTO users_books_records(emp_id,book_id,date,activity)
+               VALUES($empid,$rt,now(),'2')");
 
         $this->db->query("UPDATE books SET available='1' where book_id= $rt ");
 
