@@ -7,17 +7,10 @@ class books extends CI_Model {
         $this->db->trans_start();
         //print_r($data);die;
         $this->db->insert("books", $data);
-       
-         //$rr = $this->input->post('book_id');
-         
-          //$this->output->enable_profiler(TRUE);
-        // $this->db->query("INSERT into availability_of_books(book_id,availability) VALUES ($rr,'available')");
-      
-// $rr = $this->input->post('book_id');
+        // $rr = $this->input->post('book_id');
         //$this->db->query("INSERT into user_roles(emp_id,role_id) VALUES ($rr,1)");
-       $ret = $this->db->trans_complete();
-                return $ret;
-       
+        $ret = $this->db->trans_complete();
+        return $ret;
     }
 
     public function delete_books($bookid) {
@@ -29,12 +22,13 @@ class books extends CI_Model {
     }
 
     public function get_bookdata_by_id($bookid) {
-       // $q = array();
+
+        //$q = array();
         if (!empty($bookid)) {
             $this->load->database();
-            $Iid=$this->input->get('book_id');
-             $sQry="select * from books where book_id = $Iid";
-           $query = $this->db->query($sQry);
+            $Iid = $this->input->get('book_id');
+            $sQry = "select * from books where book_id = $Iid";
+            $query = $this->db->query($sQry);
         }
         return array_shift($query->result_array());
     }
@@ -42,38 +36,48 @@ class books extends CI_Model {
     public function update_books_data($data, $bookid) {
         // $s= array();
         if (!empty($bookid)) {
-         
+
             $this->load->database();
-            //$this->db->delete($empid);
-            //$Iid = $this->input->post('book_id');
-            
+
+
             //$sQry="UPDATE books SET book_title= ,available='2' where book_id= $Iid";
             $this->db->where('book_id', $this->input->post('book_id'));
-           $tre = $this->db->update('books', $data);
-           // echo("<pre>");
-         // print_r($data);die;
-                return $tre;
-
-            //print_r($q);
-            // $s= $this->db->get('users');
+            $tre = $this->db->update('books', $data);
+            return $tre;
         }
-        // return array_shift($s->result_array());
-        //$this->db->update("users");
     }
 
     public function books_data($empid) {
         $this->load->database();
-       
+
         //$query = $this->db->query("select  * from books");
-       // $this->db->where('q.issue_date==q.lst_act');
-        
-      $query = $this->db->query(" SELECT ubr.*, b.* , u.firstname,u.lastname FROM
+        $query = $this->db->query(" SELECT ubr.*, b.* , u.firstname,u.lastname FROM
           (SELECT MAX(date) AS date ,emp_id FROM users_books_records
         GROUP BY book_id) a  JOIN users_books_records ubr ON ubr.date=a.date
         JOIN users u ON u.emp_id=ubr.emp_id
         right JOIN books b ON b.book_id=ubr.book_id ");
-         return $query->result_array();
-        //echo "<pre>";print_r($query->result_array());die;
+        return $query->result_array();
+    }
+
+    public function user_books_data() {
+        $this->load->database();
+        //$query = $this->db->query("select  * from books");
+        $query = $this->db->query("select * from books where available= '1'");
+        return $query->result_array();
+    }
+
+    public function user_assigned_book() {
+     
+      $this->load->database();
+
+        //$query = $this->db->query("select  * from books");
+        $query = $this->db->query(" SELECT ubr.*, b.* , u.firstname,u.lastname FROM
+          (SELECT MAX(date) AS date ,emp_id FROM users_books_records
+        GROUP BY book_id) a  JOIN users_books_records ubr ON ubr.date=a.date
+        JOIN users u ON u.emp_id=ubr.emp_id
+        right JOIN books b ON b.book_id=ubr.book_id ");
+        return $query->result_array();   
+        
     }
 
 }

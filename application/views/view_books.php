@@ -47,6 +47,21 @@
 </head>
 
 
+<div class="form-group"> 
+    <div class="col-lg-4 "></div>
+    <div class="col-lg-4 "></div>
+    <div class="col-lg-2 "></div>
+    <div class="col-sm-1 pull-top" >
+        <label style=" position: absolute; top: 0; right: 0; " class="col-lg-4  control-label"><font size="2"> <?php echo $this->session->userdata('firstname') ?></font></label>
+    </div>
+    <div class="col-sm-1 pull-top" >
+
+        <button  style="background-color:black; position: absolute; top: 0; right: 0; " onclick="location.href = '<?= WEBSITE ?>login/logout_form'" >
+            <font color="white">logout</font></button></div>
+
+
+
+</div>
 
 
     <div class="col-lg-4"> </div>
@@ -80,9 +95,12 @@
             <td><?php echo $row['author']; ?></td>
             <td><?php echo $row['publications']; ?></td> 
             <td><?php echo $row['edition']; ?></td>
-            <td><?php echo $row['isbn'];?></td>
+            <td><?php echo $row['isbn']; ?></td>
             <td><?php echo $row['price']; ?></td>
-            <td><?php if($row['available']=='1'){
+            <td><?php
+        
+
+             if($row['available']=='1'){
                 echo "YES";
             } else {
                 echo "NO";
@@ -126,9 +144,18 @@
                </td></tr>
                
 
-         
-
-        </tr>
+    
     <?php } ?>
+
+            </td>
+            <td><?php
+                if ($row['available'] == '1') {
+                    echo "firstname";
+                } else {
+                    echo "Already Requested";
+                }
+                ?></td>
+
+    </tr>
 </table>
 </form>
