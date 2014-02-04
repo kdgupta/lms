@@ -17,15 +17,16 @@
 <table  border="5" align="center">
     <tr>
         <th>User Name</th>
-
+       
         <th> Book Title </th>
         <th> Author Name </th>
         <th> Publication </th>
         <th> Edition </th>
         <th> Isbn Number </th>
         <th> Price </th>
-        <th>Issued Date</th>
-        <th>Returned Date</th> 
+        <th> Date</th>
+        <th>Activity</th> 
+       
 
 
 
@@ -34,19 +35,26 @@
         ?>
         <tr>
             <td>   <?php echo $row['firstname']; ?><?php echo" "; ?><?php echo $row['lastname']; ?></td>
-
+          
             <td><?php echo $row['book_title']; ?></td>
             <td><?php echo $row['author']; ?></td>
             <td><?php echo $row['publications']; ?></td> 
             <td><?php echo $row['edition']; ?></td>
             <td><?php echo $row['isbn']; ?></td>
             <td><?php echo $row['price']; ?></td>
-            <td><?php echo $row['issue_date']; ?></td> 
-            <td><?php echo $row['return_date']; ?></td> 
 
-        <?php } ?>
-    </tr>
 
+                <td><?php echo $row['date'];?></td> 
+                <?php if( $row['activity']==1){?>
+               <td> <?php echo "Assigned";?>
+                <?php } ?></td> 
+                <?php if( $row['activity']==2){?>
+                <td><?php echo "Returned";?>
+                <?php } ?></td> 
+            
+<?php } ?>
+</tr>
+ 
 </table>
 <div class="form-group"> 
     <div class="col-lg-4 "></div>
