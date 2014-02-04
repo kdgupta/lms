@@ -21,7 +21,7 @@ echo validation_errors();
 
 // Using the form helper to help create the start of the form code
 
-echo form_open("admin_books/addbooks");
+echo form_open(WEBSITE . "admin_books/addbooks");
 ?>
 
 

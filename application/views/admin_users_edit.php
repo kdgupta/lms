@@ -18,7 +18,7 @@
 echo validation_errors();
 
 // Using the form helper to help create the start of the form code
-echo form_open("admin_users/edituser");
+echo form_open(WEBSITE ."admin_users/edituser");
 ?>
 
 
