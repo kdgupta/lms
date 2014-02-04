@@ -125,7 +125,7 @@ class admin_users extends App_controller {
 
         $data["userdata"] = $this->users->users_data();
 
-        $this->layout->view("view_users", $data);
+        $this->layout->view("admin_view_users", $data);
     }
 
 }

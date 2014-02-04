@@ -27,7 +27,7 @@
 
 <table  border="5" align="center" >
     <tr>
-        <th style="text-align: center;"><font size="3"> Book Id </font></th>
+       
         <th style="text-align: center;"><font size="3"> Book Title </font></th>
         <th style="text-align: center;"><font size="3"> Author Name </font></th>
         <th style="text-align: center;"><font size="3"> Publication </font></th>
@@ -41,7 +41,7 @@
     <?php foreach ($userdata as $row) {
         ?>
         <tr>
-            <td><?php echo $row['book_id']; ?></td>
+           
             <td><?php echo $row['book_title']; ?></td>
             <td><?php echo $row['author']; ?></td>
             <td><?php echo $row['publications']; ?></td> 

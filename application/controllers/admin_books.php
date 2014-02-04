@@ -123,7 +123,7 @@ class admin_books extends App_controller {
         $data["userdata"] = $this->books->books_data($empid);
 
 
-        $this->layout->view("view_books", $data);
+        $this->layout->view("admin_view_books", $data);
     }
 
     public function assigned_user_records() {
@@ -137,7 +137,7 @@ class admin_books extends App_controller {
             $data["record"] = $this->user_records->assignedbook($empid);
 
 
-            $this->layout->view('view_user_records', $data);
+            $this->layout->view('admin_view_user_records', $data);
         }
     }
 
@@ -147,7 +147,7 @@ class admin_books extends App_controller {
                 $emp_id = $this->input->get('emp_id');
                 $this->load->model("assignuser_model");
                 $data["requestdata"] = $this->assignuser_model->assignuser_data();
-                $this->layout->view("view_books", $data);
+                $this->layout->view("admin_view_books", $data);
             }
         } else {
             $this->load->helper("url");
@@ -165,7 +165,7 @@ class admin_books extends App_controller {
             $data["bookdata"] = $this->assignbook_model->get_book_by_id($bookid);
 
             $data["userdata"] = $this->assignuser_model->assignuser_data();
-            $this->layout->view('assign_books', $data);
+            $this->layout->view('admin_assign_books', $data);
         } else {
             if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 $bookid = $_POST["book_id"];

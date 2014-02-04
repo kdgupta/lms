@@ -15,9 +15,8 @@
 </div>
 
 <table  border="5" align="center">
-    <tr><th>Emp id</th>
+   
         <th>User Name</th>
-        <th> Book_id</th>
         <th> Book Title </th>
         <th> Author Name </th>
         <th> Publication </th>
@@ -33,9 +32,9 @@
     </tr>
     <?php foreach ($record as $row) {
         ?>
-        <tr><td>   <?php echo $row['emp_id']; ?> </td>
+        <tr>
             <td>   <?php echo $row['firstname']; ?><?php echo" "; ?><?php echo $row['lastname']; ?></td>
-            <td>   <?php echo $row['book_id']; ?> </td>
+           
             <td><?php echo $row['book_title']; ?></td>
             <td><?php echo $row['author']; ?></td>
             <td><?php echo $row['publications']; ?></td> 
