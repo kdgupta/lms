@@ -27,7 +27,7 @@
                         Go To Dashboard
                     </button></div>
             </div>
-<?php } ?> 
+        <?php } ?> 
 
         <?php if ($this->session->userdata('role_id') == '1') { ?>
             <div class="form-group"> 
@@ -38,8 +38,8 @@
                         Go To Home Page
                     </button></div>
             </div>
-<?php }
-?>
+        <?php }
+        ?>
 
     </div>
 </div>
