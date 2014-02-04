@@ -36,7 +36,7 @@ class user_books extends App_controller {
             $data["record"] = $this->user_records->assignedbook($empid);
 
 
-            $this->layout->view('view_user_records', $data);
+            $this->layout->view('view_user_assigned_books', $data);
         }
 
 }
