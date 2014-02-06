@@ -24,7 +24,16 @@ class user_books extends App_controller {
 
 
         $this->layout->view("user_view_books", $data);
-    }
+        
+//        $bookid = $this->input->get('book_id');
+//          $data1 = array( "emp_id"=>$this->session->userdata('emp_id'),
+//                           "status"=>1,            
+//                         "book_id" => $bookid,
+//                          "lg_user_id"=>$this->session->userdata('emp_id'),
+//                      );
+//           $this->load->model("books");
+//        $this->books->user_requested_book($data1);
+        }
 
     public function assigned_books() {
 
@@ -40,5 +49,33 @@ class user_books extends App_controller {
         }
 
 }
+
+ public function requested_books() {
+     
+       $bookid = $_GET['book_id'];
+           
+        if (!empty($bookid)) {
+         //echo $bookid;die;
+       // $this->load->model("books");
+       // $bookid = $this->input->get('book_id');
+       // $r=$this->session->userdata('emp_id');
+        
+       // echo "hjg";die;
+//          $data = array( "emp_id"=>$this->session->userdata('emp_id'),
+//                           "status"=>1,            
+//                         "book_id" => $bookid,
+//                          "lg_user_id"=>$this->session->userdata('emp_id'),
+//                      );
+           $this->load->model("books");
+      $ret = $this->books->user_requested_book($bookid);
+     // echo "jdfh";die;
+            if($ret==true){
+                 header('location: viewbooks');
+            }          
+          
+        }      
+ }
+ 
+ 
 }
 ?>

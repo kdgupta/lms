@@ -12,9 +12,16 @@
         <button  style="background-color:black; position: absolute; top: 0; right: 0; " onclick="location.href = '<?= WEBSITE ?>login/logout_form'" >
             <font color="white">logout</font></button></div>
 
+    <div class="form-group"> 
+        <div class="col-sm-1 pull-top" >
+
+            <button style="background-color:skyblue" onclick="location.href = '<?= WEBSITE ?>admin_books/viewbooks'">
+                Back</button></div>
+    </div>
+
 </div>
 
-<table  border="5" align="center">
+<br><br><table  border="5" align="center">
     <tr><th>Emp id</th>
         <th>User Name</th>
         <th> Book_id</th>
@@ -26,7 +33,7 @@
         <th> Price </th>
         <th> Date</th>
         <th>Activity</th> 
-       
+
 
 
 
@@ -44,25 +51,18 @@
             <td><?php echo $row['price']; ?></td>
 
 
-                <td><?php echo $row['date'];?></td> 
-                <?php if( $row['activity']==1){?>
-               <td> <?php echo "Assigned";?>
+            <td><?php echo $row['date']; ?></td> 
+            <?php if ($row['activity'] == 1) { ?>
+                <td> <?php echo "Assigned"; ?>
                 <?php } ?></td> 
-                <?php if( $row['activity']==2){?>
-                <td><?php echo "Returned";?>
+            <?php if ($row['activity'] == 2) { ?>
+                <td><?php echo "Returned"; ?>
                 <?php } ?></td> 
-            
-<?php } ?>
-</tr>
- 
-</table>
-<div class="form-group"> 
-    <div class="col-lg-4 "></div>
-    <div class="col-lg-2 "></div>
-    <div class="col-sm-1 pull-top" >
 
-        <button style="background-color:skyblue" onclick="location.href = '<?= WEBSITE ?>admin_books/viewbooks'">
-            Back</button></div>
-</div>
+        <?php } ?>
+    </tr>
+
+</table>
+
 </form>
 </html>

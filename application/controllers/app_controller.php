@@ -16,8 +16,9 @@ class app_controller extends CI_Controller {
         $this->load->model('auth');
         $controller = $this->router->fetch_class();
         $action = $this->router->fetch_method();
-
-
+       
+         if($this->session->userdata('validated')==false)
+             redirect('/login/login_form');
 
         if (!$this->auth->isallowed($controller, $action)) {
             echo "access denied";

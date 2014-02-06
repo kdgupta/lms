@@ -21,7 +21,7 @@ if (!defined('BASEPATH'))
  */
 
 
-$config['base_url']	= '';
+$config['base_url'] = '';
 
 
 /*
@@ -373,25 +373,14 @@ $config['proxy_ips'] = '';
 /* Location: ./application/config/config.php */
 $config['encryption_key'] = 'howAreYou';
 
-//
-//$config["permission"]["Admin"] = array("Admin_dashboard"=>1, "Admin_books_editbooks"=>2,
-//    "Admin_books_deletebooks"=>3,
-//    "Admin_books_addbooks"=>4, "Admin_books_viewbooks"=>5, "Admin_books_assign_books"=>6,
-//    "Admin_books_return_book"=>7,
-//    "Admin_books_assigned_user_records"=>8, "Admin_users_edituser"=>9,
-//    "Admin_users_deleteuser"=>10, "Admin_users_createuser"=>11, "Admin_users_viewusers"=>12);
 
 
-
-//$config["permission"]["N-user"] = array("User_dashboard"=>1, "User_books_viewbooks"=>2,
-//    "User_assigned_books"=>3);
-
-$config["permission"]["Admin"] = array("admin"=>array("dashboard"),
-    "admin_books"=>array("editbooks","deletebooks",
-            "addbooks", "viewbooks", "assign_books",
-            "return_book",
-            "assigned_user_records"), 
-    "admin_users"=>array("edituser",
-            "deleteuser", "createuser", "viewusers"));
-$config["permission"]["N-user"] = array("user"=>array("dashboard"),"user_books"=>array("viewbooks",
-    "assigned_books"));
+$config["permission"]["Admin"] = array("admin" => array("dashboard"),
+    "admin_books" => array("editbooks", "deletebooks",
+        "addbooks", "viewbooks", "assign_books",
+        "return_book",
+        "assigned_user_records"),
+    "admin_users" => array("edituser",
+        "deleteuser", "createuser", "viewusers"));
+$config["permission"]["N-user"] = array("user" => array("dashboard"), "user_books" => array("viewbooks",
+        "assigned_books","requested_books"));

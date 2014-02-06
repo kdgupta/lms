@@ -62,7 +62,12 @@ class books extends CI_Model {
     public function user_books_data() {
         $this->load->database();
         //$query = $this->db->query("select  * from books");
-        $query = $this->db->query("select * from books where available= '1'");
+        $query = $this->db->query("SELECT b.book_id,b.book_title, b.author, b.publications, 
+                    b.edition, 
+                    b.isbn, b.price, u.status
+                    FROM books AS b
+                    LEFT JOIN user_req AS u ON b.book_id = u.book_id
+                    WHERE b.available = '1'");
         return $query->result_array();
     }
 
@@ -79,7 +84,26 @@ class books extends CI_Model {
         return $query->result_array();   
         
     }
-
+   
+     public function user_requested_book($book_id){
+        
+         $this->load->database();
+         // echo $book_id;die;
+         $emp_id=$this->session->userdata('emp_id');
+         //$lg_user_id=$this->session->userdata('emp_id');
+             $this->db->trans_start();
+          $query = $this->db->query("INSERT INTO user_req(emp_id,status,book_id,
+           lg_user_id) VALUES($emp_id,'2',$book_id,$emp_id)");
+         
+         
+     
+         // $this->db->insert("user_req", $data);
+         $ret=$this->db->trans_complete();
+               return $ret;   
+     }
+             
+    
+    
 }
 
 ?>

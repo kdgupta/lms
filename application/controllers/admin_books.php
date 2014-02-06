@@ -147,7 +147,7 @@ class admin_books extends App_controller {
                 $emp_id = $this->input->get('emp_id');
                 $this->load->model("assignuser_model");
                 $data["requestdata"] = $this->assignuser_model->assignuser_data();
-                $this->layout->view("view_books", $data);
+                $this->layout->view("admin_view_books", $data);
             }
         } else {
             $this->load->helper("url");

@@ -15,19 +15,25 @@
             <font color="white">logout</font></button></div>
 
 
+    <div class="form-group"> 
+        <div class="col-sm-1 pull-top" >
+
+            <button style="background-color:skyblue" onclick="location.href = '<?= WEBSITE ?>user/dashboard'">
+                Back</button></div>
+    </div>    
+
+
 </div>
 
 
 
 
 
-
-
-
+<br><br>
 
 <table  border="5" align="center" >
     <tr>
-        <th style="text-align: center;"><font size="3"> Book Id </font></th>
+
         <th style="text-align: center;"><font size="3"> Book Title </font></th>
         <th style="text-align: center;"><font size="3"> Author Name </font></th>
         <th style="text-align: center;"><font size="3"> Publication </font></th>
@@ -41,30 +47,28 @@
     <?php foreach ($userdata as $row) {
         ?>
         <tr>
-            <td><?php echo $row['book_id']; ?></td>
+
             <td><?php echo $row['book_title']; ?></td>
             <td><?php echo $row['author']; ?></td>
             <td><?php echo $row['publications']; ?></td> 
             <td><?php echo $row['edition']; ?></td>
             <td><?php echo $row['isbn']; ?></td>
             <td><?php echo $row['price']; ?></td>
-            <td><input type="submit" name="submit" value="Request"  ></td>
-    <!-- <td><button style="background-color:skyblue" onclick="location.href = '<?= WEBSITE ?>admin_books/request?emp_id=<?php echo $this->session->userdata('emp_id'); ?>'">
-                           Request</button></td> -->
-
-
+   <!--         <td><input type="submit" name="submit" value="Request"  ></td>
+       -->
+      <td>  <?php if($row['status']=='') { ?>    
+         <button style="background-color:skyblue" onclick="location.href = '<?= WEBSITE ?>user_books/requested_books?book_id=<?php echo $row['book_id']; ?>'">
+                           Request</button>
+                       <?php    }?>
+            <?php if($row['status']==2) {?>
+             
+                           pending
+                  <?php         }?></td>
 
         </tr>
     <?php } ?>
 </table>
 
-<div class="form-group"> 
-    <div class="col-lg-4 "></div>
-    <div class="col-lg-2 "></div>
-    <div class="col-sm-1 pull-top" >
 
-        <button style="background-color:skyblue" onclick="location.href = '<?= WEBSITE ?>user/dashboard'">
-            Back</button></div>
-</div>
 
 </form>

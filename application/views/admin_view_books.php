@@ -2,6 +2,53 @@
 
 
 
+
+
+<head>
+    <style type="text/css">
+        .submenu{
+            padding:0;
+            position:absolute;
+            background-color: #fff;
+            width:80px;
+            height:65px;
+            border-style: solid;
+            border-color: #ccc;
+        }
+        .menu{
+            postion:relative;
+
+        }
+        .submenu{
+            display:none;}
+
+        ul li:hover .submenu{
+            display:block;}
+        a{
+            text-decoration: none;}
+
+        a:hover{
+            color:#dd3333;
+
+        }
+        .submenu  li {
+            border-top:1px solid #ccc;
+            border-bottom:1px solid #ccc;
+            text-align:left;
+
+        }
+        .menu li{
+            display:block;
+            text-align: center;
+        }
+        .submenu li{
+            display:block;
+            text-align: left;
+        }
+    </style>
+</head>
+
+
 <div class="form-group"> 
     <div class="col-lg-4 "></div>
     <div class="col-lg-4 "></div>
@@ -15,13 +62,23 @@
             <font color="white">logout</font></button></div>
 
 
+    <div class="form-group"> 
+        <div class="col-sm-1 pull-top" >
+
+            <button style="background-color:skyblue" onclick="location.href = '<?= WEBSITE ?>admin/dashboard'">
+                Back</button></div>
+    </div>
+
 </div>
 
-<div class="col-lg-4"> </div>
+
+
+<div class="col-lg-3"> </div>
 
 <div class="col-lg-3">
     <button  onclick="location.href = '<?= WEBSITE ?>admin_books/addbooks'" class="btn btn-lg btn-primary btn-block">
-        Add New Book</button> </div> <br><br><br>   
+        Add New Book</button> </div> <br><br><br>    
+
 
 
 <table  border="5" align="center" >
@@ -73,27 +130,34 @@
                     ?>
                     <?php echo ""; ?>
                 <?php } ?></td>
-            
+            <td>  <ul class ="menu">
+                    <li><a herf="">action</a>
+                        <ul class ="submenu">
 
-            <td><button  style="background-color:skyblue"  onclick="location.href = '<?= WEBSITE ?>admin_books/editbooks?book_id=<?php echo $row['book_id']; ?>'" >
-                    Edit</button>
-                <?php if ($row['available'] == '1') { ?>
+                            <li><a href='<?= WEBSITE ?>admin_books/editbooks?book_id=<?php echo $row['book_id']; ?>' >
+                                    Edit</a></li>
+                            <li>
+                                <?php if ($row['available'] == '1') { ?>
 
-                    <button style="background-color:skyblue" onclick="location.href = '<?= WEBSITE ?>admin_books/deletebooks?book_id=<?php echo $row['book_id']; ?>'">
-                        Delete</button>
-                    <button  style="background-color:skyblue"  onclick="location.href = '<?= WEBSITE ?>admin_books/assign_books?book_id=<?php echo $row['book_id']; ?>'">
-                        Assign </button>
-                <?php } else {
-                    echo "  Delete "; ?> 
-                    <button style="background-color:skyblue" onclick="location.href = '<?= WEBSITE ?>admin_books/return_book?book_id=<?php echo $row['book_id']; ?>'">
-                        Return</button>     
-    <?php } ?>
+                                    <?php if ($row['activity'] != '2') { ?> 
+                                        <a href='<?= WEBSITE ?>admin_books/deletebooks?book_id=<?php echo $row['book_id']; ?>'>
+                                            Delete</a> <?php } else { ?> <?php } ?></li> 
+                                <li> <a href='<?= WEBSITE ?>admin_books/assign_books?book_id=<?php echo $row['book_id']; ?>' >
+                                        Assign </a>
+                                <?php } else { ?>
+                                    <a href='<?= WEBSITE ?>admin_books/return_book?book_id=<?php echo $row['book_id']; ?>' >
+                                        Return</a>     
+                                <?php } ?> </li>
+                        </ul></li>
+                </ul>
 
             </td></tr>
 
 
 
-<?php } ?>
+    <?php } ?>
+
+
 
 
 </table>

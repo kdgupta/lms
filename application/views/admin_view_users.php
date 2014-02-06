@@ -14,13 +14,20 @@
         <button  style="background-color:black; position: absolute; top: 0; right: 0; " onclick="location.href = '<?= WEBSITE ?>login/logout_form'" >
             <font color="white">logout</font></button></div>
 
+ <div class="form-group"> 
+    <div class="col-sm-1 pull-top" >
 
+        <button style="background-color:skyblue" onclick="location.href = '<?= WEBSITE ?>admin/dashboard'">
+            Back</button></div>
+</div>
+    
+    
 </div>
 
 
 
 
-<div class="col-lg-4"> </div>
+<div class="col-lg-3"> </div>
 
 <div class="col-lg-3">
     <button  onclick="location.href = '<?= WEBSITE ?>admin_users/createuser'" class="btn btn-lg btn-primary btn-block">
@@ -56,8 +63,7 @@
                     Edit </button>
 
 
-                <button style="background-color:skyblue" onclick=  "location.href = '<?= WEBSITE ?>admin_users/deleteuser?emp_id=<?php echo $row['emp_id']; ?>'">
-                    Delete</button>
+           
 
 
             </td></tr>
@@ -65,6 +71,6 @@
 
     <?php } ?>
 </table>
-</div>
+
 </form>
 </body>

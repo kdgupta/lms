@@ -36,9 +36,9 @@ class login extends CI_Controller {
                 $session['user_info'] = $this->login_users->set_user_info($role_id);
                 //print_r($session['data']['validated']);
 
-               // $session['user_action'] = $this->login_users->set_user_action($this->session->userdata('role_name'));
-            }
-
+            // $session['user_action'] = $this->login_users->set_user_action($this->session->userdata('role_name'));
+            
+         
             $this->load->model('auth');
 
           // echo  $this->session->userdata('role_name');die;
@@ -54,25 +54,27 @@ class login extends CI_Controller {
 
 
 
-
             if ($this->auth->isallowed("user", "dashboard")) {
 
                 //  $this->load->helper('url');
                 redirect(WEBSITE . 'user/dashboard');
-            } else {
-
-
-
-
-
-
-                print_r("Username or Password is wrong ");
-
-                header('location :' . WEBSITE . 'login_form');
+            } 
+           
             }
-        }
-    }
+            
+              if($role_id == false){
+       
+              ?>
+        
+       <div class="col-lg-4 "></div>
 
+        <div class="col-lg-4 " >
+               Username or Password is wrong </div>
+              <?php
+            header('location :' . WEBSITE . 'login_form');
+           }
+    }
+    }
     public function logout_form() {
         $this->load->model("login_users");
         $lout = $this->login_users->logout();

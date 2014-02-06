@@ -12,6 +12,7 @@
         <button  style="background-color:black; position: absolute; top: 0; right: 0; " onclick="location.href = '<?= WEBSITE ?>login/logout_form'" >
             <font color="white">logout</font></button></div>
 
+ 
 
 </div>
 
