@@ -14,16 +14,7 @@
         <button  style="background-color:black; position: absolute; top: 0; right: 0; " onclick="location.href = '<?= WEBSITE ?>login/logout_form'" >
             <font color="white">logout</font></button></div>
 
-
 </div>
-
-
-
-
-
-
-
-
 
 <table  border="5" align="center" >
     <tr>
@@ -48,11 +39,11 @@
             <td><?php echo $row['edition']; ?></td>
             <td><?php echo $row['isbn']; ?></td>
             <td><?php echo $row['price']; ?></td>
-            <td><input type="submit" name="submit" value="Request"  ></td>
-    <!-- <td><button style="background-color:skyblue" onclick="location.href = '<?= WEBSITE ?>admin_books/request?emp_id=<?php echo $this->session->userdata('emp_id'); ?>'">
-                           Request</button></td> -->
-
-
+            <td>   <?php if($row['status']==2){?>
+            <?php echo "Pending";}else{?>
+     <button style="background-color:skyblue" onclick="location.href='<?=WEBSITE?>user_books/request?book_id=<?php echo $row['book_id']; ?>' ">
+            Request</button><?php }?></td>
+   
 
         </tr>
     <?php } ?>

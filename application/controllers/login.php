@@ -35,33 +35,35 @@ class login extends CI_Controller {
             if ($role_id == true) {
                 $session['user_info'] = $this->login_users->set_user_info($role_id);
                 //print_r($session['data']['validated']);
+                // $session['user_action'] = $this->login_users->set_user_action($this->session->userdata('role_name'));
 
-               // $session['user_action'] = $this->login_users->set_user_action($this->session->userdata('role_name'));
+
+                $this->load->model('auth');
+
+                // echo  $this->session->userdata('role_name');die;
+                if ($this->auth->isallowed("admin", "dashboard")) {
+
+
+
+
+                    // $this->load->helper('url');
+                    redirect(WEBSITE . 'admin/dashboard');
+                }
+
+
+
+
+
+                if ($this->auth->isallowed("user", "dashboard")) {
+
+                    //  $this->load->helper('url');
+                    redirect(WEBSITE . 'user/dashboard');
+                }
             }
 
-            $this->load->model('auth');
-
-          // echo  $this->session->userdata('role_name');die;
-            if ($this->auth->isallowed("admin", "dashboard")) {
 
 
-
-
-                // $this->load->helper('url');
-                redirect(WEBSITE . 'admin/dashboard');
-            }
-
-
-
-
-
-            if ($this->auth->isallowed("user", "dashboard")) {
-
-                //  $this->load->helper('url');
-                redirect(WEBSITE . 'user/dashboard');
-            } else {
-
-
+            if ($role_id == FALSE) {
 
 
 

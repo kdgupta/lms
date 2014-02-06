@@ -24,7 +24,7 @@
 <div class="row">
     <div class="col-lg-4"></div>
     <div class="col-lg-4">
-        <button  onclick="location.href = '<?= WEBSITE ?>user_books/viewbooks'" class="btn btn-lg btn-primary btn-block">
+        <button  onclick="location.href = '<?= WEBSITE ?>user_books/view_user_books'" class="btn btn-lg btn-primary btn-block">
             Available Books </button>
     </div>
 </div>

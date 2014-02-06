@@ -1,7 +1,7 @@
 <?php
 
 class books extends CI_Model {
-
+ 
     public function insert_books($data) {
         $this->load->database();
         $this->db->trans_start();
@@ -62,7 +62,10 @@ class books extends CI_Model {
     public function user_books_data() {
         $this->load->database();
         //$query = $this->db->query("select  * from books");
-        $query = $this->db->query("select * from books where available= '1'");
+        $query = $this->db->query("SELECT b.*,r.id,r.emp_id,r.status,r.lg_user_id 
+            FROM books AS b 
+            LEFT JOIN user_req AS r ON b.book_id=r.book_id
+            WHERE b.available= '1'");
         return $query->result_array();
     }
 
