@@ -147,15 +147,8 @@
     
     <?php } ?>
 
-            </td>
-            <td><?php
-                if ($row['available'] == '1') {
-                    echo "firstname";
-                } else {
-                    echo "Already Requested";
-                }
-                ?></td>
+           
 
-    </tr>
+    
 </table>
 </form>

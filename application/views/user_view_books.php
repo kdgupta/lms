@@ -39,10 +39,16 @@
             <td><?php echo $row['edition']; ?></td>
             <td><?php echo $row['isbn']; ?></td>
             <td><?php echo $row['price']; ?></td>
-            <td>   <?php if($row['status']==2){?>
-            <?php echo "Pending";}else{?>
+            <td> <?php  if($row['emp_id']==$this->session->userdata('emp_id')){
+               ?>  
+                <?php if($row['status']==2){ ?>
+            <?php echo "Pending";}
+            }
+             else{ ?>
      <button style="background-color:skyblue" onclick="location.href='<?=WEBSITE?>user_books/request?book_id=<?php echo $row['book_id']; ?>' ">
-            Request</button><?php }?></td>
+            Request</button><?php 
+            }?> </td>
+            
    
 
         </tr>

@@ -18,9 +18,9 @@ class user_books extends App_controller {
     }
 
     public function view_user_books() {
-
+           $empid = $this->session->userdata('emp_id');
         $this->load->model("books");
-        $data["userdata"] = $this->books->user_books_data();
+        $data["userdata"] = $this->books->user_books_data($empid);
         $this->layout->view("user_view_books", $data);
     }
 

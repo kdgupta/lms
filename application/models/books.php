@@ -56,19 +56,42 @@ class books extends CI_Model {
         GROUP BY book_id) a  JOIN users_books_records ubr ON ubr.date=a.date
         JOIN users u ON u.emp_id=ubr.emp_id
         right JOIN books b ON b.book_id=ubr.book_id ");
+
         return $query->result_array();
     }
 
-    public function user_books_data() {
+    public function user_books_data($empid) {
         $this->load->database();
+        
         //$query = $this->db->query("select  * from books");
-        $query = $this->db->query("SELECT b.*,r.id,r.emp_id,r.status,r.lg_user_id 
-            FROM books AS b 
-            LEFT JOIN user_req AS r ON b.book_id=r.book_id
-            WHERE b.available= '1'");
-        return $query->result_array();
-    }
+        $query = $this->db->query("            
+      SELECT DISTINCT b.*,r.emp_id,r.status,r.id,r.lg_user_id 
+      FROM(SELECT emp_id FROM user_req WHERE emp_id=$empid) a LEFT JOIN user_req
+      AS r ON a.emp_id =r.emp_id RIGHT JOIN books AS b ON b.book_id= r.book_id
+      WHERE b.available ='1'");
+        
+        
+        
+      $results  = $query->result_array();
+    /*  $results1 = array();
+      $temp = array();
+        foreach ($results as $key=>$result){
 
+              if($result['emp_id']==$empid)                     
+              {       
+                        
+
+                if(!in_array($result['book_title'],$temp))
+                {
+                   $results1[] = $result;
+                  $temp[]=$result['book_title'];
+                  
+                }
+              }   
+        }*/
+        
+        return $results;
+    }
     public function user_assigned_book() {
      
       $this->load->database();

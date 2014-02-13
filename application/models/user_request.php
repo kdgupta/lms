@@ -5,8 +5,10 @@ class user_request extends CI_Model {
        
          $this->load->database();
          $empid = $this->session->userdata("emp_id");
-        $query = $this->db->query("INSERT INTO user_req (emp_id,status,book_id,lg_user_id) VALUES
-            ($empid,'2',$bookid,$empid)");
+          $this->db->trans_start();
+        $this->db->query("INSERT INTO user_req (emp_id,status,book_id,lg_user_id) 
+            VALUES($empid,'2',$bookid,$empid)");
+               $query = $this->db->trans_complete();
         return $query;
    }
      public function fetch_req_data($bookid){
