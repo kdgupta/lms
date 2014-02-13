@@ -19,9 +19,6 @@ class assignuser_model extends CI_Model {
         group by book_id) a  JOIN users_books_records ubr ON ubr.rec_id=a.id
            JOIN users u ON u.emp_id=ubr.emp_id
           right JOIN books b ON b.book_id=ubr.book_id where ubr.book_id= $book_id");
-
-
-
         return $query->result_array();
     }
 

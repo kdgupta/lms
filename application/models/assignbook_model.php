@@ -24,7 +24,8 @@ class assignbook_model extends CI_Model {
         $this->db->query("INSERT INTO users_books_records(emp_id,book_id,date,activity)
                VALUES($rr,$rt,now(),'1')");
         $this->db->query("UPDATE books SET available='2' where book_id= $rt ");
-
+         $this->db->query("UPDATE user_req SET status='3' where book_id= $rt and emp_id=$rr ");
+           $this->db->query("UPDATE user_req SET status='4' where book_id = $rt and emp_id !=$rr ");
         $ret = $this->db->trans_complete();
         return $ret;
     }
@@ -40,6 +41,8 @@ class assignbook_model extends CI_Model {
                VALUES($empid,$rt,now(),'2')");
 
         $this->db->query("UPDATE books SET available='1' where book_id= $rt ");
+        // $this->db->query("UPDATE user_req SET status='1' where book_id= $rt ");
+         $this->db->query("DELETE  FROM user_req where book_id= $rt ");
 
         $ret = $this->db->trans_complete();
         return $ret;

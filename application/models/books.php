@@ -59,21 +59,33 @@ class books extends CI_Model {
         return $query->result_array();
     }
 
+//    public function user_books_data() {
+//        $this->load->database();
+//        //$query = $this->db->query("select  * from books");
+//        $query = $this->db->query("SELECT b.*,r.id,r.emp_id,r.status,r.lg_user_id, 
+//         r.timestamp as timestamp FROM books AS b 
+//            LEFT JOIN user_req AS r ON b.book_id=r.book_id
+//            WHERE b.available= '1' ");
+//        return $query->result_array();
+//    }
+
     public function user_books_data() {
+
         $this->load->database();
-        //$query = $this->db->query("select  * from books");
-        $query = $this->db->query("SELECT b.book_id,b.book_title, b.author, b.publications, 
-                    b.edition, 
-                    b.isbn, b.price, u.status
-                    FROM books AS b
-                    LEFT JOIN user_req AS u ON b.book_id = u.book_id
-                    WHERE b.available = '1'");
+        $empid = $this->session->userdata('emp_id');
+        $query = $this->db->query("SELECT DISTINCT b.book_id, b.book_title, 
+            b.author, b.publications, b.edition, b.isbn, b.price, b.available, 
+            r.emp_id, r.status, r.lg_user_id
+         FROM (SELECT emp_id FROM user_req WHERE emp_id=$empid) AS a
+         LEFT JOIN user_req AS r ON a.emp_id=r.emp_id RIGHT JOIN books as b on 
+         b.book_id = r.book_id
+         WHERE b.available='1' or r.status='3' or r.status='4'");
         return $query->result_array();
     }
 
     public function user_assigned_book() {
-     
-      $this->load->database();
+
+        $this->load->database();
 
         //$query = $this->db->query("select  * from books");
         $query = $this->db->query(" SELECT ubr.*, b.* , u.firstname,u.lastname FROM
@@ -81,29 +93,26 @@ class books extends CI_Model {
         GROUP BY book_id) a  JOIN users_books_records ubr ON ubr.date=a.date
         JOIN users u ON u.emp_id=ubr.emp_id
         right JOIN books b ON b.book_id=ubr.book_id ");
-        return $query->result_array();   
-        
+        return $query->result_array();
     }
-   
-     public function user_requested_book($book_id){
-        
-         $this->load->database();
-         // echo $book_id;die;
-         $emp_id=$this->session->userdata('emp_id');
-         //$lg_user_id=$this->session->userdata('emp_id');
-             $this->db->trans_start();
-          $query = $this->db->query("INSERT INTO user_req(emp_id,status,book_id,
+
+    public function user_requested_book($book_id) {
+
+        $this->load->database();
+        // echo $book_id;die;
+        $emp_id = $this->session->userdata('emp_id');
+        //$lg_user_id=$this->session->userdata('emp_id');
+        $this->db->trans_start();
+        $query = $this->db->query("INSERT INTO user_req(emp_id,status,book_id,
            lg_user_id) VALUES($emp_id,'2',$book_id,$emp_id)");
-         
-         
-     
-         // $this->db->insert("user_req", $data);
-         $ret=$this->db->trans_complete();
-               return $ret;   
-     }
-             
-    
-    
+
+
+
+        // $this->db->insert("user_req", $data);
+        $ret = $this->db->trans_complete();
+        return $ret;
+    }
+
 }
 
 ?>

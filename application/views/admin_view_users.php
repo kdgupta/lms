@@ -3,35 +3,41 @@
 
 
 <div class="form-group"> 
-    <div class="col-lg-4 "></div>
+    
+    <div class="col-sm-1 pull-top">
+        <button  onclick="location.href = '<?= WEBSITE ?>admin/dashboard'"
+                class="btn btn-sm btn-primary">
+      Back</button></div>
+    <div class="col-lg-3 "></div>
     <div class="col-lg-4 "></div>
     <div class="col-lg-2 "></div>
     <div class="col-sm-1 pull-top" >
-        <label style=" position: absolute; top: 0; right: 0; " class="col-lg-4  control-label"><font size="2"> <?php echo $this->session->userdata('firstname') ?></font></label>
+        <label style=" position: absolute; top: 0; right: 0;" > <font size="2"> <?php echo $this->session->userdata('firstname') ?></font></label>
     </div>
+    
     <div class="col-sm-1 pull-top" >
 
-        <button  style="background-color:black; position: absolute; top: 0; right: 0; " onclick="location.href = '<?= WEBSITE ?>login/logout_form'" >
-            <font color="white">logout</font></button></div>
+        <button   onclick="location.href = '<?= WEBSITE ?>login/logout_form'"
+                 class="btn btn-sm btn-primary">
+            logout</button></div>
 
- <div class="form-group"> 
-    <div class="col-sm-1 pull-top" >
 
-        <button style="background-color:skyblue" onclick="location.href = '<?= WEBSITE ?>admin/dashboard'">
-            Back</button></div>
+    
+ 
 </div>
     
     
-</div>
 
 
 
 
-<div class="col-lg-3"> </div>
 
-<div class="col-lg-3">
+<div class="col-lg-4"> </div>
+<div class="col-lg-1"> </div>
+
+<div class="col-lg-2">
     <button  onclick="location.href = '<?= WEBSITE ?>admin_users/createuser'" class="btn btn-lg btn-primary btn-block">
-        Add New User</button> </div> <br><br> <br>    
+     Add New User </button> </div> <br><br> <br><br>    
 
 <table align="center" border="5" >
 
@@ -59,14 +65,16 @@
             <td><?php echo $row['designation']; ?></td>
             <td><?php echo $row['is_active']; ?></td>
             <td><?php echo $row['role_name']; ?></td>
-            <td> <button style="background-color:skyblue"  onclick=  "location.href = '<?= WEBSITE ?>admin_users/edituser?emp_id=<?php echo $row['emp_id']; ?>'">
-                    Edit </button>
-
-
            
+            <td> <div class="col-lg-1"> <button  onclick=  "location.href = '<?= WEBSITE ?>admin_users/edituser?emp_id=<?php echo $row['emp_id']; ?>'"
+                                                     class="btn btn-sm btn-primary">
+                            <font size="2"> Edit</font> </button></div>
 
 
-            </td></tr>
+
+
+
+                </td></tr>
 
 
     <?php } ?>

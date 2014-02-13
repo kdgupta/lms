@@ -1,5 +1,4 @@
 <?php
-
 if (!defined('BASEPATH'))
     exit('No direct script access allowed');
 require_once 'app_controller.php';
@@ -34,47 +33,49 @@ class login extends CI_Controller {
 
             if ($role_id == true) {
                 $session['user_info'] = $this->login_users->set_user_info($role_id);
+           //     $lg = $this->login_users->set_log_tables();
                 //print_r($session['data']['validated']);
-
-            // $session['user_action'] = $this->login_users->set_user_action($this->session->userdata('role_name'));
-            
-         
-            $this->load->model('auth');
-
-          // echo  $this->session->userdata('role_name');die;
-            if ($this->auth->isallowed("admin", "dashboard")) {
+                // $session['user_action'] = $this->login_users->set_user_action($this->session->userdata('role_name'));
+                // $session['user_action'] = $this->login_users->set_user_action($this->session->userdata('role_name'));
 
 
+                $this->load->model('auth');
 
 
-                // $this->load->helper('url');
-                redirect(WEBSITE . 'admin/dashboard');
+                // echo  $this->session->userdata('role_name');die;
+                if ($this->auth->isallowed("admin", "dashboard")) {
+
+
+
+
+                    // $this->load->helper('url');
+                    redirect(WEBSITE . 'admin/dashboard');
+                }
+
+
+
+
+
+                if ($this->auth->isallowed("user", "dashboard")) {
+
+                    //  $this->load->helper('url');
+                    redirect(WEBSITE . 'user/dashboard');
+                }
             }
 
+            if ($role_id == false) {
+                ?>
 
+                <div class="col-lg-4 "></div>
 
-
-            if ($this->auth->isallowed("user", "dashboard")) {
-
-                //  $this->load->helper('url');
-                redirect(WEBSITE . 'user/dashboard');
-            } 
-           
+                <div class="col-lg-4 " >
+                    Username or Password is wrong </div>
+                <?php
+                header('location :' . WEBSITE . 'login_form');
             }
-            
-              if($role_id == false){
-       
-              ?>
-        
-       <div class="col-lg-4 "></div>
+        }
+    }
 
-        <div class="col-lg-4 " >
-               Username or Password is wrong </div>
-              <?php
-            header('location :' . WEBSITE . 'login_form');
-           }
-    }
-    }
     public function logout_form() {
         $this->load->model("login_users");
         $lout = $this->login_users->logout();
@@ -88,5 +89,4 @@ class login extends CI_Controller {
     }
 
 }
-
 ?>

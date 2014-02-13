@@ -205,6 +205,16 @@ class admin_books extends App_controller {
         }
     }
 
+    public function request_details() {
+       
+         $bookid = $_GET['book_id'];
+        $this->load->model("user_request");
+         if (!empty($bookid)) {
+        $data["userdata"] = $this->user_request->fetch_req_data($bookid);
+        $this->layout->view("admin_requested_users", $data);
+         }
+    }
+
 }
 
 /* End of file welcome.php */

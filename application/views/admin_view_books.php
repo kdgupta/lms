@@ -50,34 +50,41 @@
 
 
 <div class="form-group"> 
-    <div class="col-lg-4 "></div>
+    <div class="col-sm-1 pull-top">
+        <button  onclick="location.href = '<?= WEBSITE ?>admin/dashboard'"
+                 class="btn btn-sm btn-primary">
+            Back</button></div>
+    <div class="col-lg-3 "></div>
     <div class="col-lg-4 "></div>
     <div class="col-lg-2 "></div>
     <div class="col-sm-1 pull-top" >
-        <label style=" position: absolute; top: 0; right: 0; " class="col-lg-4  control-label"><font size="2"> <?php echo $this->session->userdata('firstname') ?></font></label>
+        <label style=" position: absolute; top: 0; right: 0;" > <font size="2"> <?php echo $this->session->userdata('firstname') ?></font></label>
     </div>
+
     <div class="col-sm-1 pull-top" >
 
-        <button  style="background-color:black; position: absolute; top: 0; right: 0; " onclick="location.href = '<?= WEBSITE ?>login/logout_form'" >
-            <font color="white">logout</font></button></div>
+        <button   onclick="location.href = '<?= WEBSITE ?>login/logout_form'"
+                  class="btn btn-sm btn-primary">
+            logout</button></div>
 
-
-    <div class="form-group"> 
-        <div class="col-sm-1 pull-top" >
-
-            <button style="background-color:skyblue" onclick="location.href = '<?= WEBSITE ?>admin/dashboard'">
-                Back</button></div>
-    </div>
 
 </div>
 
 
 
+
 <div class="col-lg-3"> </div>
 
-<div class="col-lg-3">
+<div class="col-lg-2">
     <button  onclick="location.href = '<?= WEBSITE ?>admin_books/addbooks'" class="btn btn-lg btn-primary btn-block">
-        Add New Book</button> </div> <br><br><br>    
+        Add New Book</button> </div>
+<div class="col-lg-2"> </div>
+<div class="col-lg-2">
+
+    <button  onclick="location.href = '<?= WEBSITE ?>admin_books/request_details'"class="btn btn-lg btn-primary btn-block">
+        <font size="4">Request Details</font></button> </div> 
+
+<br><br><br><br>   
 
 
 
@@ -91,8 +98,8 @@
         <th style="text-align: center;"> <font size="1">Price </font></th>
         <th style="text-align: center;"> <font size="1">Available </font></th>
         <th style="text-align: center;"> <font size="1">Assigned To </font></th>
-        <th style="text-align: center;"> <font size="1"> Date </font></th>
-        <th style="text-align: center;"> <font size="1"> Activity </font></th>
+      <!--  <th style="text-align: center;"> <font size="1"> Date </font></th>
+        <th style="text-align: center;"> <font size="1"> Activity </font></th>-->
         <th style="text-align: center;"> <font size="1">Actions</font></th>
 
 
@@ -114,22 +121,32 @@
                     echo "NO";
                 }
                 ?></td>
-            <td> <?php if ($row['available'] == '2') { ?>
-                    <a href='<?= WEBSITE ?>admin_books/assigned_user_records?emp_id=<?php echo $row['emp_id']; ?>'" >
-                        <?php echo $row['firstname']; ?>
-                        <? echo $row['lastname']; ?></a>
-                    <?php } ?></td>
-            <td> <?php if ($row['available'] == '2') { ?>
-                    <?php echo $row['date']; ?> 
-                <?php } ?></td>
+            <td> <?php if ($row['available'] == '2') { ?> 
+              <div class="col-lg-3 ">  
+    <button   onclick="location.href = '<?= WEBSITE ?>admin_books/assigned_user_records?emp_id=<?php echo $row['emp_id']; ?>'"
+                  class="btn btn-sm btn-primary">
+                 <?php echo $row['firstname'];echo " "; echo $row['lastname'];?>
+                 </button></div>
+                <?php } ?>
+            <?php if ($row['available'] == '1') { ?>
+                  <div class="col-lg-3 ">  
+    <button   onclick="location.href = '<?= WEBSITE ?>admin_books/request_details?book_id=<?php echo $row['book_id']; ?>'"
+                  class="btn btn-sm btn-primary">
+                 
+                <?php echo "Request Queue" ?></button></div>
+                 <?php } ?></td> 
+        <!--    <td> <?php if ($row['available'] == '2') { ?>
+                    <?php // echo $row['date']; ?> 
+                <?php } ?></td>-->
 
-            <td> <?php if ($row['activity'] == '1') { ?>
-                    <?php echo "Assigned"; ?> 
-                <?php }
+        <!--    <td> <?php if ($row['activity'] == '1') { ?>
+                    <?php// echo "Assigned"; ?> 
+                <?php
+                }
                 if ($row['activity'] == '2') {
                     ?>
-                    <?php echo ""; ?>
-                <?php } ?></td>
+                    <?php// echo ""; ?>
+    <?php } ?></td>-->
             <td>  <ul class ="menu">
                     <li><a herf="">action</a>
                         <ul class ="submenu">
@@ -139,15 +156,15 @@
                             <li>
                                 <?php if ($row['available'] == '1') { ?>
 
-                                    <?php if ($row['activity'] != '2') { ?> 
+        <?php if ($row['activity'] != '2') { ?> 
                                         <a href='<?= WEBSITE ?>admin_books/deletebooks?book_id=<?php echo $row['book_id']; ?>'>
                                             Delete</a> <?php } else { ?> <?php } ?></li> 
                                 <li> <a href='<?= WEBSITE ?>admin_books/assign_books?book_id=<?php echo $row['book_id']; ?>' >
                                         Assign </a>
-                                <?php } else { ?>
+    <?php } else { ?>
                                     <a href='<?= WEBSITE ?>admin_books/return_book?book_id=<?php echo $row['book_id']; ?>' >
                                         Return</a>     
-                                <?php } ?> </li>
+    <?php } ?> </li>
                         </ul></li>
                 </ul>
 
@@ -155,7 +172,7 @@
 
 
 
-    <?php } ?>
+<?php } ?>
 
 
 
