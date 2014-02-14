@@ -11,11 +11,48 @@ class user_request extends CI_Model {
                $query = $this->db->trans_complete();
         return $query;
    }
-     public function fetch_req_data($bookid){
+   public function req_log($data){
+      
          $this->load->database();
          $empid = $this->session->userdata("emp_id");
-        $query = $this->db->query("select *from user_req where book_id=$book_id");
-         print_r($query->result_array()); die;
+         $reqid =$data[0]['id'];
+          $this->db->trans_start();
+        $this->db->query("INSERT INTO req_log (req_id,status,log_usr_id) 
+            VALUES($reqid,'2',$empid)");
+               $query = $this->db->trans_complete();
+        return $query;
+   }
+     public function fetch_req_data($book_id){
+         $this->load->database();
+         $empid = $this->session->userdata("emp_id");
+         //echo $empid; die;
+        $query = $this->db->query("SELECT r.emp_id,u.firstname,u.lastname,r.id,r.status,
+            r.timestamp FROM
+            user_req as r LEFT JOIN users as u on r.emp_id=u.emp_id WHERE 
+            r.book_id= $book_id ORDER by r.timestamp");
+            if ($query->num_rows == 0){
+               echo "No Any Request"; die;
+           }
+      else{
+      
+         return $query->result_array();
      }
+     }
+     public function fetch_req($reqid){
+         $this->load->database();
+         $query=$this->db->query("SELECT emp_id,book_id,lg_user_id,timestamp,status 
+            from user_req where id =$reqid");
+         return $query->result_array();
+     }
+      public function delete_req_data($bookid){
+          $this->load->database();
+        //  
+          $empid = $this->session->userdata("emp_id");
+          $query = $this->db->query("DELETE FROM user_req where book_id= $bookid
+                  and emp_id=$empid");
+            //echo $bookid; die;
+          return $query;
+                  
+      }
 }
 ?>

@@ -1,7 +1,7 @@
 <?php
 
 class books extends CI_Model {
- 
+
     public function insert_books($data) {
         $this->load->database();
         $this->db->trans_start();
@@ -51,50 +51,34 @@ class books extends CI_Model {
         $this->load->database();
 
         //$query = $this->db->query("select  * from books");
-        $query = $this->db->query(" SELECT ubr.*, b.* , u.firstname,u.lastname FROM
+      $query = $this->db->query(" SELECT ubr.*, b.* , u.firstname,u.lastname,r.status FROM
           (SELECT MAX(date) AS date ,emp_id FROM users_books_records
         GROUP BY book_id) a  JOIN users_books_records ubr ON ubr.date=a.date
         JOIN users u ON u.emp_id=ubr.emp_id
-        right JOIN books b ON b.book_id=ubr.book_id ");
+        right JOIN books b ON b.book_id=ubr.book_id left JOIN user_req AS r 
+        ON r.book_id=b.book_id  GROUP BY b.book_id");
 
         return $query->result_array();
     }
 
-    public function user_books_data($empid) {
+
+    public function user_books_data() {
+
         $this->load->database();
-        
-        //$query = $this->db->query("select  * from books");
-        $query = $this->db->query("            
-      SELECT DISTINCT b.*,r.emp_id,r.status,r.id,r.lg_user_id 
-      FROM(SELECT emp_id FROM user_req WHERE emp_id=$empid) a LEFT JOIN user_req
-      AS r ON a.emp_id =r.emp_id RIGHT JOIN books AS b ON b.book_id= r.book_id
-      WHERE b.available ='1'");
-        
-        
-        
-      $results  = $query->result_array();
-    /*  $results1 = array();
-      $temp = array();
-        foreach ($results as $key=>$result){
-
-              if($result['emp_id']==$empid)                     
-              {       
-                        
-
-                if(!in_array($result['book_title'],$temp))
-                {
-                   $results1[] = $result;
-                  $temp[]=$result['book_title'];
-                  
-                }
-              }   
-        }*/
-        
-        return $results;
+        $empid = $this->session->userdata('emp_id');
+        $query = $this->db->query("SELECT DISTINCT b.book_id, b.book_title, 
+            b.author, b.publications, b.edition, b.isbn, b.price, b.available, 
+            r.emp_id, r.status, r.lg_user_id
+         FROM (SELECT emp_id FROM user_req WHERE emp_id=$empid) AS a
+         LEFT JOIN user_req AS r ON a.emp_id=r.emp_id RIGHT JOIN books as b on 
+         b.book_id = r.book_id
+         WHERE b.available='1' or r.status='3' or r.status='4'");
+        return $query->result_array();
     }
+
     public function user_assigned_book() {
-     
-      $this->load->database();
+
+        $this->load->database();
 
         //$query = $this->db->query("select  * from books");
         $query = $this->db->query(" SELECT ubr.*, b.* , u.firstname,u.lastname FROM
@@ -102,8 +86,24 @@ class books extends CI_Model {
         GROUP BY book_id) a  JOIN users_books_records ubr ON ubr.date=a.date
         JOIN users u ON u.emp_id=ubr.emp_id
         right JOIN books b ON b.book_id=ubr.book_id ");
-        return $query->result_array();   
-        
+        return $query->result_array();
+    }
+
+    public function user_requested_book($book_id) {
+
+        $this->load->database();
+        // echo $book_id;die;
+        $emp_id = $this->session->userdata('emp_id');
+        //$lg_user_id=$this->session->userdata('emp_id');
+        $this->db->trans_start();
+        $query = $this->db->query("INSERT INTO user_req(emp_id,status,book_id,
+           lg_user_id) VALUES($emp_id,'2',$book_id,$emp_id)");
+
+
+
+        // $this->db->insert("user_req", $data);
+        $ret = $this->db->trans_complete();
+        return $ret;
     }
 
 }

@@ -80,6 +80,7 @@ class login_users extends CI_Model {
             return $user_info;
         }
     }
+    
 
     public function set_user_action($role_name) {
         $user_action = array();
@@ -94,6 +95,16 @@ class login_users extends CI_Model {
        $this->session->set_userdata($user_action); 
        return $user_action;
     }
+    
+//    public function set_log_tables(){
+//         $this->load->database();
+//          $empid=$this->session->userdata('emp_id');
+//           $this->db->trans_start();
+//          $query = $this->db->query("INSERT INTO log(log_user_id) 
+//              VALUES($empid)");
+//            $ret = $this->db->trans_complete();
+//            return $ret;
+//    }
 
     public function logout() {
         $lout = $this->session->sess_destroy();

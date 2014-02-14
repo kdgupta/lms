@@ -21,6 +21,16 @@ class assignuser_model extends CI_Model {
           right JOIN books b ON b.book_id=ubr.book_id where ubr.book_id= $book_id");
         return $query->result_array();
     }
+    
+    public function requser_data($empid) {
+        $this->load->database();
+
+
+        $query = $this->db->query("select emp_id,firstname,lastname, is_active from users 
+             where emp_id = $empid");
+
+        return $query->result_array();
+    }
 
 }
 

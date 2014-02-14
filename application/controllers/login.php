@@ -1,5 +1,4 @@
 <?php
-
 if (!defined('BASEPATH'))
     exit('No direct script access allowed');
 require_once 'app_controller.php';
@@ -34,11 +33,14 @@ class login extends CI_Controller {
 
             if ($role_id == true) {
                 $session['user_info'] = $this->login_users->set_user_info($role_id);
+           //     $lg = $this->login_users->set_log_tables();
                 //print_r($session['data']['validated']);
+                // $session['user_action'] = $this->login_users->set_user_action($this->session->userdata('role_name'));
                 // $session['user_action'] = $this->login_users->set_user_action($this->session->userdata('role_name'));
 
 
                 $this->load->model('auth');
+
 
                 // echo  $this->session->userdata('role_name');die;
                 if ($this->auth->isallowed("admin", "dashboard")) {
@@ -61,15 +63,14 @@ class login extends CI_Controller {
                 }
             }
 
+            if ($role_id == false) {
+                ?>
 
+                <div class="col-lg-4 "></div>
 
-            if ($role_id == FALSE) {
-
-
-
-
-                print_r("Username or Password is wrong ");
-
+                <div class="col-lg-4 " >
+                    Username or Password is wrong </div>
+                <?php
                 header('location :' . WEBSITE . 'login_form');
             }
         }
@@ -88,5 +89,4 @@ class login extends CI_Controller {
     }
 
 }
-
 ?>
