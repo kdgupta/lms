@@ -13,7 +13,7 @@ class user_request extends CI_Model {
          $this->load->database();
          $empid = $this->session->userdata("emp_id");
          //echo $empid; die;
-        $query = $this->db->query("SELECT r.emp_id,u.firstname,u.lastname FROM
+        $query = $this->db->query("SELECT DISTINCT r.*,u.firstname,u.lastname FROM
             user_req as r LEFT JOIN users as u on r.emp_id=u.emp_id WHERE 
             r.book_id= $book_id ORDER by r.timestamp");
             if ($query->num_rows == 0){
@@ -35,5 +35,23 @@ class user_request extends CI_Model {
           return $query;
                   
       }
+       public function user_req_id($bookid){
+           
+           
+       }
+       public function admin_approve_req($empid){
+            $this->load->database();
+        // $empid = $this->session->userdata("emp_id");
+          $this->db->trans_start();
+        $this->db->query("UPDATE user_req SET status='3' where book_id= $bookid AND 
+                emp_id=$empid");
+        $this->db->query("UPDATE books SET available='2' where book_id= $bookid ");
+        $ret = $this->db->trans_complete();
+        return $ret;
+           
+       }
+       public function admin_reject_req($bookid){
+           
+       }
 }
 ?>

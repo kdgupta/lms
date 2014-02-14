@@ -214,6 +214,28 @@ class admin_books extends App_controller {
         $this->layout->view("admin_requested_users", $data);
          }
     }
+     public function admin_approve_books() {
+         $bookid = $_GET['book_id'];
+       //  $empid = $_GET['emp_id'];
+         echo $bookid;
+    //     echo $empid;
+         die;
+         $this->load->model("user_request");
+         
+         if (!empty($bookid)) {
+          $this->user_request->user_req_id($bookid);   
+          $ret =    $this->user_request->admin_approve_req($bookid);
+             if ($ret == true) {
+        header('location: viewbooks');
+             }
+         }
+         
+     }
+     
+      public function admin_reject_books() {
+          
+      }
+
 
 }
 

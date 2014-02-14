@@ -129,12 +129,14 @@
                  </button></div>
                 <?php } ?>
             <?php if ($row['available'] == '1') { ?>
+                 <?php if ($row['status'] == '2') { ?>
                   <div class="col-lg-3 ">  
     <button   onclick="location.href = '<?= WEBSITE ?>admin_books/request_details?book_id=<?php echo $row['book_id']; ?>'"
                   class="btn btn-sm btn-primary">
                  
                 <?php echo "Request Queue" ?></button></div>
-                 <?php } ?></td> 
+                 <?php } ?>
+                    <?php } ?></td> 
         <!--    <td> <?php if ($row['available'] == '2') { ?>
                     <?php // echo $row['date']; ?> 
                 <?php } ?></td>-->

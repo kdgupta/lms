@@ -40,7 +40,8 @@
         <th style="text-align: center;"><font size="3"> Edition </font></th>
         <th style="text-align: center;"><font size="3"> Isbn </font></th>
         <th style="text-align: center;"> <font size="3">Price </font></th>
-        <th style="text-align: center;"> <font size="3">Actions</font></th>
+        <th style="text-align: center;"> <font size="3">Status</font></th>
+         <th style="text-align: center;"> <font size="3">Actions</font></th>
 
 
     </tr>
@@ -54,6 +55,17 @@
             <td><?php echo $row['edition']; ?></td>
             <td><?php echo $row['isbn']; ?></td>
             <td><?php echo $row['price']; ?></td>
+            <td><?php if ($row['status'] == 2) { ?>
+                     pending
+                     <?php } ?>
+                     <?php if ($row['status'] == 3) { ?>
+                     accepted
+                     <?php } ?>
+                      <?php if ($row['status'] == 4) { ?>
+                     rejected
+                     <?php } ?>
+            </td>
+                     
 
             <?php if ($row['lg_user_id'] == $this->session->userdata('emp_id')) { ?>
                 <?php if ($row['status'] == 2) { ?>

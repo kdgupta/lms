@@ -69,8 +69,11 @@
             <td> <div class="col-lg-1"> <button  onclick=  "location.href = '<?= WEBSITE ?>admin_users/edituser?emp_id=<?php echo $row['emp_id']; ?>'"
                                                      class="btn btn-sm btn-primary">
                             <font size="2"> Edit</font> </button></div>
-
-
+                <div class="col-sm-1"></div>
+       <div class="col-lg-1"> <button  onclick=  "location.href = '<?= WEBSITE ?>admin_users/deleteuser?emp_id=<?php echo $row['emp_id']; ?>'"
+                               class="btn btn-sm btn-primary">
+                            <font size="2"> Delete</font> </button></div>
+ 
 
 
 
