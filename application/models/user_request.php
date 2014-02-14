@@ -44,6 +44,19 @@ class user_request extends CI_Model {
             from user_req where id =$reqid");
          return $query->result_array();
      }
+     public function data_for_req_log(){
+         $this->load->database();
+         $query=$this->db->query("SELECT id,emp_id,book_id,lg_user_id,timestamp,status 
+            from user_req ");
+         return $query->result_array();
+     }
+     public function fetch_user($bookid){
+       $this->load->database();
+      
+      
+      $query= $this->db->query("select * from user_req where book_id= $bookid and status='3'");
+       return $query->result_array();
+    }
       public function delete_req_data($bookid){
           $this->load->database();
         //  

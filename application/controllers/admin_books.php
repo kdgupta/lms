@@ -187,20 +187,28 @@ class admin_books extends App_controller {
 
         $bookid = $_GET['book_id'];
 
-        $this->load->model(array("assignbook_model", "assignuser_model"));
+        $this->load->model(array("assignbook_model", "assignuser_model","user_request"));
 
         if (!empty($bookid)) {
+             
             $data["bookdata"] = $this->assignbook_model->get_book_by_id($bookid);
-
+            
+            $data['req_data'] =$this->user_request->fetch_user($bookid);
+            print_r($data['req_data']);die;
             $data['userdata'] = $this->assignuser_model->returnuser_data($bookid);
-
+           $re= $this->assignbook_model->return_req_book($data['req_data']);
 
             $empid = $data['userdata'][0]['emp_id'];
 
             $ret = $this->assignbook_model->return_book($empid);
-
-            if ($ret == true) {
+           
+            if($ret==true){
+               
+         
+                     
+           
                 header('location: viewbooks');
+            
             }
         }
     }
@@ -225,10 +233,13 @@ class admin_books extends App_controller {
           $data["bookdata"] = $this->assignbook_model->get_book_by_id($bookid);
            $data["userdata"] = $this->assignuser_model->requser_data($empid);
           $ret = $this->assignbook_model->assignedbook_records($data);
-
-                if ($ret == true) {
+          if ($ret == true) {
+           $data["log_data"]=$this->user_request->data_for_req_log();
+           $re= $this->assignbook_model->insert_req_records($data["log_data"]);
+                if($re== true){
                     header('location: viewbooks');
                 }
+          }
     }
 
 }
