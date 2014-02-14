@@ -18,9 +18,9 @@ class user_books extends App_controller {
     }
 
     public function view_user_books() {
-
+           $empid = $this->session->userdata('emp_id');
         $this->load->model("books");
-        $data["userdata"] = $this->books->user_books_data();
+        $data["userdata"] = $this->books->user_books_data($empid);
         $this->layout->view("user_view_books", $data);
 
 //        $bookid = $this->input->get('book_id');
@@ -64,7 +64,11 @@ class user_books extends App_controller {
 //                      );
             $this->load->model("user_request");
             $ret = $this->user_request->user_req_data($bookid);
+              $data = $this->user_request->fetch_req_data($bookid);
+              
+              $this->user_request->req_log($data);
             if ($ret == true) {
+                
                 header('location: view_user_books');
             }
         }

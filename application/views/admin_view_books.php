@@ -115,6 +115,10 @@
             <td><?php echo $row['isbn']; ?></td>
             <td><?php echo $row['price']; ?></td>
             <td><?php
+
+
+    
+
                 if ($row['available'] == '1') {
                     echo "YES";
                 } else {
@@ -123,17 +127,15 @@
                 ?></td>
             <td> <?php if ($row['available'] == '2') { ?> 
               <div class="col-lg-3 ">  
-    <button   onclick="location.href = '<?= WEBSITE ?>admin_books/assigned_user_records?emp_id=<?php echo $row['emp_id']; ?>'"
-                  class="btn btn-sm btn-primary">
+    <a href = '<?= WEBSITE ?>admin_books/assigned_user_records?emp_id=<?php echo $row['emp_id']; ?>'>
                  <?php echo $row['firstname'];echo " "; echo $row['lastname'];?>
-                 </button></div>
+                 </a></div>
                 <?php } ?>
             <?php if ($row['available'] == '1') { ?>
-                 <?php if ($row['status'] == '2') { ?>
                   <div class="col-lg-3 ">  
+               <?php if ($row['status'] == '2') { ?>        
     <button   onclick="location.href = '<?= WEBSITE ?>admin_books/request_details?book_id=<?php echo $row['book_id']; ?>'"
-                  class="btn btn-sm btn-primary">
-                 
+                  class="btn btn-sm btn-primary">                 
                 <?php echo "Request Queue" ?></button></div>
                  <?php } ?>
                     <?php } ?></td> 
@@ -179,8 +181,10 @@
 
 
 
+
+
 </table>
 
 
 
-</form>
+

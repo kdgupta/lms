@@ -51,17 +51,17 @@
 
 
         <td><?php echo $row['date']; ?></td> 
-        <?php if ($row['activity'] == 1) { ?>
-          <td> <div class="col-lg-1"> 
-                         <button  class="btn btn-sm btn-primary">
-                   <font size="2">Assigned</font> </button></div>
-                 </td>
+           <td> <?php if ($row['activity'] == 1) { ?>
+       <div class="col-lg-1"> 
+                         
+                   <font size="2">Assigned</font> </div>
+                 
             <?php } ?>
-        <?php if ($row['activity'] == 2) { ?>
-                 <td> <div class="col-lg-1"> 
-                         <button  class="btn btn-sm btn-primary">
-                   <font size="2">Returned</font> </button></div>
-</td>            <?php } ?>
+       <?php if ($row['activity'] == 2) { ?>
+                  <div class="col-lg-1"> 
+                         
+                   <font size="2">Returned</font> </div>
+           <?php } ?></td> 
 
     <?php } ?>
 </tr>

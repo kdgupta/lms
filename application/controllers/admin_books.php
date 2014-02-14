@@ -206,35 +206,52 @@ class admin_books extends App_controller {
     }
 
     public function request_details() {
-       
-         $bookid = $_GET['book_id'];
+
+        $bookid = $_GET['book_id'];
         $this->load->model("user_request");
-         if (!empty($bookid)) {
-        $data["userdata"] = $this->user_request->fetch_req_data($bookid);
-        $this->layout->view("admin_requested_users", $data);
-         }
+        if (!empty($bookid)) {
+            $data["userdata"] = $this->user_request->fetch_req_data($bookid);
+            $this->layout->view("admin_requested_users", $data);
+        }
     }
-     public function admin_approve_books() {
-         $bookid = $_GET['book_id'];
-       //  $empid = $_GET['emp_id'];
-         echo $bookid;
-    //     echo $empid;
-         die;
-         $this->load->model("user_request");
+
+    public function approved_books_records() {
+        $reqid=$_GET['id'];
+          $this->load->model(array("assignbook_model", "assignuser_model","user_request"));
+         $data["req_data"]=$this->user_request->fetch_req($reqid);
          
-         if (!empty($bookid)) {
-          $this->user_request->user_req_id($bookid);   
-          $ret =    $this->user_request->admin_approve_req($bookid);
-             if ($ret == true) {
-        header('location: viewbooks');
-             }
-         }
-         
-     }
-     
-      public function admin_reject_books() {
+          $bookid=$data['req_data'][0]['book_id'];
+          $empid=$data['req_data'][0]['emp_id'];
+          $data["bookdata"] = $this->assignbook_model->get_book_by_id($bookid);
+          $data["userdata"] = $this->assignuser_model->requser_data($empid);
           
-      }
+          $ret = $this->assignbook_model->assignedbook_records($data);
+
+                if ($ret == true) {
+                    header('location: viewbooks');
+                }
+    }
+//     public function admin_approve_books() {
+//         $bookid = $_GET['book_id'];
+//       //  $empid = $_GET['emp_id'];
+//         echo $bookid;
+//    //     echo $empid;
+//         die;
+//         $this->load->model("user_request");
+//         
+//         if (!empty($bookid)) {
+//          $this->user_request->user_req_id($bookid);   
+//          $ret =    $this->user_request->admin_approve_req($bookid);
+//             if ($ret == true) {
+//        header('location: viewbooks');
+//             }
+//         }
+//         
+//     }
+     
+//      public function admin_reject_books() {
+//          
+//      }
 
 
 }
