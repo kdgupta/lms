@@ -1,9 +1,19 @@
 <head>
+
     <script>
   function preventBack(){window.history.forward();}
   setTimeout("preventBack()", 0);
   window.onunload=function(){null};
 </script>
+
+
+
+
+    <style type="text/css">
+        .error {
+    color: red;
+}
+     </style>
 </head>
 
 
@@ -30,9 +40,6 @@
 
 <?php
 echo validation_errors();
-
-
-
 echo form_open(WEBSITE . "admin_books/editbooks");
 ?>
 <form class="form-horizontal" role="form"  >
@@ -99,8 +106,10 @@ echo form_open(WEBSITE . "admin_books/editbooks");
             </div>
         </div>
     </div> 
+
     <div class="col-lg-4 "></div>
     <div class="col-lg-3">
+
 <?php if ($userdata['available'] == '1') { ?>
             <input type="radio" name="available" <?= ($userdata['available']) ? "checked" : "" ?> value="1"><font size="3">Available </font>
         <?php } else { ?>

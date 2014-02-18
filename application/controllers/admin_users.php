@@ -19,18 +19,29 @@ class admin_users extends App_controller {
         $empid = $this->input->get('emp_id');
         $this->load->model("users");
         $this->load->helper("form");
+         $this->load->library("form_validation");
+        $this->form_validation->set_error_delimiters('<div class="error">', '</div>');
+        $this->form_validation->set_rules("emp_id", "Employee Id", "required");
+        $this->form_validation->set_rules("firstname", "First Name", "required");
+        $this->form_validation->set_rules("lastname", "Last Name", "required");
+        $this->form_validation->set_rules("email", "Email Address", "required|valid_email");
+        $this->form_validation->set_rules("password", "Password", "required");
+        $this->form_validation->set_rules("designation", "Designation", "required");
+        $this->form_validation->set_rules("is_active", "Active", "required");
+        
+     if ($_SERVER['REQUEST_METHOD'] === 'GET') {
         if (!empty($empid)) {
             $data["userdata"] = $this->users->get_userdata_by_id($empid);
 
             $this->layout->view('admin_users_edit', $data);
-        } else {
-
-
-
-            if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-
-//  $this->output->enable_profiler(TRUE);
-
+        }
+            }else {
+    //  $this->output->enable_profiler(TRUE);
+                     if ($this->form_validation->run() == false) {
+                         $empid = $this->input->post('emp_id');
+                        $data["userdata"] = $this->users->get_userdata_by_id($empid);
+                $this->layout->view("admin_users_edit",$data);
+            }else{
                 $data = array("emp_id" => $this->input->post('emp_id'),
                     "firstname" => $this->input->post('firstname'),
                     "lastname" => $this->input->post('lastname'),
@@ -38,12 +49,8 @@ class admin_users extends App_controller {
                     "password" => $this->input->post('password'),
                     "designation" => $this->input->post('designation'),
                     "is_active" => $this->input->post('is_active'));
-
-
                 $tre = $this->users->update_users_data($data, $this->input->post('emp_id'));
                 if ($tre == true) {
-
-
                     header('location: viewusers');
                 }
             }
@@ -52,12 +59,8 @@ class admin_users extends App_controller {
 
     public function deleteuser() {
 // $this->output->enable_profiler(TRUE);
-
-
-
         $empid = $this->input->get('emp_id');
         $this->load->model("users");
-
         $ret = $this->users->delete_users($empid);
         if ($ret == true) {
             header('location: viewusers');
@@ -65,13 +68,9 @@ class admin_users extends App_controller {
     }
 
     public function createuser() {
-
-
         $this->load->helper("form");
-
         $this->load->library("form_validation");
-
-
+        $this->form_validation->set_error_delimiters('<div class="error">', '</div>');
         $this->form_validation->set_rules("emp_id", "Employee Id", "required");
         $this->form_validation->set_rules("firstname", "First Name", "required");
         $this->form_validation->set_rules("lastname", "Last Name", "required");

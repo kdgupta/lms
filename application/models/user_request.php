@@ -50,11 +50,12 @@ class user_request extends CI_Model {
             from user_req ");
          return $query->result_array();
      }
-     public function fetch_user($bookid){
+    /* public function fetch_user($bookid){
        $this->load->database();
       
       
       $query= $this->db->query("select * from user_req where book_id= $bookid and status='3'");
+<<<<<<< HEAD
       if ($query->num_rows == 0){
           return false;
       } 
@@ -62,6 +63,9 @@ class user_request extends CI_Model {
       return $query->result_array();
       }
       }
+=======
+       return $query->result_array();
+    }*/
       public function delete_req_data($bookid){
           $this->load->database();
         //  

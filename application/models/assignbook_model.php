@@ -76,14 +76,15 @@ class assignbook_model extends CI_Model {
                VALUES($empid,$rt,now(),'2')");
         $this->db->query("UPDATE books SET available='1' where book_id= $rt ");
         // $this->db->query("UPDATE user_req SET status='1' where book_id= $rt ");
-       $this->db->query("DELETE  FROM user_req where book_id= $rt");
+
+        $this->db->query("DELETE  FROM user_req where book_id= $rt ");
 
 
         $ret = $this->db->trans_complete();
         return $ret;
     }
     
-    public function return_req_book($data){
+  /*  public function return_req_book($data){
          $this->load->database();
        
          $bookid=$data['book_id'];
@@ -96,7 +97,7 @@ class assignbook_model extends CI_Model {
                VALUES($reqid,'1',$userid)");
            $ret = $this->db->trans_complete();
          return $ret;
-    }
+    }*/
 
 }
 

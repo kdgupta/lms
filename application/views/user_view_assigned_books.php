@@ -6,9 +6,7 @@
   setTimeout("preventBack()", 0);
   window.onunload=function(){null};
 </script>
-</head>
 
-<head>
     <style type="text/css">
         th { padding: 4px;
 vertical-align: top; border-style: solid; border-color: green; 

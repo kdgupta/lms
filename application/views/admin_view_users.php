@@ -1,14 +1,13 @@
 <?php ?>
 
+
 <head>
     <script>
   function preventBack(){window.history.forward();}
   setTimeout("preventBack()", 0);
   window.onunload=function(){null};
 </script>
-</head>
 
-<head>
     <style type="text/css">
      th { padding: 4px;
 vertical-align: top; border-style: solid; border-color: green; 
@@ -20,6 +19,7 @@ border-width:5px;background-color:beige; }
      body {background-color:ghp} 
          </style>
 </head>
+
 
 
 <div class="form-group"> 
@@ -40,24 +40,14 @@ border-width:5px;background-color:beige; }
         <button   onclick="location.href = '<?= WEBSITE ?>login/logout_form'"
                  class="btn btn-sm btn-primary">
             logout</button></div>
-
-
-    
- 
 </div>
-    
-    
-
-
-
-
-
 <div class="col-lg-4"> </div>
 <div class="col-lg-1"> </div>
 
 <div class="col-lg-2">
     <button  onclick="location.href = '<?= WEBSITE ?>admin_users/createuser'" class="btn btn-lg btn-primary btn-block">
      Add New User </button> </div> <br><br> <br><br>    
+
 
 <table align="center" border="1" class="TFtable">
 
@@ -66,19 +56,18 @@ border-width:5px;background-color:beige; }
     <tr> <th style="text-align: center;"> <font size="3">Emp_id</font></th>
         <th style="text-align: center;"> <font size="3">First name </font></th>
         <th style="text-align: center;"> <font size="3">Last name</font> </th>
+
         <th style="text-align: center;"> <font size="3">Email</font></th>
         <th style="text-align: center;"><font size="3"> Designation </font></th>
         <th style="text-align: center;"><font size="3"> Active </font></th>
         <th style="text-align: center;"><font size="3"> Roles </font></th>
 
         <th style="text-align: center;"> <font size="3">Actions</font></th>
-
-
     </tr>
     <?php foreach ($userdata as $row) {
         ?>
         <tr>
-            <td>   <?php echo $row['emp_id']; ?> </td>
+            <td><?php echo $row['emp_id']; ?> </td>
             <td><?php echo $row['firstname']; ?></td>
             <td><?php echo $row['lastname']; ?></td>
             <td><?php echo $row['email']; ?></td> 
@@ -89,6 +78,7 @@ border-width:5px;background-color:beige; }
             <td> <div class="col-lg-1"> <button  onclick=  "location.href = '<?= WEBSITE ?>admin_users/edituser?emp_id=<?php echo $row['emp_id']; ?>'"
                                                      class="btn btn-sm btn-primary">
                             <font size="2"> Edit</font> </button></div>
+
                 <div class="col-sm-1"></div>
 
  
@@ -98,11 +88,7 @@ border-width:5px;background-color:beige; }
                             <font size="2"> Delete</font> </button></div>
  
 
-
-
                 </td></tr>
-
-
     <?php } ?>
 </table>
 

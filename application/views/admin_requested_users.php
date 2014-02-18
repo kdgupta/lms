@@ -10,9 +10,7 @@
   setTimeout("preventBack()", 0);
   window.onunload=function(){null};
 </script>
-</head>
 
-<head>
     
     
     <style type="text/css">

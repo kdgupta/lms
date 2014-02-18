@@ -6,11 +6,7 @@
   setTimeout("preventBack()", 0);
   window.onunload=function(){null};
 </script>
-</head>
 
-
-
-<head>
     <style type="text/css">
         .submenu{
             padding:0;
@@ -103,6 +99,7 @@ border-width:5px;background-color:beige; }
 
 
 
+
 <table border="1"align="center" class="TFtable" >
     <caption>
     <tr><th style="text-align: center;"><font size="3">Book_id</font></th>
@@ -114,6 +111,7 @@ border-width:5px;background-color:beige; }
         <th style="text-align: center;"> <font size="3">Price </font></th>
         <th style="text-align: center;"> <font size="3">Available </font></th>
         <th style="text-align: center;"> <font size="3">Assigned To </font></th>
+
       <!--  <th style="text-align: center;"> <font size="1"> Date </font></th>
         <th style="text-align: center;"> <font size="1"> Activity </font></th>-->
         <th style="text-align: center;"> <font size="3">Actions</font></th>

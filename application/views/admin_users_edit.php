@@ -1,10 +1,17 @@
 
+
 <head>
     <script>
   function preventBack(){window.history.forward();}
   setTimeout("preventBack()", 0);
   window.onunload=function(){null};
 </script>
+
+    <style type="text/css">
+        .error {
+    color: red;
+}
+     </style>
 </head>
 
 <div class="form-group"> 
