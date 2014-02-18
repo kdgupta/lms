@@ -26,8 +26,8 @@ class books extends CI_Model {
         //$q = array();
         if (!empty($bookid)) {
             $this->load->database();
-            $Iid = $this->input->get('book_id');
-            $sQry = "select * from books where book_id = $Iid";
+         //   $Iid = $this->input->get('book_id');
+            $sQry = "select * from books where book_id=$bookid";
             $query = $this->db->query($sQry);
         }
         return array_shift($query->result_array());

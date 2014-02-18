@@ -4,9 +4,17 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-?>
+?><head>
+    <script>
+  function preventBack(){window.history.forward();}
+  setTimeout("preventBack()", 0);
+  window.onunload=function(){null};
+</script>
+</head>
 
 <head>
+    
+    
     <style type="text/css">
         .submenu{
             padding:0;
@@ -49,6 +57,13 @@
             display:block;
             text-align: left;
         }
+             th { padding: 4px;
+vertical-align: top; border-style: solid; border-color: green; 
+border-width:5px;background-color:beige; }
+              .TFtable tr:nth-child(odd){ 
+		background: skyblue;}
+     .TFtable tr:nth-child(even){
+		background: white;}
     </style>
 </head>
 
@@ -73,7 +88,7 @@
 
     </div>
  
-    <table align="center" border="1">
+    <table align="center" border="1" class="TFtable">
      
 
     
@@ -88,17 +103,24 @@
                                 <?php //} ?>  
                                 </td> -->
                             
-                            
+          <th style="text-align: center;"><font size="3">  Date </font></th>                   
 
-        <th style="text-align: center;"><font size="2">  Name </font></th>
+        <th style="text-align: center;"><font size="3">  Name </font></th>
+       
+        <th style="text-align: center;"><font size="3">  Action </font></th>
+         
     <?php foreach ($userdata as $row) { ?>
         <tr>
-
+         <td> 
+                <?php
+                    echo $row['timestamp'];?>
+                </td>
             <td><?php
                 echo $row['firstname'];
                 echo " ";
                 echo $row['lastname'];
                 ?></td>
+           
             <td>  <ul class ="menu">
                     <li><a herf="">Action</a>
                         <ul class ="submenu">
@@ -111,7 +133,9 @@
                         </ul></li>
                 </ul>
 
-            </td></tr>
+            </td>
+       
+        </tr>
     <?php } ?>
 
     </table>

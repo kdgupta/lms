@@ -12,15 +12,17 @@ class login extends CI_Controller {
         $this->layout->setTitle('LMS');
         $this->load->library('session');
         $this->load->helper('url');
+         
     }
 
     public function login_form() {
         $this->load->helper('url');
         $this->load->library('session');
         $this->load->config('config');
-
+          
         $this->load->helper("form");
         $this->layout->view('login_view');
+       
 
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             //$this->output->enable_profiler(TRUE);

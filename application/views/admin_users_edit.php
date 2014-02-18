@@ -1,3 +1,12 @@
+
+<head>
+    <script>
+  function preventBack(){window.history.forward();}
+  setTimeout("preventBack()", 0);
+  window.onunload=function(){null};
+</script>
+</head>
+
 <div class="form-group"> 
       <div class="col-sm-1 pull-top">
         <button  onclick="location.href = '<?= WEBSITE ?>admin_users/viewusers'"
@@ -41,7 +50,7 @@ echo form_open(WEBSITE ."admin_users/edituser");
     <div class="row">
         <div class="form-group"> 
             <div class="col-sm-2 "></div>
-            <label for="firstname" class="col-lg-3 control-label">First Name</label>
+            <label for="firstname" class="col-lg-3 control-label"><font size="3"><div align="left">First Name</div></font></label>
             <div class="col-lg-4">
                 <input type="text" name="firstname" class="form-control"  value="<?= $userdata['firstname'] ?>">
             </div>
@@ -50,7 +59,7 @@ echo form_open(WEBSITE ."admin_users/edituser");
     <div class="row">
         <div class="form-group"> 
             <div class="col-sm-2 "></div>
-            <label for="lastname" class="col-lg-3 control-label">Last Name</label>
+            <label for="lastname" class="col-lg-3 control-label"><font size="3"><div align="left">Last Name</div></font></label>
             <div class="col-lg-4">
                 <input type="text" name="lastname" class="form-control"  value="<?= $userdata['lastname'] ?>">
             </div>
@@ -59,7 +68,7 @@ echo form_open(WEBSITE ."admin_users/edituser");
     <div class="row">
         <div class="form-group"> 
             <div class="col-sm-2 "></div>
-            <label for="email" class="col-lg-3 control-label">Email</label>
+            <label for="email" class="col-lg-3 control-label"><font size="3"><div align="left">Email</div></font></label>
             <div class="col-lg-4">
                 <input type="text" name="email" class="form-control"  value="<?= $userdata['email'] ?>">
             </div>
@@ -68,7 +77,7 @@ echo form_open(WEBSITE ."admin_users/edituser");
     <div class="row">
         <div class="form-group"> 
             <div class="col-sm-2 "></div>
-            <label for="desinagtion" class="col-lg-3 control-label">Desinagtion</label>
+            <label for="desinagtion" class="col-lg-3 control-label"><font size="3"><div align="left">Desinagtion</div></font></label>
             <div class="col-lg-4">
                 <input type="text" name="designation" class="form-control"  value="<?= $userdata['designation'] ?>">
             </div>

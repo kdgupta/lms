@@ -1,5 +1,25 @@
 <?php ?>
 
+<head>
+    <script>
+  function preventBack(){window.history.forward();}
+  setTimeout("preventBack()", 0);
+  window.onunload=function(){null};
+</script>
+</head>
+
+<head>
+    <style type="text/css">
+        th { padding: 4px;
+vertical-align: top; border-style: solid; border-color: green; 
+border-width:5px;background-color:beige; }
+         .TFtable tr:nth-child(odd){ 
+		background: skyblue;}
+     .TFtable tr:nth-child(even){
+		background: white;}
+         </style>
+</head>
+
 <div class="form-group"> 
     <div class="col-sm-1 pull-top">
         <button  onclick="location.href = '<?= WEBSITE ?>user/dashboard'"
@@ -21,15 +41,15 @@
 
 </div>
 <br>
-<table  border="5" align="center">
+<table  border="5" align="center" class="TFtable">
 
-    <th>User Name</th>
+   <!-- <th>User Name</th> -->
     <th> Book Title </th>
     <th> Author Name </th>
     <th> Publication </th>
     <th> Edition </th>
-    <th> Isbn Number </th>
-    <th> Price </th>
+   <!-- <th> Isbn Number </th>
+    <th> Price </th>-->
     <th> Date</th>
     <th>Activity</th> 
 
@@ -40,14 +60,14 @@
 <?php foreach ($record as $row) {
     ?>
     <tr>
-        <td>   <?php echo $row['firstname']; ?><?php echo" "; ?><?php echo $row['lastname']; ?></td>
+       <!-- <td>   <?//php echo $row['firstname']; ?><?php //echo" "; ?><?php //echo $row['lastname']; ?></td>-->
 
         <td><?php echo $row['book_title']; ?></td>
         <td><?php echo $row['author']; ?></td>
         <td><?php echo $row['publications']; ?></td> 
         <td><?php echo $row['edition']; ?></td>
-        <td><?php echo $row['isbn']; ?></td>
-        <td><?php echo $row['price']; ?></td>
+     <!--   <td><?//php echo $row['isbn']; ?></td>
+        <td><?php// echo $row['price']; ?></td>-->
 
 
         <td><?php echo $row['date']; ?></td> 

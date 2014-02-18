@@ -1,5 +1,25 @@
 <?php ?>
 
+<head>
+    <script>
+  function preventBack(){window.history.forward();}
+  setTimeout("preventBack()", 0);
+  window.onunload=function(){null};
+</script>
+</head>
+
+<head>
+    <style type="text/css">
+     th { padding: 4px;
+vertical-align: top; border-style: solid; border-color: green; 
+border-width:5px;background-color:beige; }
+      .TFtable tr:nth-child(odd){ 
+		background: skyblue;}
+     .TFtable tr:nth-child(even){
+		background: white;}
+     body {background-color:ghp} 
+         </style>
+</head>
 
 
 <div class="form-group"> 
@@ -39,7 +59,7 @@
     <button  onclick="location.href = '<?= WEBSITE ?>admin_users/createuser'" class="btn btn-lg btn-primary btn-block">
      Add New User </button> </div> <br><br> <br><br>    
 
-<table align="center" border="5" >
+<table align="center" border="1" class="TFtable">
 
 
 
@@ -70,7 +90,10 @@
                                                      class="btn btn-sm btn-primary">
                             <font size="2"> Edit</font> </button></div>
                 <div class="col-sm-1"></div>
-       <div class="col-lg-1"> <button  onclick=  "location.href = '<?= WEBSITE ?>admin_users/deleteuser?emp_id=<?php echo $row['emp_id']; ?>'"
+
+ 
+                
+   <div class="col-lg-1"> <button disabled="disabled" onclick=  "location.href = '<?= WEBSITE ?>admin_users/deleteuser?emp_id=<?php echo $row['emp_id']; ?>'"
                                class="btn btn-sm btn-primary">
                             <font size="2"> Delete</font> </button></div>
  

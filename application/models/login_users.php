@@ -108,6 +108,9 @@ class login_users extends CI_Model {
 
     public function logout() {
         $lout = $this->session->sess_destroy();
+       // $this->cache->clean();
+       // $this->output->clear_all_cache();
+     //   $this->output->clear_page_cache();
         return $lout;
     }
 

@@ -41,9 +41,28 @@ class assignbook_model extends CI_Model {
             $this->db->query("UPDATE books SET available='2' where book_id= $bookid ");
             $this->db->query("UPDATE user_req SET status='3' where book_id= $bookid and emp_id=$empid ");
             $this->db->query("UPDATE user_req SET status='4' where book_id = $bookid and emp_id !=$empid ");
+
             $ret = $this->db->trans_complete();
             return $ret;
         }
+    }
+    public function insert_req_records($data){
+         $this->load->database();
+          $this->db->trans_start();
+        foreach($data as $row){
+           $reqid= $row['id'];
+           
+           $status =$row['status'];
+           
+           $userid =$row['lg_user_id'];
+          
+           
+            $this->db->query("INSERT INTO req_log(req_id,status,log_usr_id)
+               VALUES($reqid,$status,$userid)");
+        }
+       
+         $ret = $this->db->trans_complete();
+         return $ret;
     }
 
     public function return_book($empid) {
@@ -57,11 +76,26 @@ class assignbook_model extends CI_Model {
                VALUES($empid,$rt,now(),'2')");
         $this->db->query("UPDATE books SET available='1' where book_id= $rt ");
         // $this->db->query("UPDATE user_req SET status='1' where book_id= $rt ");
-        $this->db->query("DELETE  FROM user_req where book_id= $rt");
+       $this->db->query("DELETE  FROM user_req where book_id= $rt");
 
 
         $ret = $this->db->trans_complete();
         return $ret;
+    }
+    
+    public function return_req_book($data){
+         $this->load->database();
+       
+         $bookid=$data['book_id'];
+        
+         $empid=$data['emp_id'];
+       
+       $this->db->trans_start();
+      $this->db->query("UPDATE user_req SET status='1' where book_id= $bookid and emp_id=$empid ");
+      $this->db->query("INSERT INTO req_log(req_id,status,log_usr_id)
+               VALUES($reqid,'1',$userid)");
+           $ret = $this->db->trans_complete();
+         return $ret;
     }
 
 }
