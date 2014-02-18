@@ -31,7 +31,7 @@
         <tr> <td> <label for="book_id"></label>
                 <input type="hidden" name="book_id" value="<?= $bookdata['book_id'] ?>">  
         <tr> <td> <label for="book_id" >Book Name</label>
-                <input type="text"  name="book_title" size="15" value="<?= $bookdata['book_title'] ?>">  
+                <input type="text"  name="book_title" size="25" value="<?= $bookdata['book_title'] ?> " readonly>  
             <td><td><td><lable for ="emp_id"><b>Users</b> </lable> 
         <td> <select name="emp_id"><?php foreach ($userdata as $row) {
     ?>

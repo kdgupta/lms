@@ -1,4 +1,10 @@
-
+<head>
+    <style type="text/css">
+        .error {
+    color: red;
+}
+     </style>
+</head>
 <div class="form-group"> 
     <div class="col-sm-1 pull-top">
         <button  onclick="location.href = '<?= WEBSITE ?>admin_users/viewusers'"

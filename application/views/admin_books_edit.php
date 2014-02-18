@@ -1,3 +1,11 @@
+<head>
+    <style type="text/css">
+        .error {
+    color: red;
+}
+     </style>
+</head>
+
 <div class="form-group"> 
     <div class="col-sm-1 pull-top">
         <button  onclick="location.href = '<?= WEBSITE ?>admin_books/viewbooks'"
@@ -21,9 +29,6 @@
 
 <?php
 echo validation_errors();
-
-
-
 echo form_open(WEBSITE . "admin_books/editbooks");
 ?>
 <form class="form-horizontal" role="form"  >
@@ -91,11 +96,7 @@ echo form_open(WEBSITE . "admin_books/editbooks");
         </div>
     </div> 
     <br>
-    <div class="col-lg-5"></div>
-    <div class="col-lg-4">
-
-        <input type="text" name="price" class="form-control"  value="<?= $userdata['price'] ?>">
-    </div>
+    
     <div class="col-lg-10">
 <?php if ($userdata['available'] == '1') { ?>
             <input type="radio" name="available" <?= ($userdata['available']) ? "checked" : "" ?> value="1"><font size="3">Available </font>

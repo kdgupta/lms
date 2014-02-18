@@ -26,9 +26,7 @@
         <th style="text-align: center;"><font size="3"> Author Name </font></th>
         <th style="text-align: center;"><font size="3"> Publication </font></th>
         <th style="text-align: center;"><font size="3"> Edition </font></th>
-        <th style="text-align: center;"><font size="3"> Isbn </font></th>
-        <th style="text-align: center;"> <font size="3">Price </font></th>
-        <th style="text-align: center;"> <font size="3">Status </font></th>
+       <th style="text-align: center;"> <font size="3">Status </font></th>
         <th style="text-align: center;"> <font size="3">Actions</font></th>
     </tr>
     <?php foreach ($userdata as $row) { ?>
@@ -39,8 +37,7 @@
             <td><?php echo $row['author']; ?></td>
             <td><?php echo $row['publications']; ?></td> 
             <td><?php echo $row['edition']; ?></td>
-            <td><?php echo $row['isbn']; ?></td>
-            <td><?php echo $row['price']; ?></td>
+          
 
 
             <?php if ($row['lg_user_id'] == $this->session->userdata('emp_id')) { ?>

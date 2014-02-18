@@ -90,7 +90,9 @@
 
 <table  border="5" align="center" >
     <tr> <th style="text-align: center;"><font size="1"> Book_id</font></th>
-        <th style="text-align: center;"><font size="1"> Book Title </font></th>
+        <th style="text-align: center;"><font size="1">
+       <a href = '<?= WEBSITE ?>admin_books/viewbooks?ch=<?php echo 'b'; ?>'>
+         Book Title </a></font></th>
         <th style="text-align: center;"><font size="1"> Author Name </font></th>
         <th style="text-align: center;"><font size="1"> Publication </font></th>
         <th style="text-align: center;"><font size="1"> Edition </font></th>

@@ -18,14 +18,29 @@ class admin_books extends App_controller {
 
         $this->load->model("books");
         $this->load->helper("form");
+         $this->load->library("form_validation");
+         $this->form_validation->set_error_delimiters('<div class="error">', '</div>');
+        $this->form_validation->set_rules("book_title", "Book Title", "required");
+        $this->form_validation->set_rules("author", "Author Name", "required");
+        $this->form_validation->set_rules("publications", "Publications", "required");
+        $this->form_validation->set_rules("edition", "Edition", "required");
+        $this->form_validation->set_rules("isbn", "Isbn Number", "required");
+        $this->form_validation->set_rules("price", "Price", "required");
+         if ($_SERVER['REQUEST_METHOD'] === 'GET') {
+
         if (!empty($bookid)) {
 
             $data["userdata"] = $this->books->get_bookdata_by_id($bookid);
 
 
             $this->layout->view('admin_books_edit', $data);
-        } else {
-
+        }
+         }else {
+                  if ($this->form_validation->run() == false) {
+                     $bookid = $this->input->post('book_id');     
+            $data["userdata"] = $this->books->get_bookdata_by_id($bookid);
+                $this->layout->view('admin_books_edit',$data);
+            } else {
             $data = array("book_id" => $this->input->post('book_id'),
                 "book_title" => $this->input->post('book_title'),
                 "author" => $this->input->post('author'),
@@ -39,6 +54,7 @@ class admin_books extends App_controller {
             $tre = $this->books->update_books_data($data, $this->input->post('book_id'));
             if ($tre == true) {
                 header('location: viewbooks');
+            }
             }
         }
     }
@@ -63,6 +79,7 @@ class admin_books extends App_controller {
         $this->load->helper("form");
 
         $this->load->library("form_validation");
+        $this->form_validation->set_error_delimiters('<div class="error">', '</div>');
         $this->form_validation->set_rules("book_title", "Book Title", "required");
         $this->form_validation->set_rules("author", "Author Name", "required");
         $this->form_validation->set_rules("publications", "Publications", "required");
@@ -193,10 +210,10 @@ class admin_books extends App_controller {
              
             $data["bookdata"] = $this->assignbook_model->get_book_by_id($bookid);
             
-            $data['req_data'] =$this->user_request->fetch_user($bookid);
-            print_r($data['req_data']);die;
+           // $data['req_data'] =$this->user_request->fetch_user($bookid);
+           // print_r($data['req_data']);die;
             $data['userdata'] = $this->assignuser_model->returnuser_data($bookid);
-           $re= $this->assignbook_model->return_req_book($data['req_data']);
+           //$re= $this->assignbook_model->return_req_book($data['req_data']);
 
             $empid = $data['userdata'][0]['emp_id'];
 
