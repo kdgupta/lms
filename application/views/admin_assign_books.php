@@ -5,13 +5,13 @@
 //echo form_open("admin_books/assign_books");
 ?>
 
-<head>
+<!--<head>
     <script>
   function preventBack(){window.history.forward();}
   setTimeout("preventBack()", 0);
   window.onunload=function(){null};
 </script>
-</head>
+</head>-->
 <div class="form-group"> 
     <div class="col-sm-1 pull-top">
         <button  onclick="location.href = '<?= WEBSITE ?>admin_books/viewbooks'"

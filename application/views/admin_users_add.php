@@ -1,11 +1,11 @@
 
 
 <head>
-    <script>
+ <!--   <script>
   function preventBack(){window.history.forward();}
   setTimeout("preventBack()", 0);
   window.onunload=function(){null};
-</script>
+</script>-->
 
 
 
@@ -13,6 +13,9 @@
         .error {
     color: red;
 }
+ .required:before {
+    color: red;
+    content: "*"}
      </style>
 </head>
 
@@ -55,7 +58,7 @@ echo form_open(WEBSITE . "admin_users/createuser");
     <div class="row">
         <div class="form-group"> 
             <div class="col-sm-2 "></div>
-            <label for="emp_id" class="col-lg-3 control-label"><font size="3"><div align="left">Emp Id</div></font></label>
+            <label for="emp_id" class="col-lg-3 control-label"><font size="3"><div  class="required"  align="left">Emp Id</div></font></label>
             <div class="col-lg-4">
                 <input type="text" name="emp_id" class="form-control"  placeholder="emp_id">
             </div>
@@ -64,7 +67,7 @@ echo form_open(WEBSITE . "admin_users/createuser");
     <div class="row">
         <div class="form-group"> 
             <div class="col-sm-2 pull-left"></div>
-            <label for="firstname" class="col-lg-3 pull-left control-label"><font size="3"><div align="left">First Name</div></font></label>
+            <label for="firstname" class="col-lg-3 pull-left control-label"><font size="3"><div  class="required"  align="left">First Name</div></font></label>
             <div class="col-lg-4">
                 <input type="text" name="firstname" class="form-control"  placeholder="firstname">
             </div>
@@ -73,7 +76,7 @@ echo form_open(WEBSITE . "admin_users/createuser");
     <div class="row">
         <div class="form-group"> 
             <div class="col-sm-2"></div>
-            <label for="lastname" class="col-lg-3 control-label"><font size="3"><div align="left">Last Name</div></font></label>
+            <label for="lastname" class="col-lg-3 control-label"><font size="3"><div  class="required"  align="left">Last Name</div></font></label>
             <div class="col-lg-4">
                 <input type="text" name="lastname" class="form-control"  placeholder="lastname">
             </div>
@@ -82,7 +85,7 @@ echo form_open(WEBSITE . "admin_users/createuser");
     <div class="row">  
         <div class="form-group">
             <div class="col-sm-2"></div>
-            <label for="email" class="col-lg-3 control-label"><font size="3"><div align="left">Email</div></font></label>
+            <label for="email" class="col-lg-3 control-label"><font size="3"><div  class="required"  align="left">Email</div></font></label>
             <div class="col-lg-4">
                 <input type="text" name="email" class="form-control"  placeholder="email">
             </div>
@@ -91,7 +94,7 @@ echo form_open(WEBSITE . "admin_users/createuser");
     <div class="row">  
         <div class="form-group">
             <div class="col-sm-2"></div>
-            <label for="password" class="col-lg-3 control-label"><font size="3"><div align="left">Password</div></font></label>
+            <label for="password" class="col-lg-3 control-label"><font size="3"><div  class="required"  align="left">Password</div></font></label>
             <div class="col-lg-4">
                 <input type="password"  name="password" class="form-control"  placeholder="password">
             </div>
@@ -100,7 +103,7 @@ echo form_open(WEBSITE . "admin_users/createuser");
     <div class="row">  
         <div class="form-group">
             <div class="col-sm-2"></div>
-            <label for="designation"  class="col-lg-3 control-label"><font size="3"><div align="left">Designation</div></font></label>
+            <label for="designation"  class="col-lg-3 control-label"><font size="3"><div  class="required"  align="left">Designation</div></font></label>
             <div class="col-lg-4">
                 <input type="text" name="designation" class="form-control"  placeholder="designation">
             </div>

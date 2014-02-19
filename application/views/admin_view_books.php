@@ -1,11 +1,11 @@
 <?php ?>
 
 <head>
-    <script>
+  <!--  <script>
   function preventBack(){window.history.forward();}
   setTimeout("preventBack()", 0);
   window.onunload=function(){null};
-</script>
+</script>-->
 
     <style type="text/css">
         .submenu{
@@ -21,6 +21,7 @@
             postion:relative;
 
         }
+     
         .submenu{
             display:none;}
 
@@ -42,6 +43,8 @@
         .menu li{
             display:block;
             text-align: center;
+            cursor: pointer;
+            cursor: hand; 
         }
         .submenu li{
             display:block;
@@ -170,7 +173,7 @@ border-width:5px;background-color:beige; }
                     <?php// echo ""; ?>
     <?php } ?></td>-->
             <td>  <ul class ="menu">
-                    <li><a herf=""><font color="black">action</font></a>
+                    <li><a herf=""><font color="black">actions</font></a>
                         <ul class ="submenu">
 
                             <li><a href='<?= WEBSITE ?>admin_books/editbooks?book_id=<?php echo $row['book_id']; ?>' >
