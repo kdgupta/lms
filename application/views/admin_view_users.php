@@ -1,5 +1,27 @@
 <?php ?>
 
+
+<head>
+    <script>
+  function preventBack(){window.history.forward();}
+  setTimeout("preventBack()", 0);
+  window.onunload=function(){null};
+</script>
+
+    <style type="text/css">
+     th { padding: 4px;
+vertical-align: top; border-style: solid; border-color: green; 
+border-width:5px;background-color:beige; }
+      .TFtable tr:nth-child(odd){ 
+		background: skyblue;}
+     .TFtable tr:nth-child(even){
+		background: white;}
+     body {background-color:ghp} 
+         </style>
+</head>
+
+
+
 <div class="form-group"> 
     
     <div class="col-sm-1 pull-top">
@@ -26,10 +48,15 @@
     <button  onclick="location.href = '<?= WEBSITE ?>admin_users/createuser'" class="btn btn-lg btn-primary btn-block">
      Add New User </button> </div> <br><br> <br><br>    
 
-<table align="center" border="5" >
-    <tr> <th style="text-align: center;"> <font size="3">Emp Id</font></th>
-        <th style="text-align: center;"> <font size="3">First Name </font></th>
-        <th style="text-align: center;"> <font size="3">Last Name</font> </th>
+
+<table align="center" border="1" class="TFtable">
+
+
+
+    <tr> <th style="text-align: center;"> <font size="3">Emp_id</font></th>
+        <th style="text-align: center;"> <font size="3">First name </font></th>
+        <th style="text-align: center;"> <font size="3">Last name</font> </th>
+
         <th style="text-align: center;"> <font size="3">Email</font></th>
         <th style="text-align: center;"><font size="3"> Designation </font></th>
         <th style="text-align: center;"><font size="3"> Active </font></th>
@@ -51,6 +78,16 @@
             <td> <div class="col-lg-1"> <button  onclick=  "location.href = '<?= WEBSITE ?>admin_users/edituser?emp_id=<?php echo $row['emp_id']; ?>'"
                                                      class="btn btn-sm btn-primary">
                             <font size="2"> Edit</font> </button></div>
+
+                <div class="col-sm-1"></div>
+
+ 
+                
+   <div class="col-lg-1"> <button disabled="disabled" onclick=  "location.href = '<?= WEBSITE ?>admin_users/deleteuser?emp_id=<?php echo $row['emp_id']; ?>'"
+                               class="btn btn-sm btn-primary">
+                            <font size="2"> Delete</font> </button></div>
+ 
+
                 </td></tr>
     <?php } ?>
 </table>

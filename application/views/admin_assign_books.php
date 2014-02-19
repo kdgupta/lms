@@ -4,9 +4,17 @@
 // Using the form helper to help create the start of the form code
 //echo form_open("admin_books/assign_books");
 ?>
+
+<head>
+    <script>
+  function preventBack(){window.history.forward();}
+  setTimeout("preventBack()", 0);
+  window.onunload=function(){null};
+</script>
+</head>
 <div class="form-group"> 
     <div class="col-sm-1 pull-top">
-        <button  onclick="location.href = '<?= WEBSITE ?>admin_books/viewbooks?ch=<?php echo ''?>'"
+        <button  onclick="location.href = '<?= WEBSITE ?>admin_books/viewbooks?ch=<?php echo '#'?>'"
                  class="btn btn-sm btn-primary">
             Back</button></div>
     <div class="col-lg-3 "></div>
@@ -30,24 +38,28 @@
 
         <tr> <td> <label for="book_id"></label>
                 <input type="hidden" name="book_id" value="<?= $bookdata['book_id'] ?>">  
-        <tr> <td> <label for="book_id" >Book Name</label>
-                <input type="text"  name="book_title" size="25" value="<?= $bookdata['book_title'] ?> " readonly>  
+        <tr> <td> <label for="book_title" >Book Name</label>
+                <input type="text"  name="book_title" size="30" value="<?= $bookdata['book_title'] ?>" readonly>  
+
             <td><td><td><lable for ="emp_id"><b>Users</b> </lable> 
-        <td> <select name="emp_id"><?php foreach ($userdata as $row) {
+        <td> <select name="emp_id">
+                <option value="">Select User</option>
+            <?php foreach ($userdata as $row) {
     ?>
                     <?php if ($row['is_active'] == 1) {
                         ?>
-                        <option value="<?php echo $row['emp_id']; ?>" ><?php echo $row['firstname']; ?><?php echo" " ?><?php echo $row['lastname']; ?></option>
+          <option value="<?php echo $row['emp_id']; ?>" >
+<?php echo $row['firstname']; ?><?php echo" " ?><?php echo $row['lastname']; ?></option>
                         <?php
                     } else {
                         ;
                     }
                 }
-                ?>
+                ?> </select> 
         </td> </tr>
 
 
-        </select>
+      
     </table>
     <br><br>
     <div class="form-group"> 

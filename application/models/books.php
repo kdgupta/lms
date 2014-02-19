@@ -26,9 +26,12 @@ class books extends CI_Model {
         //$q = array();
         if (!empty($bookid)) {
             $this->load->database();
+
+
            // $Iid = $this->input->get('book_id');
             $sQry = "select book_id,UPPER(book_title) as book_title,UPPER(author)as author,
            publications,edition,price,isbn,available  from books where book_id = $bookid";
+
             $query = $this->db->query($sQry);
         }
         return array_shift($query->result_array());
@@ -47,6 +50,7 @@ class books extends CI_Model {
             return $tre;
         }
     }
+
     public function books_data($empid) {
          if ($_SERVER['REQUEST_METHOD'] === 'POST'){
               $this->load->database();
@@ -97,13 +101,13 @@ class books extends CI_Model {
         }
 
         //$query = $this->db->query("select  * from books");
-      $query = $this->db->query(" SELECT ubr.*, b.book_id ,UPPER(book_title) as book_title,
+          $query = $this->db->query(" SELECT ubr.*, b.book_id ,UPPER(book_title) as book_title,
           UPPER(author) as author,publications,edition, price ,
            isbn ,available,u.firstname,u.lastname,r.status FROM
           (SELECT MAX(date) AS date ,emp_id FROM users_books_records
         GROUP BY book_id) a  JOIN users_books_records ubr ON ubr.date=a.date
         JOIN users u ON u.emp_id=ubr.emp_id
-        right JOIN books b ON b.book_id=ubr.book_id left JOIN user_req AS r 
+        right JOIN books b ON b.book_id=ubr.book_id left JOIN user_req AS r
         ON r.book_id=b.book_id  GROUP BY b.book_id " . $sort);
 
         return $query->result_array();

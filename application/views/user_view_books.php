@@ -1,5 +1,24 @@
 <?php ?>
 
+<head>
+    <script>
+  function preventBack(){window.history.forward();}
+  setTimeout("preventBack()", 0);
+  window.onunload=function(){null};
+</script>
+
+    <style type="text/css">
+             th { padding: 4px;
+vertical-align: top; border-style: solid; border-color: green; 
+border-width:5px;background-color:beige; }
+               .TFtable tr:nth-child(odd){ 
+		background: skyblue;}
+     .TFtable tr:nth-child(even){
+		background: white;}
+        </style>
+        </head>
+
+
 <div class="form-group"> 
     <div class="col-sm-1 pull-top">
         <button  onclick="location.href = '<?= WEBSITE ?>user/dashboard'"
@@ -19,16 +38,21 @@
             logout</button></div>
 </div>
 <br>
-<table  border="5" align="center" >
+<table  border="1" align="center" class="TFtable">
     <tr>
 
         <th style="text-align: center;"><font size="3"> Book Title </font></th>
         <th style="text-align: center;"><font size="3"> Author Name </font></th>
         <th style="text-align: center;"><font size="3"> Publication </font></th>
         <th style="text-align: center;"><font size="3"> Edition </font></th>
-       <th style="text-align: center;"> <font size="3">Status </font></th>
-        <th style="text-align: center;"> <font size="3">Actions</font></th>
-    </tr>
+
+    <!--   <th style="text-align: center;"><font size="3"> Isbn </font></th>
+        <th style="text-align: center;"> <font size="3">Price </font></th>-->
+        <th style="text-align: center;"> <font size="3">Status</font></th>
+         <th style="text-align: center;"> <font size="3">Actions</font></th>
+
+</tr>
+
     <?php foreach ($userdata as $row) { ?>
 
         <tr>
@@ -37,7 +61,11 @@
             <td><?php echo $row['author']; ?></td>
             <td><?php echo $row['publications']; ?></td> 
             <td><?php echo $row['edition']; ?></td>
-          
+
+         <!--   <td><?php //echo $row['isbn']; ?></td>
+           <td><?php //echo $row['price']; ?></td>-->
+            
+
 
 
             <?php if ($row['lg_user_id'] == $this->session->userdata('emp_id')) { ?>

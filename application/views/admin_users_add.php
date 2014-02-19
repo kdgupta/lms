@@ -1,10 +1,21 @@
+
+
 <head>
+    <script>
+  function preventBack(){window.history.forward();}
+  setTimeout("preventBack()", 0);
+  window.onunload=function(){null};
+</script>
+
+
+
     <style type="text/css">
         .error {
     color: red;
 }
      </style>
 </head>
+
 <div class="form-group"> 
     <div class="col-sm-1 pull-top">
         <button  onclick="location.href = '<?= WEBSITE ?>admin_users/viewusers'"
@@ -44,7 +55,7 @@ echo form_open(WEBSITE . "admin_users/createuser");
     <div class="row">
         <div class="form-group"> 
             <div class="col-sm-2 "></div>
-            <label for="emp_id" class="col-lg-3 control-label">Emp Id</label>
+            <label for="emp_id" class="col-lg-3 control-label"><font size="3"><div align="left">Emp Id</div></font></label>
             <div class="col-lg-4">
                 <input type="text" name="emp_id" class="form-control"  placeholder="emp_id">
             </div>
@@ -53,7 +64,7 @@ echo form_open(WEBSITE . "admin_users/createuser");
     <div class="row">
         <div class="form-group"> 
             <div class="col-sm-2 pull-left"></div>
-            <label for="firstname" class="col-lg-3 pull-left control-label">First Name</label>
+            <label for="firstname" class="col-lg-3 pull-left control-label"><font size="3"><div align="left">First Name</div></font></label>
             <div class="col-lg-4">
                 <input type="text" name="firstname" class="form-control"  placeholder="firstname">
             </div>
@@ -62,7 +73,7 @@ echo form_open(WEBSITE . "admin_users/createuser");
     <div class="row">
         <div class="form-group"> 
             <div class="col-sm-2"></div>
-            <label for="lastname" class="col-lg-3 control-label">Last Name</label>
+            <label for="lastname" class="col-lg-3 control-label"><font size="3"><div align="left">Last Name</div></font></label>
             <div class="col-lg-4">
                 <input type="text" name="lastname" class="form-control"  placeholder="lastname">
             </div>
@@ -71,7 +82,7 @@ echo form_open(WEBSITE . "admin_users/createuser");
     <div class="row">  
         <div class="form-group">
             <div class="col-sm-2"></div>
-            <label for="email" class="col-lg-3 control-label">Email</label>
+            <label for="email" class="col-lg-3 control-label"><font size="3"><div align="left">Email</div></font></label>
             <div class="col-lg-4">
                 <input type="text" name="email" class="form-control"  placeholder="email">
             </div>
@@ -80,7 +91,7 @@ echo form_open(WEBSITE . "admin_users/createuser");
     <div class="row">  
         <div class="form-group">
             <div class="col-sm-2"></div>
-            <label for="password" class="col-lg-3 control-label">Password</label>
+            <label for="password" class="col-lg-3 control-label"><font size="3"><div align="left">Password</div></font></label>
             <div class="col-lg-4">
                 <input type="password"  name="password" class="form-control"  placeholder="password">
             </div>
@@ -89,7 +100,7 @@ echo form_open(WEBSITE . "admin_users/createuser");
     <div class="row">  
         <div class="form-group">
             <div class="col-sm-2"></div>
-            <label for="designation"  class="col-lg-3 control-label">Designation</label>
+            <label for="designation"  class="col-lg-3 control-label"><font size="3"><div align="left">Designation</div></font></label>
             <div class="col-lg-4">
                 <input type="text" name="designation" class="form-control"  placeholder="designation">
             </div>

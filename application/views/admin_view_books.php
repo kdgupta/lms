@@ -1,10 +1,12 @@
 <?php ?>
 
-
-
-
-
 <head>
+    <script>
+  function preventBack(){window.history.forward();}
+  setTimeout("preventBack()", 0);
+  window.onunload=function(){null};
+</script>
+
     <style type="text/css">
         .submenu{
             padding:0;
@@ -39,13 +41,24 @@
         }
         .menu li{
             display:block;
+            cursor: pointer;
+           
             text-align: center;
         }
         .submenu li{
             display:block;
             text-align: left;
         }
-    </style>
+
+    
+     th { padding: 4px;
+vertical-align: top; border-style: solid; border-color: green; 
+border-width:5px;background-color:beige; }
+     .TFtable tr:nth-child(odd){ 
+		background: skyblue;}
+     .TFtable tr:nth-child(even){
+		background: white;}
+         </style>
 </head>
 
 
@@ -81,33 +94,35 @@
 <div class="col-lg-2"> </div>
 <div class="col-lg-2">
 
-    <button  onclick="location.href = '<?= WEBSITE ?>admin_books/request_details'"class="btn btn-lg btn-primary btn-block">
-        <font size="4">Request Details</font></button> </div> 
+ <button disabled="disabled" onclick="location.href = '<?= WEBSITE ?>admin_books/request_details'"class="btn btn-lg btn-primary btn-block">
+        <font size="4">Request Details</font></button> </div>
 
 <br><br><br><br>   
 
 
 
-<table  border="5" align="center" >
-    <tr> <th style="text-align: center;"><font size="1"> Book_id</font></th>
-        <th style="text-align: center;"><font size="1">
+
+<table border="1"align="center" class="TFtable" >
+   
+    <tr><th style="text-align: center;"><font size="3">Book_id</font></th>
+        <th style="text-align: center;"><font size="3">
        <a href = '<?= WEBSITE ?>admin_books/viewbooks?ch=<?php echo 'b'; ?>'>
          Book Title </a></font></th>
-        <th style="text-align: center;"><font size="1"> 
+        <th style="text-align: center;"><font size="3">
         <a href = '<?= WEBSITE ?>admin_books/viewbooks?ch=<?php echo 'a'; ?>'>
          Author Name </a></font></th>
-        <th style="text-align: center;"><font size="1"> Publication </font></th>
-        <th style="text-align: center;"><font size="1"> Edition </font></th>
-        <th style="text-align: center;"><font size="1"> Isbn </font></th>
-        <th style="text-align: center;"> <font size="1">Price </font></th>
-        <th style="text-align: center;"> <font size="1">Available </font></th>
-        <th style="text-align: center;"> <font size="1">Assigned To </font></th>
+        <th style="text-align: center;"><font size="3"> Publication </font></th>
+        <th style="text-align: center;"><font size="3"> Edition </font></th>
+        <th style="text-align: center;"><font size="3"> Isbn </font></th>
+        <th style="text-align: center;"> <font size="3">Price </font></th>
+        <th style="text-align: center;"> <font size="3">Available </font></th>
+        <th style="text-align: center;"> <font size="3">Assigned To </font></th>
+
       <!--  <th style="text-align: center;"> <font size="1"> Date </font></th>
         <th style="text-align: center;"> <font size="1"> Activity </font></th>-->
-        <th style="text-align: center;"> <font size="1">Actions</font></th>
-
-
+        <th style="text-align: center;"> <font size="3">Actions</font></th>
     </tr>
+ 
     <?php foreach ($userdata as $row) {
         ?>
         <tr>
@@ -132,17 +147,17 @@
             <td> <?php if ($row['available'] == '2') { ?> 
               <div class="col-lg-3 ">  
     <a href = '<?= WEBSITE ?>admin_books/assigned_user_records?emp_id=<?php echo $row['emp_id']; ?>'>
-                 <?php echo $row['firstname'];echo " "; echo $row['lastname'];?>
+              <font color="black"><?php echo $row['firstname'];echo " "; echo $row['lastname'];?></font>
                  </a></div>
                 <?php } ?>
             <?php if ($row['available'] == '1') { ?>
                   <div class="col-lg-3 ">  
                <?php if ($row['status'] == '2') { ?>        
     <button   onclick="location.href = '<?= WEBSITE ?>admin_books/request_details?book_id=<?php echo $row['book_id']; ?>'"
-                  class="btn btn-sm btn-primary">
-                 
+                  class="btn btn-primary">                 
                 <?php echo "Request Queue" ?></button></div>
-            <?php }} ?></td> 
+                 <?php } ?>
+                    <?php } ?></td> 
         <!--    <td> <?php if ($row['available'] == '2') { ?>
                     <?php // echo $row['date']; ?> 
                 <?php } ?></td>-->
@@ -186,8 +201,9 @@
 
 
 
+
 </table>
 
 
 
-</form>
+

@@ -1,8 +1,25 @@
 <?php ?>
+<head>
+    <script>
+  function preventBack(){window.history.forward();}
+  setTimeout("preventBack()", 0);
+  window.onunload=function(){null};
+</script>
+
+    <style type="text/css">
+        th { padding: 4px;
+vertical-align: top; border-style: solid; border-color: green; 
+border-width:5px;background-color:beige; }
+         .TFtable tr:nth-child(odd){ 
+		background: skyblue;}
+     .TFtable tr:nth-child(even){
+		background: white;}
+         </style>
+</head>
 
 <div class="form-group"> 
     <div class="col-sm-1 pull-top">
-        <button  onclick="location.href = '<?= WEBSITE ?>admin_books/viewbooks'"
+        <button  onclick="location.href = '<?= WEBSITE ?>admin_books/viewbooks?ch=<?php echo '#'?>'"
                  class="btn btn-sm btn-primary">
             Back</button></div>
     <div class="col-lg-3 "></div>
@@ -22,18 +39,18 @@
 
 </div>
 
-<br><br><table  border="5" align="center">
-    <tr><th>Emp id</th>
-        <th>User Name</th>
-        <th> Book_id</th>
-        <th> Book Title </th>
-        <th> Author Name </th>
-        <th> Publication </th>
-        <th> Edition </th>
-        <th> Isbn Number </th>
-        <th> Price </th>
-        <th> Date</th>
-        <th>Activity</th> 
+<br><br><table  border="1" align="center" class="TFtable">
+    <tr><th><font size="3">Emp id</font></th>
+        <th><font size="3">User Name</font></th>
+        <th><font size="3"> Book_id</font></th>
+        <th> <font size="3">Book Title </font></th>
+        <th> <font size="3">Author Name</font> </th>
+        <th><font size="3"> Publication </font></th>
+        <th> <font size="3">Edition</font> </th>
+        <th><font size="3"> Isbn Number</font> </th>
+        <th><font size="3"> Price </font></th>
+        <th><font size="3"> Date</font></th>
+        <th><font size="3">Activity</font></th> 
 
 
 

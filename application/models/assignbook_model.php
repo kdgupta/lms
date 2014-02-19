@@ -25,9 +25,9 @@ class assignbook_model extends CI_Model {
 // $this->db->where('emp_id', $data['emp_id']);
             $this->db->query("INSERT INTO users_books_records(emp_id,book_id,date,activity)
                VALUES($rr,$rt,now(),'1')");
+
             $this->db->query("UPDATE books SET available='2' where book_id= $rt ");
             $this->db->query("UPDATE user_req SET status='3' where book_id= $rt and emp_id=$rr ");
-
             $this->db->query("UPDATE user_req SET status='4' where book_id = $rt and emp_id !=$rr ");
             $ret = $this->db->trans_complete();
             return $ret;
@@ -35,16 +35,16 @@ class assignbook_model extends CI_Model {
             $this->load->database();
             $bookid = $data['bookdata']['book_id'];
             $empid = $data['userdata'][0]['emp_id'];
-              $this->db->trans_start();
+            $this->db->trans_start();
             $this->db->query("INSERT INTO users_books_records(emp_id,book_id,date,activity)
                VALUES($empid,$bookid,now(),'1')");
             $this->db->query("UPDATE books SET available='2' where book_id= $bookid ");
             $this->db->query("UPDATE user_req SET status='3' where book_id= $bookid and emp_id=$empid ");
             $this->db->query("UPDATE user_req SET status='4' where book_id = $bookid and emp_id !=$empid ");
-          
+
             $ret = $this->db->trans_complete();
             return $ret;
-            }
+        }
     }
     public function insert_req_records($data){
          $this->load->database();
@@ -74,10 +74,11 @@ class assignbook_model extends CI_Model {
 // $this->db->where('emp_id', $data['emp_id']);
         $this->db->query("INSERT INTO users_books_records(emp_id,book_id,date,activity)
                VALUES($empid,$rt,now(),'2')");
-
         $this->db->query("UPDATE books SET available='1' where book_id= $rt ");
         // $this->db->query("UPDATE user_req SET status='1' where book_id= $rt ");
+
         $this->db->query("DELETE  FROM user_req where book_id= $rt ");
+
 
         $ret = $this->db->trans_complete();
         return $ret;
@@ -90,9 +91,9 @@ class assignbook_model extends CI_Model {
         
          $empid=$data['emp_id'];
        
-          $this->db->trans_start();
-          $this->db->query("UPDATE user_req SET status='1' where book_id= $bookid and emp_id=$empid ");
-         $this->db->query("INSERT INTO req_log(req_id,status,log_usr_id)
+       $this->db->trans_start();
+      $this->db->query("UPDATE user_req SET status='1' where book_id= $bookid and emp_id=$empid ");
+      $this->db->query("INSERT INTO req_log(req_id,status,log_usr_id)
                VALUES($reqid,'1',$userid)");
            $ret = $this->db->trans_complete();
          return $ret;

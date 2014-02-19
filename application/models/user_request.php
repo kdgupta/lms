@@ -55,6 +55,15 @@ class user_request extends CI_Model {
       
       
       $query= $this->db->query("select * from user_req where book_id= $bookid and status='3'");
+<<<<<<< HEAD
+      if ($query->num_rows == 0){
+          return false;
+      } 
+      else{
+      return $query->result_array();
+      }
+      }
+=======
        return $query->result_array();
     }*/
       public function delete_req_data($bookid){
@@ -67,5 +76,23 @@ class user_request extends CI_Model {
           return $query;
                   
       }
+//       public function user_req_id($bookid){
+//           
+//           
+//       }
+//       public function admin_approve_req($empid){
+//            $this->load->database();
+//        // $empid = $this->session->userdata("emp_id");
+//          $this->db->trans_start();
+//        $this->db->query("UPDATE user_req SET status='3' where book_id= $bookid AND 
+//                emp_id=$empid");
+//        $this->db->query("UPDATE books SET available='2' where book_id= $bookid ");
+//        $ret = $this->db->trans_complete();
+//        return $ret;
+//           
+//       }
+//       public function admin_reject_req($bookid){
+//           
+//       }
 }
 ?>

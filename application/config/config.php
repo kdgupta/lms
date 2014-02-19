@@ -384,7 +384,7 @@ $config["permission"]["Admin"] = array("admin" => array("dashboard"),
     "admin_users" => array("edituser",
         "deleteuser", "createuser", "viewusers"));
 $config["permission"]["N-user"] = array("user" => array("dashboard"), "user_books" => array("view_user_books",
-        "view1_user_books","assigned_books","request","cancel_request"));
+        "assigned_books","request","cancel_request"));
 
 
 
