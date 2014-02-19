@@ -36,7 +36,7 @@
 <div class="row">
     <div class="col-lg-4"></div>
     <div class="col-lg-4">
-        <button  onclick="location.href = '<?= WEBSITE ?>admin_books/viewbooks?ch=<?php echo ''; ?>'" class="btn btn-lg btn-primary btn-block">
+        <button  onclick="location.href = '<?= WEBSITE ?>admin_books/viewbooks?ch=<?php echo '#'; ?>'" class="btn btn-lg btn-primary btn-block">
             Manage Books </button>
     </div>
 </div>

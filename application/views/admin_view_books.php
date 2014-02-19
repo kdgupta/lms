@@ -93,7 +93,9 @@
         <th style="text-align: center;"><font size="1">
        <a href = '<?= WEBSITE ?>admin_books/viewbooks?ch=<?php echo 'b'; ?>'>
          Book Title </a></font></th>
-        <th style="text-align: center;"><font size="1"> Author Name </font></th>
+        <th style="text-align: center;"><font size="1"> 
+        <a href = '<?= WEBSITE ?>admin_books/viewbooks?ch=<?php echo 'a'; ?>'>
+         Author Name </a></font></th>
         <th style="text-align: center;"><font size="1"> Publication </font></th>
         <th style="text-align: center;"><font size="1"> Edition </font></th>
         <th style="text-align: center;"><font size="1"> Isbn </font></th>
@@ -168,7 +170,7 @@
                                 <li> <a href='<?= WEBSITE ?>admin_books/assign_books?book_id=<?php echo $row['book_id']; ?>' >
                                         Assign </a>
     <?php } else { ?>
-                                    <a href='<?= WEBSITE ?>admin_books/return_book?book_id=<?php echo $row['book_id']; ?>' >
+                                    <a href='<?= WEBSITE ?>admin_books/return_book?book_id=<?php echo $row['book_id']; ?> & ch=<?php echo '#'; ?>' >
                                         Return</a>     
     <?php } ?> </li>
                         </ul></li>

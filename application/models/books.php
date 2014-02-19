@@ -47,40 +47,52 @@ class books extends CI_Model {
             return $tre;
         }
     }
-
     public function books_data($empid) {
-         static $flag=1;
+         if ($_SERVER['REQUEST_METHOD'] === 'POST'){
+              $this->load->database();
+             $query = $this->db->query(" SELECT ubr.*, b.book_id ,UPPER(book_title) as book_title,
+          UPPER(author) as author,publications,edition, price ,
+           isbn ,available,u.firstname,u.lastname,r.status FROM
+          (SELECT MAX(date) AS date ,emp_id FROM users_books_records
+        GROUP BY book_id) a  JOIN users_books_records ubr ON ubr.date=a.date
+        JOIN users u ON u.emp_id=ubr.emp_id
+        right JOIN books b ON b.book_id=ubr.book_id left JOIN user_req AS r 
+        ON r.book_id=b.book_id  GROUP BY b.book_id ORDER BY book_title ASC" );
+        setcookie("flg", "0");
+        return $query->result_array();
+        }
+        if($_SERVER['REQUEST_METHOD'] === 'GET'){
         $this->load->database();
+        $this->load->helper('cookie');  
         switch($_GET['ch']){
          case 'b':
-                switch($flag){
-                case 0:
-                    echo $flag;
-                    $sort="ORDER BY book_title ASC";
-                    $flag=1;
-                    break;
-                case 1:
+                if($_COOKIE["flg"]=="0"){
                     $sort="ORDER BY book_title DESC";
-                    $flag=0;
+                  setcookie("flg", "1");
+                    break;
+                }
+                if($_COOKIE["flg"]=="1"){
+                    $sort="ORDER BY book_title ASC";
+                   setcookie("flg", "0");
                     break;
                 }
           break;
          case 'a':
-                    switch($flag){
-                case 0:
-                    $sort="ORDER BY author ASC";
-                     $flag=1;
-                    break;
-                case 1:
+                 if($_COOKIE["flg"]=="0"){
+               
                     $sort="ORDER BY author DESC";
-                     $flag=0;
+                    setcookie("flg", "1");
+                    break;
+                   }
+                if($_COOKIE["flg"]=="1"){ 
+                     $sort="ORDER BY author ASC";
+                     setcookie("flg", "0");
                     break;
                 }
            break;
            default:
                 $sort="ORDER BY book_title ASC";
-                $flag=0;
-                echo $flag;
+              setcookie("flg", "0");
            break;
         }
 
@@ -95,6 +107,7 @@ class books extends CI_Model {
         ON r.book_id=b.book_id  GROUP BY b.book_id " . $sort);
 
         return $query->result_array();
+    }
     }
 
 
