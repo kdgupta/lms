@@ -1,7 +1,7 @@
 <?php ?>
 
 <head>
-    <script>
+    <script language="javascript" type="text/javascript">
   function preventBack(){window.history.forward();}
   setTimeout("preventBack()", 0);
   window.onunload=function(){null};
@@ -48,7 +48,6 @@
             Manage Books </button>
     </div>
 </div>
-
 
 
 </form>

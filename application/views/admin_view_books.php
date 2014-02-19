@@ -101,10 +101,15 @@ border-width:5px;background-color:beige; }
 
 
 <table border="1"align="center" class="TFtable" >
-    <caption>
+   
     <tr><th style="text-align: center;"><font size="3">Book_id</font></th>
-        <th style="text-align: center;"><font size="3"> Book Title </font></th>
-        <th style="text-align: center;"><font size="3"> Author Name </font></th>
+        <th style="text-align: center;"><font size="3">
+       <a href = '<?= WEBSITE ?>admin_books/viewbooks?ch=<?php echo 'b'; ?>'>
+         Book Title </a></font></th>
+
+        <th style="text-align: center;"><font size="3">
+        <a href = '<?= WEBSITE ?>admin_books/viewbooks?ch=<?php echo 'a'; ?>'>
+         Author Name </a></font></th>
         <th style="text-align: center;"><font size="3"> Publication </font></th>
         <th style="text-align: center;"><font size="3"> Edition </font></th>
         <th style="text-align: center;"><font size="3"> Isbn </font></th>
