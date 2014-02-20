@@ -125,7 +125,7 @@ class books extends CI_Model {
          FROM (SELECT emp_id FROM user_req WHERE emp_id=$empid) AS a
          LEFT JOIN user_req AS r ON a.emp_id=r.emp_id RIGHT JOIN books as b on 
          b.book_id = r.book_id
-         WHERE b.available='1' or r.status='3' or r.status='4'");
+         WHERE b.available='1' or r.status='3' or r.status='4' ORDER BY book_title ASC");
         return $query->result_array();
     }
 
@@ -134,7 +134,10 @@ class books extends CI_Model {
         $this->load->database();
 
         //$query = $this->db->query("select  * from books");
-        $query = $this->db->query(" SELECT ubr.*, b.* , u.firstname,u.lastname FROM
+        $query = $this->db->query(" SELECT ubr.*, b.book_id,UPPER(b.book_title) as book_title ,
+            UPPER(b.author) as author,b.publications,b.editon,b.isbn,b.price,b.available,
+            UPPER(u.firstname) as firstname,
+            UPPER(u.lastname) as lastname FROM
           (SELECT MAX(date) AS date ,emp_id FROM users_books_records
         GROUP BY book_id) a  JOIN users_books_records ubr ON ubr.date=a.date
         JOIN users u ON u.emp_id=ubr.emp_id

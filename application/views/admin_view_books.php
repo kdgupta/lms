@@ -21,7 +21,7 @@
             postion:relative;
 
         }
-     
+
         .submenu{
             display:none;}
 
@@ -43,7 +43,7 @@
         .menu li{
             display:block;
             cursor: pointer;
-           
+
             text-align: center;
             cursor: pointer;
             cursor: hand; 
@@ -53,21 +53,21 @@
             text-align: left;
         }
 
-    
-     th { padding: 4px;
-vertical-align: top; border-style: solid; border-color: green; 
-border-width:5px;background-color:beige; }
-     .TFtable tr:nth-child(odd){ 
-		background: skyblue;}
-     .TFtable tr:nth-child(even){
-		background: white;}
-         </style>
-</head>
+
+        th { padding: 4px;
+             vertical-align: top; border-style: solid; border-color: green; 
+             border-width:5px;background-color:beige; }
+        .TFtable tr:nth-child(odd){ 
+            background: skyblue;}
+        .TFtable tr:nth-child(even){
+            background: white;}
+        </style>
+    </head>
 
 
-<div class="form-group"> 
+    <div class="form-group"> 
     <div class="col-sm-1 pull-top">
-        <button  onclick="location.href = '<?= WEBSITE ?>admin/dashboard'"
+        <button  onclick="location.href = '<?= WEBSITE ?>admin'"
                  class="btn btn-sm btn-primary">
             Back</button></div>
     <div class="col-lg-3 "></div>
@@ -89,16 +89,14 @@ border-width:5px;background-color:beige; }
 
 
 
-<div class="col-lg-3"> </div>
-
-<div class="col-lg-2">
-    <button  onclick="location.href = '<?= WEBSITE ?>admin_books/addbooks'" class="btn btn-lg btn-primary btn-block">
-        Add New Book</button> </div>
 <div class="col-lg-2"> </div>
 <div class="col-lg-2">
+    <button  onclick="location.href = '<?= WEBSITE ?>addbooks'" class="btn btn-lg btn-primary btn-block">
+        Add New Book</button> </div>
 
- <button disabled="disabled" onclick="location.href = '<?= WEBSITE ?>admin_books/request_details'"class="btn btn-lg btn-primary btn-block">
-        <font size="4">Request Details</font></button> </div>
+<font size="3" color='purple'> Please!<a target="_blank" href = 'https://drive.google.com/a/tradus.com/#folders/0B6y7nksbw4OOczZ6cG1JdU1LM0U'>
+    <font size="4"> click here</font></a>
+to add soft copy of book</font> 
 
 <br><br><br><br>   
 
@@ -106,14 +104,14 @@ border-width:5px;background-color:beige; }
 
 
 <table border="1"align="center" class="TFtable" >
-   
+
     <tr><th style="text-align: center;"><font size="3">Book_id</font></th>
         <th style="text-align: center;"><font size="3">
-       <a href = '<?= WEBSITE ?>admin_books/viewbooks?ch=<?php echo 'b'; ?>'>
-         Book Title </a></font></th>
+            <a href = '<?= WEBSITE ?>viewbooks?ch=<?php echo 'b'; ?>'>
+                Book Title </a></font></th>
         <th style="text-align: center;"><font size="3">
-        <a href = '<?= WEBSITE ?>admin_books/viewbooks?ch=<?php echo 'a'; ?>'>
-         Author Name </a></font></th>
+            <a href = '<?= WEBSITE ?>viewbooks?ch=<?php echo 'a'; ?>'>
+                Author Name </a></font></th>
         <th style="text-align: center;"><font size="3"> Publication </font></th>
         <th style="text-align: center;"><font size="3"> Edition </font></th>
         <th style="text-align: center;"><font size="3"> Isbn </font></th>
@@ -125,7 +123,7 @@ border-width:5px;background-color:beige; }
         <th style="text-align: center;"> <font size="1"> Activity </font></th>-->
         <th style="text-align: center;"> <font size="3">Actions</font></th>
     </tr>
- 
+
     <?php foreach ($userdata as $row) {
         ?>
         <tr>
@@ -137,10 +135,6 @@ border-width:5px;background-color:beige; }
             <td><?php echo $row['isbn']; ?></td>
             <td><?php echo $row['price']; ?></td>
             <td><?php
-
-
-    
-
                 if ($row['available'] == '1') {
                     echo "YES";
                 } else {
@@ -148,49 +142,52 @@ border-width:5px;background-color:beige; }
                 }
                 ?></td>
             <td> <?php if ($row['available'] == '2') { ?> 
-              <div class="col-lg-3 ">  
-    <a href = '<?= WEBSITE ?>admin_books/assigned_user_records?emp_id=<?php echo $row['emp_id']; ?>& ch= <?php echo '#' ?>'>
-              <font color="black"><?php echo $row['firstname'];echo " "; echo $row['lastname'];?></font>
-                 </a></div>
-                <?php } ?>
-            <?php if ($row['available'] == '1') { ?>
-                  <div class="col-lg-3 ">  
-               <?php if ($row['status'] == '2') { ?>        
-    <button   onclick="location.href = '<?= WEBSITE ?>admin_books/request_details?book_id=<?php echo $row['book_id']; ?>'"
-                  class="btn btn-primary">                 
-                <?php echo "Request Queue" ?></button></div>
-                 <?php } ?>
-                    <?php } ?></td> 
-        <!--    <td> <?php if ($row['available'] == '2') { ?>
-                    <?php // echo $row['date']; ?> 
-                <?php } ?></td>-->
+                    <div class="col-lg-3 ">  
+                        <a href = '<?= WEBSITE ?>assigned_user_records?emp_id=<?php echo $row['emp_id']; ?>& ch= <?php echo '#' ?>'>
 
-        <!--    <td> <?php if ($row['activity'] == '1') { ?>
-                    <?php// echo "Assigned"; ?> 
+                            <font color="black"><?php echo $row['firstname'];
+            echo " ";
+            echo $row['lastname']; ?></font>
+                        </a></div>
+    <?php } ?>
+                <?php if ($row['available'] == '1') { ?>
+                    <div class="col-lg-3 ">  
+                    <?php if ($row['status'] == '2') { ?>        
+                            <button   onclick="location.href = '<?= WEBSITE ?>request_details?book_id=<?php echo $row['book_id']; ?>'"
+                                      class="btn btn-primary">                 
+            <?php echo "Request Queue" ?></button></div>
+                            <?php } ?>
+                        <?php } ?></td> 
+                    <!--    <td> <?php if ($row['available'] == '2') { ?>
+                            <?php // echo $row['date']; ?> 
+            <?php } ?></td>-->
+
+            <!--    <td> <?php if ($row['activity'] == '1') { ?>
+        <?php // echo "Assigned";  ?> 
                 <?php
-                }
-                if ($row['activity'] == '2') {
-                    ?>
-                    <?php// echo ""; ?>
-    <?php } ?></td>-->
+            }
+            if ($row['activity'] == '2') {
+                ?>
+                <?php // echo ""; ?>
+            <?php } ?></td>-->
             <td>  <ul class ="menu">
 
                     <li><a herf=""><font color="black">actions</font></a>
 
                         <ul class ="submenu">
 
-                            <li><a href='<?= WEBSITE ?>admin_books/editbooks?book_id=<?php echo $row['book_id']; ?>' >
+                            <li><a href='<?= WEBSITE ?>editbooks?book_id=<?php echo $row['book_id']; ?>' >
                                     Edit</a></li>
                             <li>
-                                <?php if ($row['available'] == '1') { ?>
+    <?php if ($row['available'] == '1') { ?>
 
-        <?php if ($row['activity'] != '2') { ?> 
-                                        <a href='<?= WEBSITE ?>admin_books/deletebooks?book_id=<?php echo $row['book_id']; ?>'>
+                                    <?php if ($row['activity'] != '2') { ?> 
+                                        <a href='<?= WEBSITE ?>deletebooks?book_id=<?php echo $row['book_id']; ?>'>
                                             Delete</a> <?php } else { ?> <?php } ?></li> 
-                                <li> <a href='<?= WEBSITE ?>admin_books/assign_books?book_id=<?php echo $row['book_id']; ?>' >
+                                <li> <a href='<?= WEBSITE ?>assign_books?book_id=<?php echo $row['book_id']; ?>' >
                                         Assign </a>
     <?php } else { ?>
-                                    <a href='<?= WEBSITE ?>admin_books/return_book?book_id=<?php echo $row['book_id']; ?> & ch=<?php echo '#'; ?>' >
+                                    <a href='<?= WEBSITE ?>return_book?book_id=<?php echo $row['book_id']; ?> & ch=<?php echo '#'; ?>' >
                                         Return</a>     
     <?php } ?> </li>
                         </ul></li>

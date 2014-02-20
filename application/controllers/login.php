@@ -51,7 +51,7 @@ class login extends CI_Controller {
 
 
                     // $this->load->helper('url');
-                    redirect(WEBSITE . 'admin/dashboard');
+                    redirect(WEBSITE . 'admin');
                 }
 
 
@@ -61,7 +61,7 @@ class login extends CI_Controller {
                 if ($this->auth->isallowed("user", "dashboard")) {
 
                     //  $this->load->helper('url');
-                    redirect(WEBSITE . 'user/dashboard');
+                    redirect(WEBSITE . 'user');
                 }
             }
 
@@ -86,7 +86,7 @@ class login extends CI_Controller {
         if ($lout != 1) {
 
             $this->load->helper('url');
-            redirect('/login/login_form');
+            redirect('/login');
         }
     }
 

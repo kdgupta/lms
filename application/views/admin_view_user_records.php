@@ -1,5 +1,6 @@
 <?php ?>
 <head>
+
 <!--    <script>
   function preventBack(){window.history.forward();}
   setTimeout("preventBack()", 0);
@@ -8,18 +9,18 @@
 
     <style type="text/css">
         th { padding: 4px;
-vertical-align: top; border-style: solid; border-color: green; 
-border-width:5px;background-color:beige; }
-         .TFtable tr:nth-child(odd){ 
-		background: skyblue;}
-     .TFtable tr:nth-child(even){
-		background: white;}
-         </style>
-</head>
+             vertical-align: top; border-style: solid; border-color: green; 
+             border-width:5px;background-color:beige; }
+        .TFtable tr:nth-child(odd){ 
+            background: skyblue;}
+        .TFtable tr:nth-child(even){
+            background: white;}
+        </style>
+    </head>
 
-<div class="form-group"> 
+    <div class="form-group"> 
     <div class="col-sm-1 pull-top">
-        <button  onclick="location.href = '<?= WEBSITE ?>admin_books/viewbooks?ch=<?php echo '#'?>'"
+        <button  onclick="location.href = '<?= WEBSITE ?>viewbooks?ch=<?php echo '#' ?>'"
                  class="btn btn-sm btn-primary">
             Back</button></div>
     <div class="col-lg-3 "></div>
@@ -35,7 +36,7 @@ border-width:5px;background-color:beige; }
                   class="btn btn-sm btn-primary">
             logout</button></div>
 
-   
+
 
 </div>
 
@@ -50,8 +51,10 @@ border-width:5px;background-color:beige; }
         <th><font size="3"> Isbn Number</font> </th>
         <th><font size="3"> Price </font></th>
         <th><font size="3">
-            <a href = '<?= WEBSITE ?>admin_books/assigned_user_records?emp_id=<?php echo $record[0]['emp_id']?>& ch=<?php echo 'd'; ?>'>
-            Date</a></font></th>
+
+            <a href = '<?= WEBSITE ?>assigned_user_records?emp_id=<?php echo $record[0]['emp_id'] ?>& ch=<?php echo 'd'; ?>'>
+
+                Date</a></font></th>
         <th><font size="3">Activity</font></th> 
 
 

@@ -9,17 +9,18 @@
 
 
 
+
     <style type="text/css">
         .error {
-    color: red;
-}
-     </style>
+            color: red;
+        }
+    </style>
 </head>
 
 
 <div class="form-group"> 
     <div class="col-sm-1 pull-top">
-        <button  onclick="location.href = '<?= WEBSITE ?>admin_books/viewbooks?ch=<?php echo '#'?>'"
+        <button  onclick="location.href = '<?= WEBSITE ?>viewbooks?ch=<?php echo '#' ?>'"
                  class="btn btn-sm btn-primary">
             Back</button></div>
     <div class="col-lg-3 "></div>
@@ -40,7 +41,7 @@
 
 <?php
 echo validation_errors();
-echo form_open(WEBSITE . "admin_books/editbooks");
+echo form_open(WEBSITE . "editbooks");
 ?>
 <form class="form-horizontal" role="form"  >
     <div class="row">
@@ -110,12 +111,12 @@ echo form_open(WEBSITE . "admin_books/editbooks");
     <div class="col-lg-4 "></div>
     <div class="col-lg-3">
 
-<?php if ($userdata['available'] == '1') { ?>
+        <?php if ($userdata['available'] == '1') { ?>
             <input type="radio" name="available" <?= ($userdata['available']) ? "checked" : "" ?> value="1"><font size="3">Available </font>
         <?php } else { ?>
             <div class="col-sm-2"></div>
             <input type="radio" name="available" <?= ($userdata['available']) ? "checked" : "" ?> value="2"><font size="3">Unavailable </font>
-<?php } ?>
+        <?php } ?>
 
     </div>
 </div>

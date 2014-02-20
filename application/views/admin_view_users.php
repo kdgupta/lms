@@ -8,45 +8,46 @@
   window.onunload=function(){null};
 </script>-->
 
+
     <style type="text/css">
-     th { padding: 4px;
-vertical-align: top; border-style: solid; border-color: green; 
-border-width:5px;background-color:beige; }
-      .TFtable tr:nth-child(odd){ 
-		background: skyblue;}
-     .TFtable tr:nth-child(even){
-		background: white;}
-     body {background-color:ghp} 
-         </style>
+        th { padding: 4px;
+             vertical-align: top; border-style: solid; border-color: green; 
+             border-width:5px;background-color:beige; }
+        .TFtable tr:nth-child(odd){ 
+            background: skyblue;}
+        .TFtable tr:nth-child(even){
+            background: white;}
+        body {background-color:ghp} 
+    </style>
 </head>
 
 
 
 <div class="form-group"> 
-    
+
     <div class="col-sm-1 pull-top">
-        <button  onclick="location.href = '<?= WEBSITE ?>admin/dashboard'"
-                class="btn btn-sm btn-primary">
-      Back</button></div>
+        <button  onclick="location.href = '<?= WEBSITE ?>admin'"
+                 class="btn btn-sm btn-primary">
+            Back</button></div>
     <div class="col-lg-3 "></div>
     <div class="col-lg-4 "></div>
     <div class="col-lg-2 "></div>
     <div class="col-sm-1 pull-top" >
         <label style=" position: absolute; top: 0; right: 0;" > <font size="2"> <?php echo $this->session->userdata('firstname') ?></font></label>
     </div>
-    
+
     <div class="col-sm-1 pull-top" >
 
         <button   onclick="location.href = '<?= WEBSITE ?>login/logout_form'"
-                 class="btn btn-sm btn-primary">
+                  class="btn btn-sm btn-primary">
             logout</button></div>
 </div>
 <div class="col-lg-4"> </div>
 <div class="col-lg-1"> </div>
 
 <div class="col-lg-2">
-    <button  onclick="location.href = '<?= WEBSITE ?>admin_users/createuser'" class="btn btn-lg btn-primary btn-block">
-     Add New User </button> </div> <br><br> <br><br>    
+    <button  onclick="location.href = '<?= WEBSITE ?>createuser'" class="btn btn-lg btn-primary btn-block">
+        Add New User </button> </div> <br><br> <br><br>    
 
 
 <table align="center" border="1" class="TFtable">
@@ -55,16 +56,16 @@ border-width:5px;background-color:beige; }
 
     <tr> <th style="text-align: center;"> <font size="3">Emp_id</font></th>
         <th style="text-align: center;"> <font size="3">
-            <a href = '<?= WEBSITE ?>admin_users/viewusers?ch=<?php echo 'f'; ?>'>
+            <a href = '<?= WEBSITE ?>viewusers?ch=<?php echo 'f'; ?>'>
                 First name </a></font></th>
         <th style="text-align: center;"> <font size="3">
-              <a href = '<?= WEBSITE ?>admin_users/viewusers?ch=<?php echo 'l'; ?>'>
-            Last name</a></font> </th>
+            <a href = '<?= WEBSITE ?>viewusers?ch=<?php echo 'l'; ?>'>
+                Last name</a></font> </th>
+
         <th style="text-align: center;"> <font size="3">Email</font></th>
         <th style="text-align: center;"><font size="3"> Designation </font></th>
         <th style="text-align: center;"><font size="3"> Active </font></th>
         <th style="text-align: center;"><font size="3"> Roles </font></th>
-
         <th style="text-align: center;"> <font size="3">Actions</font></th>
     </tr>
     <?php foreach ($userdata as $row) {
@@ -77,21 +78,21 @@ border-width:5px;background-color:beige; }
             <td><?php echo $row['designation']; ?></td>
             <td><?php echo $row['is_active']; ?></td>
             <td><?php echo $row['role_name']; ?></td>
-           
-            <td> <div class="col-lg-1"> <button  onclick=  "location.href = '<?= WEBSITE ?>admin_users/edituser?emp_id=<?php echo $row['emp_id']; ?>'"
-                                                     class="btn btn-sm btn-primary">
-                            <font size="2"> Edit</font> </button></div>
+
+            <td> <div class="col-lg-1"> <button  onclick=  "location.href = '<?= WEBSITE ?>edituser?emp_id=<?php echo $row['emp_id']; ?>'"
+                                                 class="btn btn-sm btn-primary">
+                        <font size="2"> Edit</font> </button></div>
 
                 <div class="col-sm-1"></div>
 
- 
-                
-   <div class="col-lg-1"> <button disabled="disabled" onclick=  "location.href = '<?= WEBSITE ?>admin_users/deleteuser?emp_id=<?php echo $row['emp_id']; ?>'"
-                               class="btn btn-sm btn-primary">
-                            <font size="2"> Delete</font> </button></div>
- 
 
-                </td></tr>
+
+                <div class="col-lg-1"> <button disabled="disabled" onclick=  "location.href = '<?= WEBSITE ?>admin_users/deleteuser?emp_id=<?php echo $row['emp_id']; ?>'"
+                                               class="btn btn-sm btn-primary">
+                        <font size="2"> Delete</font> </button></div>
+
+
+            </td></tr>
     <?php } ?>
 </table>
 

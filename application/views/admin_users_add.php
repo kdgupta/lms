@@ -1,6 +1,7 @@
 
 
 <head>
+
  <!--   <script>
   function preventBack(){window.history.forward();}
   setTimeout("preventBack()", 0);
@@ -11,17 +12,17 @@
 
     <style type="text/css">
         .error {
-    color: red;
-}
- .required:before {
-    color: red;
-    content: "*"}
-     </style>
-</head>
+            color: red;
+        }
+        .required:before {
+            color: red;
+            content: "*"}
+        </style>
+    </head>
 
-<div class="form-group"> 
+    <div class="form-group"> 
     <div class="col-sm-1 pull-top">
-        <button  onclick="location.href = '<?= WEBSITE ?>admin_users/viewusers'"
+        <button  onclick="location.href = '<?= WEBSITE ?>viewusers?ch=<?php echo '#' ?>'"
                  class="btn btn-sm btn-primary">
             Back</button></div>
     <div class="col-lg-3 "></div>
@@ -50,7 +51,7 @@ echo validation_errors();
 
 // Using the form helper to help create the start of the form code
 
-echo form_open(WEBSITE . "admin_users/createuser");
+echo form_open(WEBSITE . "createuser");
 ?>
 
 

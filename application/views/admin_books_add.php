@@ -7,22 +7,23 @@
   window.onunload=function(){null};
 </script>-->
 
+
     <style type="text/css">
         .error {
-    color: red;
-}
-  .required:before {
-    color: red;
-    content: "*"}
-     </style>
-   
-</head>
+            color: red;
+        }
+        .required:before {
+            color: red;
+            content: "*"}
+        </style>
+
+    </head>
 
 
 
-<div class="form-group"> 
+    <div class="form-group"> 
     <div class="col-sm-1 pull-top">
-        <button  onclick="location.href = '<?= WEBSITE ?>admin_books/viewbooks?ch=<?php echo'#'?>'"
+        <button  onclick="location.href = '<?= WEBSITE ?>viewbooks?ch=<?php echo'#' ?>'"
                  class="btn btn-sm btn-primary">
             Back</button></div>
     <div class="col-lg-3 "></div>
@@ -44,8 +45,7 @@
 
 <?php
 echo validation_errors();
-echo form_open(WEBSITE . "admin_books/addbooks");
-
+echo form_open(WEBSITE . "addbooks");
 ?>
 
 <form class="form-horizontal" role="form" method="post" >
@@ -53,16 +53,16 @@ echo form_open(WEBSITE . "admin_books/addbooks");
 
     <div class="row">
         <div class="form-group"> 
-            
+
             <div class="col-sm-2 "></div>
-             <div class="col-lg-3">
-            <label for="book_id" class="col-lg-3  control-label"><font size="3"></font></label>
-            <div class="col-lg-4">
-                <input type="hidden" name="book_id" class="form-control"  placeholder="book_id">
+            <div class="col-lg-3">
+                <label for="book_id" class="col-lg-3  control-label"><font size="3"></font></label>
+                <div class="col-lg-4">
+                    <input type="hidden" name="book_id" class="form-control"  placeholder="book_id">
+                </div>
             </div>
         </div>
     </div>
-        </div>
     <div class="row">
         <div class="form-group"> 
             <div class="col-sm-2 "></div>
@@ -115,30 +115,30 @@ echo form_open(WEBSITE . "admin_books/addbooks");
         <div class="form-group">
             <div class="col-sm-2"></div>
             <label for="price"  class="col-lg-3 control-label"><font size="3"><div class="required"  align="left">Price</div></font></label>
-                        <div class="col-lg-4">
-                            <input type="text" name="price" class="form-control"  placeholder="price">
-                        </div>
-                    </div>
-               
+            <div class="col-lg-4">
+                <input type="text" name="price" class="form-control"  placeholder="price">
+            </div>
         </div>
-              
 
-
-
-
-                <br>
-                <div class="col-lg-5"></div>
-                <div class="col-lg-4">
-                    <input type="submit" name="submit" value="Add Book" class="btn btn-lg btn-primary btn-block" >
+    </div>
 
 
 
 
 
+    <br>
+    <div class="col-lg-5"></div>
+    <div class="col-lg-4">
+        <input type="submit" name="submit" value="Add Book" class="btn btn-lg btn-primary btn-block" >
 
-                </div>
 
-                </form>
+
+
+
+
+    </div>
+
+</form>
 
 
 

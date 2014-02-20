@@ -7,21 +7,22 @@
   window.onunload=function(){null};
 </script>-->
 
+
     <style type="text/css">
-             th { padding: 4px;
-vertical-align: top; border-style: solid; border-color: green; 
-border-width:5px;background-color:beige; }
-               .TFtable tr:nth-child(odd){ 
-		background: skyblue;}
-     .TFtable tr:nth-child(even){
-		background: white;}
+        th { padding: 4px;
+             vertical-align: top; border-style: solid; border-color: green; 
+             border-width:5px;background-color:beige; }
+        .TFtable tr:nth-child(odd){ 
+            background: skyblue;}
+        .TFtable tr:nth-child(even){
+            background: white;}
         </style>
-        </head>
+    </head>
 
 
-<div class="form-group"> 
+    <div class="form-group"> 
     <div class="col-sm-1 pull-top">
-        <button  onclick="location.href = '<?= WEBSITE ?>user/dashboard'"
+        <button  onclick="location.href = '<?= WEBSITE ?>user'"
                  class="btn btn-sm btn-primary">
             Back</button></div>
     <div class="col-lg-3 "></div>
@@ -49,9 +50,9 @@ border-width:5px;background-color:beige; }
     <!--   <th style="text-align: center;"><font size="3"> Isbn </font></th>
         <th style="text-align: center;"> <font size="3">Price </font></th>-->
         <th style="text-align: center;"> <font size="3">Status</font></th>
-         <th style="text-align: center;"> <font size="3">Actions</font></th>
+        <th style="text-align: center;"> <font size="3">Actions</font></th>
 
-</tr>
+    </tr>
 
     <?php foreach ($userdata as $row) { ?>
 
@@ -62,9 +63,9 @@ border-width:5px;background-color:beige; }
             <td><?php echo $row['publications']; ?></td> 
             <td><?php echo $row['edition']; ?></td>
 
-         <!--   <td><?php //echo $row['isbn']; ?></td>
-           <td><?php //echo $row['price']; ?></td>-->
-            
+             <!--   <td><?php //echo $row['isbn'];  ?></td>
+               <td><?php //echo $row['price'];  ?></td>-->
+
 
 
 
@@ -73,7 +74,7 @@ border-width:5px;background-color:beige; }
                     <td> <div >
                             <font size="2"> pending</font> </div>
                     </td>
-                    <td> <div class="col-lg-1"> <button  onclick=  "location.href = '<?= WEBSITE ?>user_books/cancel_request?book_id=<?php echo $row['book_id']; ?>'"
+                    <td> <div class="col-lg-1"> <button  onclick=  "location.href = '<?= WEBSITE ?>cancel_request?book_id=<?php echo $row['book_id']; ?>'"
                                                          class="btn btn-sm btn-primary">
                                 <font size="2"> Cancel Request</font> </button></div>
                     </td>
@@ -106,7 +107,7 @@ border-width:5px;background-color:beige; }
                         <font size="2"> </font> </div>
                 </td>
                 <td>
-                    <div class="col-lg-1"> <button  onclick=  "location.href = '<?= WEBSITE ?>user_books/request?book_id=<?php echo $row['book_id']; ?>'"
+                    <div class="col-lg-1"> <button  onclick=  "location.href = '<?= WEBSITE ?>request?book_id=<?php echo $row['book_id']; ?>'"
                                                     class="btn btn-sm btn-primary">
                             <font size="2"> Request</font> </button></div> </td>
 

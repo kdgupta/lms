@@ -8,10 +8,14 @@
 ?>
 <head>
     <script language="javascript" type="text/javascript">
-  function preventBack(){window.history.forward();}
-  setTimeout("preventBack()", 0);
-  window.onunload=function(){null};
-</script>
+        function preventBack() {
+            window.history.forward();
+        }
+        setTimeout("preventBack()", 0);
+        window.onunload = function() {
+            null
+        };
+    </script>
 </head>
 
 <div class="container">

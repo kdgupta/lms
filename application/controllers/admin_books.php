@@ -16,10 +16,8 @@ class admin_books extends App_controller {
 //$this->output->enable_profiler(TRUE);
         $bookid = $this->input->get('book_id');
         $this->load->model("books");
-     
-
-
         if ($_SERVER['REQUEST_METHOD'] === 'GET') {
+
         $this->load->helper("form");
          $this->load->library("form_validation");
          $this->form_validation->set_error_delimiters('<div class="error">', '</div>');
@@ -34,11 +32,9 @@ class admin_books extends App_controller {
         if (!empty($bookid)) {
 
             $data["userdata"] = $this->books->get_bookdata_by_id($bookid);
-
-
             $this->layout->view('admin_books_edit', $data);
-
-        } }else {
+        }
+        }else {
             if($this->form_validation->run() == false) {
                 $bookid = $this->input->post('book_id');
                 
@@ -66,7 +62,9 @@ class admin_books extends App_controller {
             }
         }
         
+
     
+
 
     public function deletebooks() {
 // $this->output->enable_profiler(TRUE);
@@ -167,8 +165,6 @@ class admin_books extends App_controller {
         if (!empty($empid)) {
 
             $data["record"] = $this->user_records->assignedbook($empid);
-
-
             $this->layout->view('admin_view_user_records', $data);
         }
     }

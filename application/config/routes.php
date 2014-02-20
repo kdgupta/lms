@@ -43,7 +43,26 @@ if (!defined('BASEPATH'))
 
 $route['default_controller'] = "login";
 $route['404_override'] = '';
+$route["login"]='login/login_form';
+$route["admin"]='admin/dashboard';
+$route["user"]='user/dashboard';
+$route["viewusers"]='admin_users/viewusers';
+$route['createuser']='admin_users/createuser';
+$route["viewbooks"]='admin_books/viewbooks';
+$route["view_user_books"]='user_books/view_user_books';
+$route["assigned_books"]='user_books/assigned_books';
+$route["request"]='user_books/request';
+$route["cancel_request"]='user_books/cancel_request';
+$route['edituser']='admin_users/edituser';
+$route["addbooks"]='admin_books/addbooks';
+$route["editbooks"]='admin_books/editbooks';
+$route["request_details"]='admin_books/request_details';
+$route["deletebooks"]='admin_books/deletebooks';
+$route["assign_books"]='admin_books/assign_books';
+$route["return_book"]='admin_books/return_book';
+$route["assigned_user_records"]='admin_books/assigned_user_records';
 
+        
 //$route['(:any)'] = 'login/login_form';
  //$route['(:any)'] = "login/";
 

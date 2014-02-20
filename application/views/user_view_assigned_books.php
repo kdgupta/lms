@@ -7,20 +7,21 @@
   window.onunload=function(){null};
 </script>-->
 
+
     <style type="text/css">
         th { padding: 4px;
-vertical-align: top; border-style: solid; border-color: green; 
-border-width:5px;background-color:beige; }
-         .TFtable tr:nth-child(odd){ 
-		background: skyblue;}
-     .TFtable tr:nth-child(even){
-		background: white;}
-         </style>
-</head>
+             vertical-align: top; border-style: solid; border-color: green; 
+             border-width:5px;background-color:beige; }
+        .TFtable tr:nth-child(odd){ 
+            background: skyblue;}
+        .TFtable tr:nth-child(even){
+            background: white;}
+        </style>
+    </head>
 
-<div class="form-group"> 
+    <div class="form-group"> 
     <div class="col-sm-1 pull-top">
-        <button  onclick="location.href = '<?= WEBSITE ?>user/dashboard'"
+        <button  onclick="location.href = '<?= WEBSITE ?>user'"
                  class="btn btn-sm btn-primary">
             Back</button></div>
     <div class="col-lg-3 "></div>
@@ -48,8 +49,9 @@ border-width:5px;background-color:beige; }
     <th> Edition </th>
    <!-- <th> Isbn Number </th>
     <th> Price </th>-->
-    <th> <a href = '<?= WEBSITE ?>user_books/assigned_books?emp_id=<?php echo $this->session->userdata('emp_id')?> & ch=<?php echo 'd'; ?>'>Date
-    </a></th>
+    <th> <a href = '<?= WEBSITE ?>assigned_books?emp_id=<?php echo $this->session->userdata('emp_id') ?> & ch=<?php echo 'd'; ?>'>Date
+        </a></th>
+
     <th>Activity</th> 
 
 
@@ -59,28 +61,28 @@ border-width:5px;background-color:beige; }
 <?php foreach ($record as $row) {
     ?>
     <tr>
-       <!-- <td>   <?//php echo $row['firstname']; ?><?php //echo" "; ?><?php //echo $row['lastname']; ?></td>-->
+       <!-- <td>   <? //php echo $row['firstname'];  ?><?php //echo" ";  ?><?php //echo $row['lastname'];  ?></td>-->
 
         <td><?php echo $row['book_title']; ?></td>
         <td><?php echo $row['author']; ?></td>
         <td><?php echo $row['publications']; ?></td> 
         <td><?php echo $row['edition']; ?></td>
-     <!--   <td><?//php echo $row['isbn']; ?></td>
-        <td><?php// echo $row['price']; ?></td>-->
+     <!--   <td><? //php echo $row['isbn'];  ?></td>
+        <td><?php // echo $row['price'];  ?></td>-->
 
 
         <td><?php echo $row['date']; ?></td> 
-           <td> <?php if ($row['activity'] == 1) { ?>
-       <div class="col-lg-1"> 
-                         
-                   <font size="2">Assigned</font> </div>
-                 
+        <td> <?php if ($row['activity'] == 1) { ?>
+                <div class="col-lg-1"> 
+
+                    <font size="2">Assigned</font> </div>
+
             <?php } ?>
-       <?php if ($row['activity'] == 2) { ?>
-                  <div class="col-lg-1"> 
-                         
-                   <font size="2">Returned</font> </div>
-           <?php } ?></td> 
+            <?php if ($row['activity'] == 2) { ?>
+                <div class="col-lg-1"> 
+
+                    <font size="2">Returned</font> </div>
+            <?php } ?></td> 
 
     <?php } ?>
 </tr>
