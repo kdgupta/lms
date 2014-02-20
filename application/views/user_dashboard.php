@@ -1,10 +1,6 @@
 <?php ?>
 <head>
-    <script>
-  function preventBack(){window.history.forward();}
-  setTimeout("preventBack()", 0);
-  window.onunload=function(){null};
-</script>
+   
 </head>
 
 
@@ -44,7 +40,7 @@
 <div class="row">
     <div class="col-lg-4"></div>
     <div class="col-lg-4">
-        <button  onclick="location.href = '<?= WEBSITE ?>user_books/assigned_books?emp_id=<?php echo $this->session->userdata('emp_id'); ?>'" class="btn btn-lg btn-primary btn-block">
+        <button  onclick="location.href = '<?= WEBSITE ?>user_books/assigned_books?emp_id=<?php echo $this->session->userdata('emp_id'); ?>& ch=<?php echo '#'?>' " class="btn btn-lg btn-primary btn-block">
             Assigned Books </button>
     </div>
 </div>

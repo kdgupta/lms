@@ -2,11 +2,7 @@
 
 
 <head>
-    <script>
-  function preventBack(){window.history.forward();}
-  setTimeout("preventBack()", 0);
-  window.onunload=function(){null};
-</script>
+    
 
     <style type="text/css">
      th { padding: 4px;
@@ -54,14 +50,15 @@ border-width:5px;background-color:beige; }
 
 
     <tr> <th style="text-align: center;"> <font size="3">Emp_id</font></th>
-        <th style="text-align: center;"> <font size="3">First name </font></th>
+        <th style="text-align: center;"> <font size="3">
+             <a href = '<?= WEBSITE ?>admin_users/viewusers?ch=<?php echo 'f'; ?>'>
+            First name </a></font></th>
         <th style="text-align: center;"> <font size="3">Last name</font> </th>
 
         <th style="text-align: center;"> <font size="3">Email</font></th>
         <th style="text-align: center;"><font size="3"> Designation </font></th>
         <th style="text-align: center;"><font size="3"> Active </font></th>
         <th style="text-align: center;"><font size="3"> Roles </font></th>
-
         <th style="text-align: center;"> <font size="3">Actions</font></th>
     </tr>
     <?php foreach ($userdata as $row) {

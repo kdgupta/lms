@@ -1,11 +1,6 @@
 <?php ?>
 
 <head>
-    <script>
-  function preventBack(){window.history.forward();}
-  setTimeout("preventBack()", 0);
-  window.onunload=function(){null};
-</script>
 
     <style type="text/css">
              th { padding: 4px;

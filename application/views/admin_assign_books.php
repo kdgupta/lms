@@ -6,11 +6,7 @@
 ?>
 
 <head>
-    <script>
-  function preventBack(){window.history.forward();}
-  setTimeout("preventBack()", 0);
-  window.onunload=function(){null};
-</script>
+  
 </head>
 <div class="form-group"> 
     <div class="col-sm-1 pull-top">

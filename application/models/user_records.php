@@ -15,14 +15,34 @@ class user_records extends CI_Model {
 
     public function assignedbook($empid) {
         $this->load->database();
+        switch($_GET['ch']){
+            case 'd':
+                if($_COOKIE["flg2"]=="0"){
+                    $sort="ORDER BY date DESC";
+                  setcookie("flg2", "1");
+                    break;
+                }
+                 if($_COOKIE["flg2"]=="1"){
+                    $sort="ORDER BY date ASC";
+                  setcookie("flg2", "0");
+                    break;
+                 }
+                 break;
+            default:
+                    $sort="ORDER BY date ASC";
+                  setcookie("flg2", "0");
+                    break;
+        }
         //$query = $this->db->query("select  * from books");
-        $query = $this->db->query("select p.emp_id, p.firstname, p.lastname,
-             r.book_id,r.book_title,r.author,r.publications,r.edition,r.isbn,
+        $query = $this->db->query("select p.emp_id, UPPER(p.firstname) as firstname,
+            UPPER(p.lastname) as lastname,
+             r.book_id,UPPER(r.book_title) as book_title,UPPER(r.author) as author,
+             r.publications,r.edition,r.isbn,
              r.price,r.available,q.date,q.activity
              from users as p
              join 
             users_books_records as q on p.emp_id = q.emp_id join books as r on q.book_id
-            =  r.book_id where q.emp_id= $empid ");
+            =  r.book_id where q.emp_id= $empid " .$sort);
         return $query->result_array();
     }
 

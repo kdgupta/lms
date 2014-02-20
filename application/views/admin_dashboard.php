@@ -1,12 +1,6 @@
 <?php ?>
 
-<head>
-    <script language="javascript" type="text/javascript">
-  function preventBack(){window.history.forward();}
-  setTimeout("preventBack()", 0);
-  window.onunload=function(){null};
-</script>
-</head>
+
 
 <div class="form-group"> 
     <div class="col-lg-4 "></div>
@@ -34,7 +28,7 @@
 <div class="row">
     <div class="col-lg-4"></div>
     <div class="col-lg-4">
-        <button  onclick="location.href = '<?= WEBSITE ?>admin_users/viewusers'" class="btn btn-lg btn-primary btn-block">
+        <button  onclick="location.href = '<?= WEBSITE ?>admin_users/viewusers?ch=<?php echo '#'?>'" class="btn btn-lg btn-primary btn-block">
             Manage Users </button>
     </div>
 </div>
@@ -48,6 +42,6 @@
             Manage Books </button>
     </div>
 </div>
-
+ 
 
 </form>

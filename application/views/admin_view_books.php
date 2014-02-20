@@ -1,11 +1,7 @@
 <?php ?>
 
 <head>
-    <script>
-  function preventBack(){window.history.forward();}
-  setTimeout("preventBack()", 0);
-  window.onunload=function(){null};
-</script>
+   
 
     <style type="text/css">
         .submenu{
@@ -87,16 +83,19 @@ border-width:5px;background-color:beige; }
 
 
 <div class="col-lg-3"> </div>
-
 <div class="col-lg-2">
     <button  onclick="location.href = '<?= WEBSITE ?>admin_books/addbooks'" class="btn btn-lg btn-primary btn-block">
         Add New Book</button> </div>
-<div class="col-lg-2"> </div>
+<div class="col-lg-1"> 
+ <font size="2" color='GREEN'> Please!</font>
+  </div>
+<div class="col-lg-1"> 
+  <a href = 'https://drive.google.com/a/tradus.com/#folders/0B6y7nksbw4OOczZ6cG1JdU1LM0U'>
+        <font size="2">click here</font></a>
+    </div>
 <div class="col-lg-2">
-
- <button disabled="disabled" onclick="location.href = '<?= WEBSITE ?>admin_books/request_details'"class="btn btn-lg btn-primary btn-block">
-        <font size="4">Request Details</font></button> </div>
-
+    <font size="2" color='GREEN'> to add soft copy of book</font> 
+    </div>
 <br><br><br><br>   
 
 
@@ -146,7 +145,7 @@ border-width:5px;background-color:beige; }
                 ?></td>
             <td> <?php if ($row['available'] == '2') { ?> 
               <div class="col-lg-3 ">  
-    <a href = '<?= WEBSITE ?>admin_books/assigned_user_records?emp_id=<?php echo $row['emp_id']; ?>'>
+    <a href = '<?= WEBSITE ?>admin_books/assigned_user_records?emp_id=<?php echo $row['emp_id']; ?>& ch=<?php echo '#';?>'>
               <font color="black"><?php echo $row['firstname'];echo " "; echo $row['lastname'];?></font>
                  </a></div>
                 <?php } ?>

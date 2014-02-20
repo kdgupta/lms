@@ -51,7 +51,7 @@ class admin_users extends App_controller {
                     "is_active" => $this->input->post('is_active'));
                 $tre = $this->users->update_users_data($data, $this->input->post('emp_id'));
                 if ($tre == true) {
-                    header('location: viewusers');
+                    header('location: viewusers?ch=#');
                 }
             }
         }
@@ -63,7 +63,7 @@ class admin_users extends App_controller {
         $this->load->model("users");
         $ret = $this->users->delete_users($empid);
         if ($ret == true) {
-            header('location: viewusers');
+            header('location: viewusers?ch=#');
         }
     }
 
@@ -109,7 +109,7 @@ class admin_users extends App_controller {
                 $this->load->model("users");
                 $ret = $this->users->insert_users($data);
                 if ($ret == true) {
-                    header('location: viewusers');
+                    header('location: viewusers?ch=#');
                 }
             }
         }

@@ -5,11 +5,7 @@
  * and open the template in the editor.
  */
 ?><head>
-    <script>
-  function preventBack(){window.history.forward();}
-  setTimeout("preventBack()", 0);
-  window.onunload=function(){null};
-</script>
+  
 
     
     
