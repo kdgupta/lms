@@ -94,9 +94,11 @@
     <button  onclick="location.href = '<?= WEBSITE ?>addbooks'" class="btn btn-lg btn-primary btn-block">
         Add New Book</button> </div>
 
-<font size="3" color='purple'> Please!<a target="_blank" href = 'https://drive.google.com/a/tradus.com/#folders/0B6y7nksbw4OOczZ6cG1JdU1LM0U'>
-    <font size="4"> click here</font></a>
-to add soft copy of book</font> 
+ <font size="4" color=#8866ff> Please! </font>
+  <a target="_blank" href = 'https://drive.google.com/a/tradus.com/#folders/0B6y7nksbw4OOczZ6cG1JdU1LM0U'>
+        <font size="5">click here</font></a>
+    <font size="4" color=#8866ff> to add soft copy of book</font> 
+   
 
 <br><br><br><br>   
 
