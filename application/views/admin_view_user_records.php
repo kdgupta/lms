@@ -19,7 +19,7 @@ border-width:5px;background-color:beige; }
 
 <div class="form-group"> 
     <div class="col-sm-1 pull-top">
-        <button  onclick="location.href = '<?= WEBSITE ?>admin_books/viewbooks'"
+        <button  onclick="location.href = '<?= WEBSITE ?>admin_books/viewbooks?ch=<?php echo '#'?>'"
                  class="btn btn-sm btn-primary">
             Back</button></div>
     <div class="col-lg-3 "></div>
@@ -49,7 +49,9 @@ border-width:5px;background-color:beige; }
         <th> <font size="3">Edition</font> </th>
         <th><font size="3"> Isbn Number</font> </th>
         <th><font size="3"> Price </font></th>
-        <th><font size="3"> Date</font></th>
+        <th><font size="3">
+            <a href = '<?= WEBSITE ?>admin_books/assigned_user_records?emp_id=<?php echo $record[0]['emp_id']?>& ch=<?php echo 'd'; ?>'>
+            Date</a></font></th>
         <th><font size="3">Activity</font></th> 
 
 

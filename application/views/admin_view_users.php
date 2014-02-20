@@ -54,9 +54,12 @@ border-width:5px;background-color:beige; }
 
 
     <tr> <th style="text-align: center;"> <font size="3">Emp_id</font></th>
-        <th style="text-align: center;"> <font size="3">First name </font></th>
-        <th style="text-align: center;"> <font size="3">Last name</font> </th>
-
+        <th style="text-align: center;"> <font size="3">
+            <a href = '<?= WEBSITE ?>admin_users/viewusers?ch=<?php echo 'f'; ?>'>
+                First name </a></font></th>
+        <th style="text-align: center;"> <font size="3">
+              <a href = '<?= WEBSITE ?>admin_users/viewusers?ch=<?php echo 'l'; ?>'>
+            Last name</a></font> </th>
         <th style="text-align: center;"> <font size="3">Email</font></th>
         <th style="text-align: center;"><font size="3"> Designation </font></th>
         <th style="text-align: center;"><font size="3"> Active </font></th>

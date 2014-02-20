@@ -42,6 +42,8 @@
         }
         .menu li{
             display:block;
+            cursor: pointer;
+           
             text-align: center;
             cursor: pointer;
             cursor: hand; 
@@ -109,7 +111,6 @@ border-width:5px;background-color:beige; }
         <th style="text-align: center;"><font size="3">
        <a href = '<?= WEBSITE ?>admin_books/viewbooks?ch=<?php echo 'b'; ?>'>
          Book Title </a></font></th>
-
         <th style="text-align: center;"><font size="3">
         <a href = '<?= WEBSITE ?>admin_books/viewbooks?ch=<?php echo 'a'; ?>'>
          Author Name </a></font></th>
@@ -148,7 +149,7 @@ border-width:5px;background-color:beige; }
                 ?></td>
             <td> <?php if ($row['available'] == '2') { ?> 
               <div class="col-lg-3 ">  
-    <a href = '<?= WEBSITE ?>admin_books/assigned_user_records?emp_id=<?php echo $row['emp_id']; ?>'>
+    <a href = '<?= WEBSITE ?>admin_books/assigned_user_records?emp_id=<?php echo $row['emp_id']; ?>& ch= <?php echo '#' ?>'>
               <font color="black"><?php echo $row['firstname'];echo " "; echo $row['lastname'];?></font>
                  </a></div>
                 <?php } ?>
@@ -173,7 +174,9 @@ border-width:5px;background-color:beige; }
                     <?php// echo ""; ?>
     <?php } ?></td>-->
             <td>  <ul class ="menu">
+
                     <li><a herf=""><font color="black">actions</font></a>
+
                         <ul class ="submenu">
 
                             <li><a href='<?= WEBSITE ?>admin_books/editbooks?book_id=<?php echo $row['book_id']; ?>' >
@@ -187,7 +190,7 @@ border-width:5px;background-color:beige; }
                                 <li> <a href='<?= WEBSITE ?>admin_books/assign_books?book_id=<?php echo $row['book_id']; ?>' >
                                         Assign </a>
     <?php } else { ?>
-                                    <a href='<?= WEBSITE ?>admin_books/return_book?book_id=<?php echo $row['book_id']; ?>' >
+                                    <a href='<?= WEBSITE ?>admin_books/return_book?book_id=<?php echo $row['book_id']; ?> & ch=<?php echo '#'; ?>' >
                                         Return</a>     
     <?php } ?> </li>
                         </ul></li>

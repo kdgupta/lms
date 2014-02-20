@@ -16,13 +16,8 @@ class admin_books extends App_controller {
 //$this->output->enable_profiler(TRUE);
         $bookid = $this->input->get('book_id');
         $this->load->model("books");
-         $this->load->library("form_validation");
-        $this->form_validation->set_rules("book_title", "Book Title", "required");
-        $this->form_validation->set_rules("author", "Author Name", "required");
-        $this->form_validation->set_rules("publications", "Publications", "required");
-        $this->form_validation->set_rules("edition", "Edition", "required");
-        $this->form_validation->set_rules("isbn", "Isbn Number", "required");
-        $this->form_validation->set_rules("price", "Price", "required");
+     
+
 
         if ($_SERVER['REQUEST_METHOD'] === 'GET') {
         $this->load->helper("form");
@@ -51,7 +46,7 @@ class admin_books extends App_controller {
 
 
             $this->layout->view('admin_books_edit', $data);
-            }
+        }}}
               else{
 
             $data = array("book_id" => $this->input->post('book_id'),
@@ -66,12 +61,12 @@ class admin_books extends App_controller {
 
             $tre = $this->books->update_books_data($data, $this->input->post('book_id'));
             if ($tre == true) {
-                header('location: viewbooks');
+                header('location: viewbooks?ch=#');
             }
             }
         }
-        }
-    }
+        
+    
 
     public function deletebooks() {
 // $this->output->enable_profiler(TRUE);
@@ -83,7 +78,7 @@ class admin_books extends App_controller {
 
         $ret = $this->books->delete_books($bookid);
         if ($ret == true) {
-            header('location: viewbooks');
+            header('location: viewbooks?ch=#');
         }
 //$this->load->view('admin_dashboard');
     }
@@ -150,27 +145,16 @@ class admin_books extends App_controller {
                 $this->load->model("books");
                 $ret = $this->books->insert_books($data);
                 if ($ret == true) {
-                    header('location: viewbooks');
+                    header('location: viewbooks?ch=#');
                 }
             }
         }
     }
 
     public function viewbooks() {
-
-
-
-
         $this->load->model("books");
-
-
-
         $empid = $this->input->post('emp_id');
-
-
         $data["userdata"] = $this->books->books_data($empid);
-
-
         $this->layout->view("admin_view_books", $data);
     }
 
@@ -225,7 +209,7 @@ class admin_books extends App_controller {
                 $ret = $this->assignbook_model->assignedbook_records($data);
 
                 if ($ret == true) {
-                    header('location: viewbooks');
+                    header('location: viewbooks?ch=#');
                 }
             }
         }
@@ -257,7 +241,7 @@ class admin_books extends App_controller {
          
                      
            
-                header('location: viewbooks');
+                header('location: viewbooks?ch=#');
             
          //   }
         }
@@ -289,7 +273,7 @@ class admin_books extends App_controller {
            $data["log_data"]=$this->user_request->data_for_req_log();
            $re= $this->assignbook_model->insert_req_records($data["log_data"]);
                 if($re== true){
-                    header('location: viewbooks');
+                    header('location: viewbooks?ch=#');
                 }
           }
     }

@@ -48,7 +48,8 @@ border-width:5px;background-color:beige; }
     <th> Edition </th>
    <!-- <th> Isbn Number </th>
     <th> Price </th>-->
-    <th> Date</th>
+    <th> <a href = '<?= WEBSITE ?>user_books/assigned_books?emp_id=<?php echo $this->session->userdata('emp_id')?> & ch=<?php echo 'd'; ?>'>Date
+    </a></th>
     <th>Activity</th> 
 
 
