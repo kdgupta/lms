@@ -82,20 +82,15 @@ border-width:5px;background-color:beige; }
 
 
 
-<div class="col-lg-3"> </div>
+<div class="col-lg-2"> </div>
 <div class="col-lg-2">
     <button  onclick="location.href = '<?= WEBSITE ?>admin_books/addbooks'" class="btn btn-lg btn-primary btn-block">
         Add New Book</button> </div>
-<div class="col-lg-1"> 
- <font size="2" color='GREEN'> Please!</font>
-  </div>
-<div class="col-lg-1"> 
-  <a href = 'https://drive.google.com/a/tradus.com/#folders/0B6y7nksbw4OOczZ6cG1JdU1LM0U'>
-        <font size="2">click here</font></a>
-    </div>
-<div class="col-lg-2">
-    <font size="2" color='GREEN'> to add soft copy of book</font> 
-    </div>
+ <font size="4" color=#8866ff> Please! </font>
+  <a target="_blank" href = 'https://drive.google.com/a/tradus.com/#folders/0B6y7nksbw4OOczZ6cG1JdU1LM0U'>
+        <font size="5">click here</font></a>
+    <font size="4" color=#8866ff> to add soft copy of book</font> 
+   
 <br><br><br><br>   
 
 
