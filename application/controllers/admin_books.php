@@ -16,9 +16,7 @@ class admin_books extends App_controller {
 //$this->output->enable_profiler(TRUE);
         $bookid = $this->input->get('book_id');
         $this->load->model("books");
-        if ($_SERVER['REQUEST_METHOD'] === 'GET') {
-
-        $this->load->helper("form");
+           $this->load->helper("form");
          $this->load->library("form_validation");
          $this->form_validation->set_error_delimiters('<div class="error">', '</div>');
         $this->form_validation->set_rules("book_title", "Book Title", "required");
@@ -42,7 +40,7 @@ class admin_books extends App_controller {
 
 
             $this->layout->view('admin_books_edit', $data);
-        }}}
+        }
               else{
 
             $data = array("book_id" => $this->input->post('book_id'),
@@ -61,7 +59,7 @@ class admin_books extends App_controller {
             }
             }
         }
-        
+    }
 
     
 

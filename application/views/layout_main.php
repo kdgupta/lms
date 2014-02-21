@@ -1,4 +1,20 @@
 <!DOCTYPE html>
+
+ <!--   <style type="text/css">
+        wrapper {
+min-height:100%;
+position:relative;
+}
+       .footer{ 	
+width:100%;
+height:80px;
+position:absolute;
+bottom:0;
+left:0;
+background:#ee5;}
+    </style>
+</head>-->
+
 <html lang="en">
     <head>
         <meta charset="utf-8">
@@ -65,10 +81,12 @@
         </div>
 
         <div class="container">
+           
 
             <div class="starter-template">
                 <?php echo $content_for_layout ?>
             </div>
+              
 
         </div><!-- /.container -->
 
@@ -78,16 +96,15 @@
         <!-- Placed at the end of the document so the pages load faster -->
 
         <script src="<?= UI_LIB ?>bootstrap/js/bootstrap.min.js"></script>
-
+     
         <div id="footer">
             <div class="container" align="center" width="100"
-                 height="100" style="position:absolute; right:5%;bottom:10%;">
+                 height="100" style="position:relative; right:1%;bottom:50%;">
                 <p>Powered By: <a taget="_blank" href="http://www.tradus.com">OMS Team</a><br>
                     Please give us your suggestions Email: <a taget="_blank" href="mailto:oms@tradus.com">contact@tradus.com</a>
                 </p>
 
             </div>
         </div>
-
     </body>
 </html>

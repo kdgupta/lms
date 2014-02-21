@@ -7,7 +7,12 @@
   window.onunload=function(){null};
 </script>
 </head>-->
+     <style type="text/css">
+ .body {
+  position: fixed;
+}
 
+</style>
 
 <div class="form-group"> 
     <div class="col-lg-4 "></div>

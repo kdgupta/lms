@@ -57,7 +57,7 @@ echo form_open(WEBSITE . "edituser");
     <div class="row">
         <div class="form-group"> 
             <div class="col-sm-2 "></div>
-            <label for="firstname" class="col-lg-3 control-label"><font size="3"><div align="left">First Name</div></font></label>
+            <label for="firstname" class="col-lg-2 control-label"><font size="3"><div align="left">First Name</div></font></label>
             <div class="col-lg-4">
                 <input type="text" name="firstname" class="form-control"  value="<?= $userdata['firstname'] ?>">
             </div>
@@ -66,7 +66,7 @@ echo form_open(WEBSITE . "edituser");
     <div class="row">
         <div class="form-group"> 
             <div class="col-sm-2 "></div>
-            <label for="lastname" class="col-lg-3 control-label"><font size="3"><div align="left">Last Name</div></font></label>
+            <label for="lastname" class="col-lg-2 control-label"><font size="3"><div align="left">Last Name</div></font></label>
             <div class="col-lg-4">
                 <input type="text" name="lastname" class="form-control"  value="<?= $userdata['lastname'] ?>">
             </div>
@@ -75,7 +75,7 @@ echo form_open(WEBSITE . "edituser");
     <div class="row">
         <div class="form-group"> 
             <div class="col-sm-2 "></div>
-            <label for="email" class="col-lg-3 control-label"><font size="3"><div align="left">Email</div></font></label>
+            <label for="email" class="col-lg-2 control-label"><font size="3"><div align="left">Email</div></font></label>
             <div class="col-lg-4">
                 <input type="text" name="email" class="form-control"  value="<?= $userdata['email'] ?>">
             </div>
@@ -84,7 +84,7 @@ echo form_open(WEBSITE . "edituser");
     <div class="row">
         <div class="form-group"> 
             <div class="col-sm-2 "></div>
-            <label for="desinagtion" class="col-lg-3 control-label"><font size="3"><div align="left">Desinagtion</div></font></label>
+            <label for="desinagtion" class="col-lg-2 control-label"><font size="3"><div align="left">Desinagtion</div></font></label>
             <div class="col-lg-4">
                 <input type="text" name="designation" class="form-control"  value="<?= $userdata['designation'] ?>">
             </div>
@@ -94,7 +94,7 @@ echo form_open(WEBSITE . "edituser");
     <div class="row">
         <div class="form-group"> 
             <div class="col-sm-2 "></div>
-            <label for="password" class="col-lg-3 control-label"></label>
+            <label for="password" class="col-lg-2 control-label"></label>
             <div class="col-lg-4">
                 <input type="hidden" name="password" class="form-control"  value="<?= $userdata['password'] ?>">
             </div>
@@ -103,11 +103,12 @@ echo form_open(WEBSITE . "edituser");
 
     <div class="row">
         <div class="form-group">
-            <div class="col-sm-4"></div>
-            <div class="col-lg-4">
-                <input type="radio" name="is_active" <?= ($userdata['is_active']) ? "checked" : "" ?> value="1"><font size="3">Active
-                <input type="radio" name="is_active" <?= (!$userdata['is_active']) ? "checked" : "" ?> value="0"><font size="3">Inactive
+            <div class="col-lg-4"></div>
+            <div class="col-lg-3">
+                <input type="radio" name="is_active" <?= ($userdata['is_active']) ? "checked" : "" ?> value="1"><font size="3">Active</font>
+                <input type="radio" name="is_active" <?= (!$userdata['is_active']) ? "checked" : "" ?> value="0"><font size="3">Inactive</font>
             </div>
+        </div>
         </div>
 
 
@@ -116,13 +117,13 @@ echo form_open(WEBSITE . "edituser");
 
 
         <br>
-        <div class="col-lg-5"></div>
+        <div class="col-lg-4"></div>
         <div class="col-lg-4">
             <input type="submit" name="submit" value="Edit User" class="btn btn-lg btn-primary btn-block" >
 
 
         </div>
-
+<br>
 
 </form>
 

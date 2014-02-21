@@ -6,7 +6,7 @@ class user_assigned_books extends CI_Model {
         $this->load->database();
         //$query = $this->db->query("select  * from books");
         $email = $this->session->userdata('email');
-         $query = $this->db->query(" SELECT ubr.*, b.* , u.firstname,u.lastname FROM
+         $query = $this->db->query(" SELECT UPPER(ubr.*),UPPER( b.*) ,UPPER( u.firstname),UPPER(u.lastname) FROM
           (SELECT MAX(date) AS date ,emp_id FROM users_books_records
         GROUP BY book_id) a  JOIN users_books_records ubr ON ubr.date=a.date
         JOIN users u ON u.emp_id=ubr.emp_id

@@ -27,7 +27,7 @@ class user_request extends CI_Model {
          $empid = $this->session->userdata("emp_id");
          //echo $empid; die;
         $query = $this->db->query("SELECT r.emp_id,u.firstname,u.lastname,r.id,r.status,
-            r.timestamp FROM
+            r.timestamp,r.book_id FROM
             user_req as r LEFT JOIN users as u on r.emp_id=u.emp_id WHERE 
             r.book_id= $book_id ORDER by r.timestamp");
             if ($query->num_rows == 0){

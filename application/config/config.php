@@ -380,7 +380,7 @@ $config["permission"]["Admin"] = array("admin" => array("dashboard"),
     "admin_books" => array("editbooks", "deletebooks",
         "addbooks", "viewbooks", "assign_books",
         "return_book","request_details",
-        "assigned_user_records","approved_books_records"),
+        "assigned_user_records","approved_books_records","reject_book"),
     "admin_users" => array("edituser",
         "deleteuser", "createuser", "viewusers"));
 $config["permission"]["N-user"] = array("user" => array("dashboard"), "user_books" => array("view_user_books",

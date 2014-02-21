@@ -66,7 +66,7 @@ echo form_open(WEBSITE . "addbooks");
     <div class="row">
         <div class="form-group"> 
             <div class="col-sm-2 "></div>
-            <label for="book_title"  class="col-lg-3  control-label"><font size="3"><div class="required" align="left">
+            <label for="book_title"  class="col-lg-2  control-label"><font size="3"><div class="required" align="left">
                     Book Title</div></font></label>
             <div class="col-lg-4">
                 <input type="text" name="book_title" class="form-control"  placeholder="book_title">
@@ -76,7 +76,7 @@ echo form_open(WEBSITE . "addbooks");
     <div class="row">
         <div class="form-group"> 
             <div class="col-sm-2"></div>
-            <label for="author_name"  class="col-lg-3 control-label"><font size="3"><div class="required"  align="left">Author Name</div></font></label>
+            <label for="author_name"  class="col-lg-2 control-label"><font size="3"><div class="required"  align="left">Author Name</div></font></label>
             <div class="col-lg-4">
                 <input type="text" name="author" class="form-control"  placeholder="author_name">
             </div>
@@ -85,7 +85,7 @@ echo form_open(WEBSITE . "addbooks");
     <div class="row">  
         <div class="form-group">
             <div class="col-sm-2"></div>
-            <label for="publication"  class="col-lg-3 control-label"><font size="3"><div class="required" align="left">Publication</div></font></label>
+            <label for="publication"  class="col-lg-2 control-label"><font size="3"><div class="required" align="left">Publication</div></font></label>
             <div class="col-lg-4">
                 <input type="text" name="publications" class="form-control"  placeholder="publication">
             </div>
@@ -95,7 +95,7 @@ echo form_open(WEBSITE . "addbooks");
     <div class="row">  
         <div class="form-group">
             <div class="col-sm-2"></div>
-            <label for="edition" class="col-lg-3 control-label"><font size="3"><div class="required"  align="left">Edition</div></font></label>
+            <label for="edition" class="col-lg-2 control-label"><font size="3"><div class="required"  align="left">Edition</div></font></label>
             <div class="col-lg-4">
                 <input type="text"  name="edition" class="form-control"  placeholder="edition">
             </div>
@@ -105,7 +105,7 @@ echo form_open(WEBSITE . "addbooks");
     <div class="row">  
         <div class="form-group">
             <div class="col-sm-2"></div>
-            <label for="isbn" class="col-lg-3 control-label"><font size="3"><div class="required"  align="left">Isbn</div></font></label>
+            <label for="isbn" class="col-lg-2 control-label"><font size="3"><div class="required"  align="left">Isbn</div></font></label>
             <div class="col-lg-4">
                 <input type="text"  name="isbn" class="form-control"  placeholder="isbn">
             </div>
@@ -114,30 +114,24 @@ echo form_open(WEBSITE . "addbooks");
     <div class="row">  
         <div class="form-group">
             <div class="col-sm-2"></div>
-            <label for="price"  class="col-lg-3 control-label"><font size="3"><div class="required"  align="left">Price</div></font></label>
+            <label for="price"  class="col-lg-2 control-label"><font size="3"><div class="required"  align="left">Price</div></font></label>
             <div class="col-lg-4">
                 <input type="text" name="price" class="form-control"  placeholder="price">
             </div>
         </div>
-
-    </div>
-
+</div>
 
 
 
 
-    <br>
-    <div class="col-lg-5"></div>
+
+    <br><br>
+    <div class="col-lg-4"></div>
     <div class="col-lg-4">
         <input type="submit" name="submit" value="Add Book" class="btn btn-lg btn-primary btn-block" >
 
-
-
-
-
-
-    </div>
-
+</div>
+<br>
 </form>
 
 

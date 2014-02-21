@@ -124,8 +124,8 @@
                         <ul class ="submenu">
                             <li><a href='<?= WEBSITE ?>admin_books/approved_books_records?id=<?php echo $row['id']; ?>' >
                                     Approve</a></li>
-                            <li>
-                                <a href='<?= WEBSITE ?>admin_books/deletebooks?book_id=<?php echo $row['book_id']; ?>'>
+                            <li><input type='disable'>
+                                <a href='<?= WEBSITE ?>admin_books/return_book?book_id=<?php echo $row['book_id']; ?>'>
                                     Reject</a>
                             </li> 
                         </ul></li>

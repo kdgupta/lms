@@ -102,8 +102,8 @@ class books extends CI_Model {
 
         //$query = $this->db->query("select  * from books");
           $query = $this->db->query(" SELECT ubr.*, b.book_id ,UPPER(book_title) as book_title,
-          UPPER(author) as author,publications,edition, price ,
-           isbn ,available,u.firstname,u.lastname,r.status FROM
+          UPPER(author) as author,UPPER(publications)as publications,edition, price ,
+           isbn ,available,UPPER(u.firstname)AS firstname,UPPER(u.lastname)as lastname,r.status FROM
           (SELECT MAX(date) AS date ,emp_id FROM users_books_records
         GROUP BY book_id) a  JOIN users_books_records ubr ON ubr.date=a.date
         JOIN users u ON u.emp_id=ubr.emp_id
