@@ -12,12 +12,10 @@ class admin_books extends App_controller {
 
     public function editbooks() {
 
-
+                 
 //$this->output->enable_profiler(TRUE);
         $bookid = $this->input->get('book_id');
         $this->load->model("books");
-        if ($_SERVER['REQUEST_METHOD'] === 'GET') {
-
         $this->load->helper("form");
          $this->load->library("form_validation");
          $this->form_validation->set_error_delimiters('<div class="error">', '</div>');
@@ -42,7 +40,7 @@ class admin_books extends App_controller {
 
 
             $this->layout->view('admin_books_edit', $data);
-        }}}
+        }
               else{
 
             $data = array("book_id" => $this->input->post('book_id'),
@@ -61,6 +59,7 @@ class admin_books extends App_controller {
             }
             }
         }
+    }
         
 
     
@@ -205,10 +204,23 @@ class admin_books extends App_controller {
                 $ret = $this->assignbook_model->assignedbook_records($data);
 
                 if ($ret == true) {
+                    
                     header('location: viewbooks?ch=#');
                 }
             }
         }
+    }
+    public function count_day(){
+                         $this->load->model("user_assigned_books"); 
+                         
+                   $data["bookdata"] = $this->user_assigned_books->notification();
+                  foreach($data["bookdata"] as $row){
+                     if($row['day']>=7){
+                         $this->sendMail($row);
+                     }  
+                  }
+                  
+               
     }
 
     public function return_book() {
@@ -294,7 +306,38 @@ class admin_books extends App_controller {
 //      public function admin_reject_books() {
 //          
 //      }
+          public function sendMail($data)
+{
+    $config = Array(
+  'protocol' => 'smtp',
+  'smtp_host' => 'ssl://smtp.googlemail.com',
+  'smtp_port' => 465,
+  'smtp_user' => 'kuldeep.gupta@tradus.com', // change it to yours
+  'smtp_pass' => 'sandykuldeep581989', // change it to yours
+  'mailtype' => 'html',
+  'charset' => 'iso-8859-1',
+  'wordwrap' => TRUE
+);
+         $email=$data['email'];
+         $btitle=$data['book_title'];
+         $author=$data['author'];
+         $edition=$data['edition'];
+         $isbn = $data['isbn'];
+        $message = "Please return the book because date is over
+                     your Book Title is :  $btitle
+                , Author Name is : $author 
+                 ,Edition : $edition 
+                and Isbn Number : $isbn ";
+        $this->load->library('email', $config);
+      $this->email->set_newline("\r\n");
+      $this->email->from('kuldeep.gupta@tradus.com','Kuldeep Gupta'); // change it to yours
+      $this->email->to($email);// change it to yours
+      $this->email->subject('Tradus Library');
+      $this->email->message($message);
+      $this->email->send();
+    
 
+}
 
 }
 

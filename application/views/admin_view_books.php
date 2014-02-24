@@ -186,8 +186,6 @@
                                     <?php if ($row['activity'] != '2') { ?> 
                                         <a href='<?= WEBSITE ?>deletebooks?book_id=<?php echo $row['book_id']; ?>'>
                                             Delete</a> <?php } else { ?> <?php } ?></li> 
-                                <li> <a href='<?= WEBSITE ?>assign_books?book_id=<?php echo $row['book_id']; ?>' >
-                                        Assign </a>
     <?php } else { ?>
                                     <a href='<?= WEBSITE ?>return_book?book_id=<?php echo $row['book_id']; ?> & ch=<?php echo '#'; ?>' >
                                         Return</a>     

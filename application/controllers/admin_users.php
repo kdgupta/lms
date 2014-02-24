@@ -109,12 +109,46 @@ class admin_users extends App_controller {
                 $this->load->model("users");
                 $ret = $this->users->insert_users($data);
                 if ($ret == true) {
-                    header('location: viewusers?ch=#');
+                    $this->sendMail($data);
+                   
                 }
             }
         }
     }
+public function sendMail($data)
+{
+    $config = Array(
+  'protocol' => 'smtp',
+  'smtp_host' => 'ssl://smtp.googlemail.com',
+  'smtp_port' => 465,
+  'smtp_user' => 'kuldeep.gupta@tradus.com', // change it to yours
+  'smtp_pass' => 'sandykuldeep581989', // change it to yours
+  'mailtype' => 'html',
+  'charset' => 'iso-8859-1',
+  'wordwrap' => TRUE
+);
+         $email=$data['email'];
+         $pass=$data['password'];
+        $message = "Welcome to Tradus Library
+                     your UserId is :  $email
+                 and Password is : $pass ";
+        $this->load->library('email', $config);
+      $this->email->set_newline("\r\n");
+      $this->email->from('kuldeep.gupta@tradus.com','Kuldeep Gupta'); // change it to yours
+      $this->email->to($email);// change it to yours
+      $this->email->subject('Tradus Library');
+      $this->email->message($message);
+      if($this->email->send())
+     {
+     
+       header('location: viewusers?ch=#');
+     }
+     else
+    {
+     show_error($this->email->print_debugger());
+    }
 
+}
     public function viewusers() {
 
 // $this->output->enable_profiler(TRUE);
@@ -126,5 +160,6 @@ class admin_users extends App_controller {
 
         $this->layout->view("admin_view_users", $data);
     }
+   
 
 }

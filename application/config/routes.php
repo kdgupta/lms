@@ -61,7 +61,7 @@ $route["deletebooks"]='admin_books/deletebooks';
 $route["assign_books"]='admin_books/assign_books';
 $route["return_book"]='admin_books/return_book';
 $route["assigned_user_records"]='admin_books/assigned_user_records';
-
+$route["change_pass"]='user/change_pass';
         
 //$route['(:any)'] = 'login/login_form';
  //$route['(:any)'] = "login/";

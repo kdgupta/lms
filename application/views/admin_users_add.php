@@ -120,7 +120,7 @@ echo form_open(WEBSITE . "createuser");
                 <input type="radio" name="is_active" value='0' ><font size="3">Inactive</font>
             </div>
         </div>
-
+       </div>
 
 
 

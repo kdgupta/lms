@@ -14,7 +14,7 @@ class user_records extends CI_Model {
       } */
 
     public function assignedbook($empid) {
-         if ($_SERVER['REQUEST_METHOD'] === 'POST'){
+         
         $this->load->database();
         switch($_GET['ch']){
             case 'd':
@@ -43,43 +43,12 @@ class user_records extends CI_Model {
              from users as p
              join 
             users_books_records as q on p.emp_id = q.emp_id join books as r on q.book_id
-            =  r.book_id where q.emp_id= $empid ORDER BY date DESC");
+            =  r.book_id where q.emp_id= $empid " .$sort);
         setcookie("flg", "0");
 
         return $query->result_array();
     }
-     if($_SERVER['REQUEST_METHOD'] === 'GET'){
-        $this->load->database();
-        $this->load->helper('cookie');  
-        switch($_GET['ch']){
-     case 'd':
-                 if($_COOKIE["flg"]=="0"){
-               
-                    $sort="ORDER BY date ASC";
-                    setcookie("flg", "1");
-                    break;
-                   }
-                if($_COOKIE["flg"]=="1"){ 
-                     $sort="ORDER BY date DESC";
-                     setcookie("flg", "0");
-                    break;
-                }
-           break;
-           default:
-                $sort="ORDER BY date DESC";
-              setcookie("flg", "0");
-           break;
-        }
-        
-          $query = $this->db->query("select p.emp_id, p.firstname, p.lastname,
-             r.book_id,r.book_title,r.author,r.publications,r.edition,r.isbn,
-             r.price,r.available,q.date,q.activity
-             from users as p
-             join 
-            users_books_records as q on p.emp_id = q.emp_id join books as r on q.book_id
-            =  r.book_id where q.emp_id=$empid ".$sort);
-          return $query->result_array();
-     }
+     
 
     /* public function get_book_record_by_id($bookid,$empid) {
 
@@ -96,6 +65,6 @@ class user_records extends CI_Model {
       return array_shift($query1->result_array());
       } */
 }
-}
+
 
 ?>
