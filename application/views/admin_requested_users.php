@@ -107,6 +107,9 @@
     <th style="text-align: center;"><font size="3">  Name </font></th>
 
     <th style="text-align: center;"><font size="3">  Action </font></th>
+    <th style="text-align: center;"><font size="3"> 
+    <a href='<?= WEBSITE ?>admin_books/return_book?book_id=<?php echo $row['book_id']; ?>'>
+                                    Reject</a></font></th>
 
     <?php foreach ($userdata as $row) { ?>
         <tr>
@@ -124,10 +127,6 @@
                         <ul class ="submenu">
                             <li><a href='<?= WEBSITE ?>admin_books/approved_books_records?id=<?php echo $row['id']; ?>' >
                                     Approve</a></li>
-                            <li><input type='disable'>
-                                <a href='<?= WEBSITE ?>admin_books/return_book?book_id=<?php echo $row['book_id']; ?>'>
-                                    Reject</a>
-                            </li> 
                         </ul></li>
                 </ul>
 

@@ -77,7 +77,7 @@ class assignbook_model extends CI_Model {
         $this->db->query("UPDATE books SET available='1' where book_id= $rt ");
         // $this->db->query("UPDATE user_req SET status='1' where book_id= $rt ");
 
-        $this->db->query("DELETE FROM user_req where book_id= $rt ");
+        $this->db->query("DELETE  FROM user_req where book_id= $rt ");
 
 
         $ret = $this->db->trans_complete();
