@@ -38,10 +38,10 @@
                   class="btn btn-sm btn-primary">
             logout</button></div>
 </div>
- <font size="4" color=#8866ff> Please! </font>
-  <a target="_blank" href = 'https://drive.google.com/a/tradus.com/#folders/0B6y7nksbw4OOczZ6cG1JdU1LM0U'>
-        <font size="5">click here</font></a>
-    <font size="4" color=#8866ff> to read or download soft copy of book</font> 
+<font size="4" color=#8866ff> Please! </font>
+<a target="_blank" href = 'https://drive.google.com/a/tradus.com/#folders/0B6y7nksbw4OOczZ6cG1JdU1LM0U'>
+    <font size="5">click here</font></a>
+<font size="4" color=#8866ff> to read or download soft copy of book</font> 
 <br><br>
 <table  border="1" align="center" class="TFtable">
     <tr>
@@ -67,8 +67,8 @@
             <td><?php echo $row['publications']; ?></td> 
             <td><?php echo $row['edition']; ?></td>
 
-             <!--   <td><?php //echo $row['isbn'];  ?></td>
-               <td><?php //echo $row['price'];  ?></td>-->
+                 <!--   <td><?php //echo $row['isbn'];   ?></td>
+                   <td><?php //echo $row['price'];   ?></td>-->
 
 
 

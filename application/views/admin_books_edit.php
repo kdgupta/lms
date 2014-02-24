@@ -120,14 +120,14 @@ echo form_open(WEBSITE . "editbooks");
 
     </div>
 
-<br><br>
-<div class="col-lg-4"></div>
-<div class="col-lg-4">
-    <input type="submit" name="submit" value="Edit Book" class="btn btn-lg btn-primary btn-block" >
+    <br><br>
+    <div class="col-lg-4"></div>
+    <div class="col-lg-4">
+        <input type="submit" name="submit" value="Edit Book" class="btn btn-lg btn-primary btn-block" >
 
-</div>
+    </div>
 
-<br>
+    <br>
 </form>
 
 

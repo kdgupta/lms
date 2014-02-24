@@ -119,7 +119,7 @@ echo form_open(WEBSITE . "addbooks");
                 <input type="text" name="price" class="form-control"  placeholder="price">
             </div>
         </div>
-</div>
+    </div>
 
 
 
@@ -130,8 +130,8 @@ echo form_open(WEBSITE . "addbooks");
     <div class="col-lg-4">
         <input type="submit" name="submit" value="Add Book" class="btn btn-lg btn-primary btn-block" >
 
-</div>
-<br>
+    </div>
+    <br>
 </form>
 
 

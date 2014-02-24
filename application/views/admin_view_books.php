@@ -94,11 +94,11 @@
     <button  onclick="location.href = '<?= WEBSITE ?>addbooks'" class="btn btn-lg btn-primary btn-block">
         Add New Book</button> </div>
 
- <font size="4" color=#8866ff> Please! </font>
-  <a target="_blank" href = 'https://drive.google.com/a/tradus.com/#folders/0B6y7nksbw4OOczZ6cG1JdU1LM0U'>
-        <font size="5">click here</font></a>
-    <font size="4" color=#8866ff> to add soft copy of book</font> 
-   
+<font size="4" color=#8866ff> Please! </font>
+<a target="_blank" href ='<?php echo softcopy_link ?>'>
+    <font size="5">click here</font></a>
+<font size="4" color=#8866ff> to add soft copy of book</font> 
+
 
 <br><br><br><br>   
 
@@ -147,31 +147,33 @@
                     <div class="col-lg-3 ">  
                         <a href = '<?= WEBSITE ?>assigned_user_records?emp_id=<?php echo $row['emp_id']; ?>& ch= <?php echo '#' ?>'>
 
-                            <font color="black"><?php echo $row['firstname'];
-            echo " ";
-            echo $row['lastname']; ?></font>
+                            <font color="black"><?php
+                            echo $row['firstname'];
+                            echo " ";
+                            echo $row['lastname'];
+                            ?></font>
                         </a></div>
-    <?php } ?>
-                <?php if ($row['available'] == '1') { ?>
+                    <?php } ?>
+                    <?php if ($row['available'] == '1') { ?>
                     <div class="col-lg-3 ">  
-                    <?php if ($row['status'] == '2') { ?>        
+                            <?php if ($row['status'] == '2') { ?>        
                             <button   onclick="location.href = '<?= WEBSITE ?>request_details?book_id=<?php echo $row['book_id']; ?>'"
                                       class="btn btn-primary">                 
-            <?php echo "Request Queue" ?></button></div>
-                            <?php } ?>
-                        <?php } ?></td> 
-                    <!--    <td> <?php if ($row['available'] == '2') { ?>
-                            <?php // echo $row['date']; ?> 
+                                <?php echo "Request Queue" ?></button></div>
+                <?php } ?>
+            <?php } ?></td> 
+            <!--    <td> <?php if ($row['available'] == '2') { ?>
+        <?php // echo $row['date'];  ?> 
             <?php } ?></td>-->
 
-            <!--    <td> <?php if ($row['activity'] == '1') { ?>
-        <?php // echo "Assigned";  ?> 
+                <!--    <td> <?php if ($row['activity'] == '1') { ?>
+                <?php // echo "Assigned";  ?> 
                 <?php
             }
             if ($row['activity'] == '2') {
                 ?>
-                <?php // echo ""; ?>
-            <?php } ?></td>-->
+        <?php // echo "";  ?>
+    <?php } ?></td>-->
             <td>  <ul class ="menu">
 
                     <li><a herf=""><font color="black">actions</font></a>
@@ -181,18 +183,16 @@
                             <li><a href='<?= WEBSITE ?>editbooks?book_id=<?php echo $row['book_id']; ?>' >
                                     Edit</a></li>
                             <li>
-    <?php if ($row['available'] == '1') { ?>
+                                <?php if ($row['available'] == '1') { ?>
 
-                                    <?php if ($row['activity'] != '2') { ?> 
+                                <?php if ($row['activity'] != '2') { ?> 
                                         <a href='<?= WEBSITE ?>deletebooks?book_id=<?php echo $row['book_id']; ?>'>
                                             Delete</a> <?php } else { ?> <?php } ?></li> 
-                                <li> <a href='<?= WEBSITE ?>assign_books?book_id=<?php echo $row['book_id']; ?>' >
-                                        Assign </a>
-    <?php } else { ?>
-                                    <a href='<?= WEBSITE ?>return_book?book_id=<?php echo $row['book_id']; ?> & ch=<?php echo '#'; ?>' >
-                                        Return</a>     
+                        <?php } else { ?>
+                                <a href='<?= WEBSITE ?>return_book?book_id=<?php echo $row['book_id']; ?> & ch=<?php echo '#'; ?>' >
+                                    Return</a>     
     <?php } ?> </li>
-                        </ul></li>
+                </ul></li>
                 </ul>
 
             </td></tr>

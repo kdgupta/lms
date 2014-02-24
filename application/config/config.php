@@ -379,12 +379,21 @@ $config['encryption_key'] = 'howAreYou';
 $config["permission"]["Admin"] = array("admin" => array("dashboard"),
     "admin_books" => array("editbooks", "deletebooks",
         "addbooks", "viewbooks", "assign_books",
-        "return_book","request_details",
-        "assigned_user_records","approved_books_records","reject_book"),
+        "return_book", "request_details",
+        "assigned_user_records", "approved_books_records", "reject_book"),
     "admin_users" => array("edituser",
         "deleteuser", "createuser", "viewusers"));
-$config["permission"]["N-user"] = array("user" => array("dashboard"), "user_books" => array("view_user_books",
-        "assigned_books","request","cancel_request"));
+$config["permission"]["N-user"] = array("user" => array("dashboard", "change_pass"), "user_books" => array("view_user_books",
+        "assigned_books", "request", "cancel_request"));
 
-
+$config["mail"] = Array(
+    'protocol' => 'smtp',
+    'smtp_host' => 'ssl://smtp.googlemail.com',
+    'smtp_port' => 465,
+    'smtp_user' => 'kuldeep.gupta@tradus.com', // change it to yours
+    'smtp_pass' => 'sandykuldeep581989', // change it to yours
+    'mailtype' => 'html',
+    'charset' => 'iso-8859-1',
+    'wordwrap' => TRUE
+);
 

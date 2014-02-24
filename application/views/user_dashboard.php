@@ -7,6 +7,14 @@
 </script>
 </head> -->
 
+<div class="row">
+
+    <div class="col-lg-4"><b>Click Here To</b>
+        <button  onclick="location.href = '<?= WEBSITE ?>change_pass?emp_id=<?php echo $this->session->userdata('emp_id'); ?>& ch=<?php echo '#'; ?>'" class=" btn-primary">
+
+      Change Password </button>
+    </div>
+</div>
 
 
 <div class="form-group"> 
@@ -45,12 +53,11 @@
 <div class="row">
     <div class="col-lg-4"></div>
     <div class="col-lg-4">
-        <button  onclick="location.href = '<?= WEBSITE ?>assigned_books?emp_id=<?php echo $this->session->userdata('emp_id'); ?>& ch=<?php echo 'd'; ?>'" class="btn btn-lg btn-primary btn-block">
+        <button  onclick="location.href = '<?= WEBSITE ?>assigned_books?emp_id=<?php echo $this->session->userdata('emp_id'); ?>& ch=<?php echo '#'; ?>'" class="btn btn-lg btn-primary btn-block">
 
             Assigned Books </button>
     </div>
 </div>
-
 
 
 </form>

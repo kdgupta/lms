@@ -7,10 +7,10 @@
   window.onunload=function(){null};
 </script>
 </head>-->
-     <style type="text/css">
- .body {
-  position: fixed;
-}
+<style type="text/css">
+    .body {
+        position: fixed;
+    }
 
 </style>
 

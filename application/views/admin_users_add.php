@@ -116,24 +116,25 @@ echo form_open(WEBSITE . "createuser");
             <div class="col-sm-3"></div>
             <div class="col-lg-5">
                 <input type="radio" name="is_active" value='1' ><font size="3">Active</font>
-         
+
                 <input type="radio" name="is_active" value='0' ><font size="3">Inactive</font>
             </div>
         </div>
-</div>
+    </div>
 
 
 
 
-        <br>
-        <div class="col-lg-4"></div>
-        <div class="col-lg-4">
-            <input type="submit" name="submit" value="Add User" class="btn btn-lg btn-primary btn-block" >
+
+    <br>
+    <div class="col-lg-4"></div>
+    <div class="col-lg-4">
+        <input type="submit" name="submit" value="Add User" class="btn btn-lg btn-primary btn-block" >
 
 
-        </div>
-      
-<br>
+    </div>
+
+    <br>
 </form>
 
 

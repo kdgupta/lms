@@ -80,7 +80,6 @@ class login_users extends CI_Model {
             return $user_info;
         }
     }
-    
 
     public function set_user_action($role_name) {
         $user_action = array();
@@ -92,10 +91,10 @@ class login_users extends CI_Model {
                 //   $this->session->set_userdata($value);
             }
         }
-       $this->session->set_userdata($user_action); 
-       return $user_action;
+        $this->session->set_userdata($user_action);
+        return $user_action;
     }
-    
+
 //    public function set_log_tables(){
 //         $this->load->database();
 //          $empid=$this->session->userdata('emp_id');
@@ -108,9 +107,9 @@ class login_users extends CI_Model {
 
     public function logout() {
         $lout = $this->session->sess_destroy();
-       // $this->cache->clean();
-       // $this->output->clear_all_cache();
-     //   $this->output->clear_page_cache();
+        // $this->cache->clean();
+        // $this->output->clear_all_cache();
+        //   $this->output->clear_page_cache();
         return $lout;
     }
 

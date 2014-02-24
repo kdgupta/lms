@@ -12,17 +12,16 @@ class login extends CI_Controller {
         $this->layout->setTitle('LMS');
         $this->load->library('session');
         $this->load->helper('url');
-         
     }
 
     public function login_form() {
         $this->load->helper('url');
         $this->load->library('session');
         $this->load->config('config');
-          
+
         $this->load->helper("form");
         $this->layout->view('login_view');
-       
+
 
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             //$this->output->enable_profiler(TRUE);
@@ -35,7 +34,7 @@ class login extends CI_Controller {
 
             if ($role_id == true) {
                 $session['user_info'] = $this->login_users->set_user_info($role_id);
-           //     $lg = $this->login_users->set_log_tables();
+                //     $lg = $this->login_users->set_log_tables();
                 //print_r($session['data']['validated']);
                 // $session['user_action'] = $this->login_users->set_user_action($this->session->userdata('role_name'));
                 // $session['user_action'] = $this->login_users->set_user_action($this->session->userdata('role_name'));

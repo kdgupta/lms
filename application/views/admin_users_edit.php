@@ -109,21 +109,21 @@ echo form_open(WEBSITE . "edituser");
                 <input type="radio" name="is_active" <?= (!$userdata['is_active']) ? "checked" : "" ?> value="0"><font size="3">Inactive</font>
             </div>
         </div>
-        </div>
+    </div>
 
 
 
 
 
 
-        <br>
-        <div class="col-lg-4"></div>
-        <div class="col-lg-4">
-            <input type="submit" name="submit" value="Edit User" class="btn btn-lg btn-primary btn-block" >
+    <br>
+    <div class="col-lg-4"></div>
+    <div class="col-lg-4">
+        <input type="submit" name="submit" value="Edit User" class="btn btn-lg btn-primary btn-block" >
 
 
-        </div>
-<br>
+    </div>
+    <br>
 
 </form>
 

@@ -81,12 +81,12 @@ background:#ee5;}
         </div>
 
         <div class="container">
-           
+
 
             <div class="starter-template">
                 <?php echo $content_for_layout ?>
             </div>
-              
+
 
         </div><!-- /.container -->
 
@@ -96,7 +96,7 @@ background:#ee5;}
         <!-- Placed at the end of the document so the pages load faster -->
 
         <script src="<?= UI_LIB ?>bootstrap/js/bootstrap.min.js"></script>
-     
+
         <div id="footer">
             <div class="container" align="center" width="100"
                  height="100" style="position:relative; right:1%;bottom:50%;">

@@ -93,7 +93,7 @@
 
 
 
-    <!-- <?php //if ($row['status'] == '2') {  ?> 
+    <!-- <?php //if ($row['status'] == '2') {    ?> 
                 approved
     <?php //} ?>
                 
@@ -107,9 +107,9 @@
     <th style="text-align: center;"><font size="3">  Name </font></th>
 
     <th style="text-align: center;"><font size="3">  Action </font></th>
-    <th style="text-align: center;"><font size="3"> 
-    <a href='<?= WEBSITE ?>admin_books/return_book?book_id=<?php echo $row['book_id']; ?>'>
-                                    Reject</a></font></th>
+     <!--   <th style="text-align: center;"><font size="3"> 
+    <a href='<? // = WEBSITE  ?>admin_books/return_book?book_id=<?php // echo $row['book_id'];  ?>'>
+            Reject</a></font></th> -->
 
     <?php foreach ($userdata as $row) { ?>
         <tr>
@@ -117,21 +117,23 @@
                 <?php echo $row['timestamp']; ?>
             </td>
             <td><?php
-            echo $row['firstname'];
-            echo " ";
-            echo $row['lastname'];
+                echo $row['firstname'];
+                echo " ";
+                echo $row['lastname'];
                 ?></td>
 
-            <td>  <ul class ="menu">
-                    <li><a herf="">Action</a>
-                        <ul class ="submenu">
-                            <li><a href='<?= WEBSITE ?>admin_books/approved_books_records?id=<?php echo $row['id']; ?>' >
-                                    Approve</a></li>
-                        </ul></li>
-                </ul>
+             <!--   <td>  <ul class ="menu">
+                        <li><a herf="">Action</a>
+                            <ul class ="submenu">
+                                <li><a href='<?= WEBSITE ?>admin_books/approved_books_records?id=<?php echo $row['id']; ?>' >
+                                        Approve</a></li>
+                            </ul></li>
+                    </ul>
 
-            </td>
-
+                </td> -->
+            <td> 
+                <a href='<?= WEBSITE ?>admin_books/approved_books_records?id=<?php echo $row['id']; ?>' >
+                    Approve</a></td>
         </tr>
     <?php } ?>
 

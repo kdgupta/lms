@@ -16,10 +16,11 @@
             background: skyblue;}
         .TFtable tr:nth-child(even){
             background: white;}
-        </style>
-    </head>
 
-    <div class="form-group"> 
+    </style>
+</head>
+
+<div class="form-group"> 
     <div class="col-sm-1 pull-top">
         <button  onclick="location.href = '<?= WEBSITE ?>user'"
                  class="btn btn-sm btn-primary">
@@ -61,14 +62,14 @@
 <?php foreach ($record as $row) {
     ?>
     <tr>
-       <!-- <td>   <? //php echo $row['firstname'];  ?><?php //echo" ";  ?><?php //echo $row['lastname'];  ?></td>-->
+       <!-- <td>   <? //php echo $row['firstname'];   ?><?php //echo" ";   ?><?php //echo $row['lastname'];   ?></td>-->
 
         <td><?php echo $row['book_title']; ?></td>
         <td><?php echo $row['author']; ?></td>
         <td><?php echo $row['publications']; ?></td> 
         <td><?php echo $row['edition']; ?></td>
-     <!--   <td><? //php echo $row['isbn'];  ?></td>
-        <td><?php // echo $row['price'];  ?></td>-->
+     <!--   <td><? //php echo $row['isbn'];   ?></td>
+        <td><?php // echo $row['price'];   ?></td>-->
 
 
         <td><?php echo $row['date']; ?></td> 

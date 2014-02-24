@@ -46,23 +46,24 @@ class assignbook_model extends CI_Model {
             return $ret;
         }
     }
-    public function insert_req_records($data){
-         $this->load->database();
-          $this->db->trans_start();
-        foreach($data as $row){
-           $reqid= $row['id'];
-           
-           $status =$row['status'];
-           
-           $userid =$row['lg_user_id'];
-          
-           
+
+    public function insert_req_records($data) {
+        $this->load->database();
+        $this->db->trans_start();
+        foreach ($data as $row) {
+            $reqid = $row['id'];
+
+            $status = $row['status'];
+
+            $userid = $row['lg_user_id'];
+
+
             $this->db->query("INSERT INTO req_log(req_id,status,log_usr_id)
                VALUES($reqid,$status,$userid)");
         }
-       
-         $ret = $this->db->trans_complete();
-         return $ret;
+
+        $ret = $this->db->trans_complete();
+        return $ret;
     }
 
     public function return_book($empid) {
@@ -83,22 +84,21 @@ class assignbook_model extends CI_Model {
         $ret = $this->db->trans_complete();
         return $ret;
     }
-    
-  /*  public function return_req_book($data){
-         $this->load->database();
-       
-         $bookid=$data['book_id'];
-        
-         $empid=$data['emp_id'];
-       
-       $this->db->trans_start();
+
+    /*  public function return_req_book($data){
+      $this->load->database();
+
+      $bookid=$data['book_id'];
+
+      $empid=$data['emp_id'];
+
+      $this->db->trans_start();
       $this->db->query("UPDATE user_req SET status='1' where book_id= $bookid and emp_id=$empid ");
       $this->db->query("INSERT INTO req_log(req_id,status,log_usr_id)
-               VALUES($reqid,'1',$userid)");
-           $ret = $this->db->trans_complete();
-         return $ret;
-    }*/
-
+      VALUES($reqid,'1',$userid)");
+      $ret = $this->db->trans_complete();
+      return $ret;
+      } */
 }
 
 ?>

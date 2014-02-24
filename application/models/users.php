@@ -49,63 +49,69 @@ class users extends CI_Model {
     }
 
     public function users_data() {
-         if ($_SERVER['REQUEST_METHOD'] === 'POST'){
-        $this->load->database();
-        $query = $this->db->query("select p.emp_id, UPPER(p.firstname) as firstname,
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            $this->load->database();
+            $query = $this->db->query("select p.emp_id, UPPER(p.firstname) as firstname,
             UPPER(p.lastname) as lastname, 
             p.email, UPPER(p.designation) as designation, p.is_active, UPPER(q.role_name) as role_name,q.role_id from users as p
              join 
             user_roles as r on p.emp_id = r.emp_id  join roles as q on r.role_id
             = q.role_id ORDER BY firstname ASC");
-         setcookie("flg", "0");
-        return $query->result_array();
-    }
-     if($_SERVER['REQUEST_METHOD'] === 'GET'){
-        $this->load->database();
-        $this->load->helper('cookie');  
-        switch($_GET['ch']){
-         case 'f':
-                if($_COOKIE["flg"]=="0"){
-                    $sort="ORDER BY firstname DESC";
-                  setcookie("flg", "1");
-                    break;
-                }
-                if($_COOKIE["flg"]=="1"){
-                    $sort="ORDER BY firstname ASC";
-                   setcookie("flg", "0");
-                    break;
-                }
-          break;
-         case 'l':
-                 if($_COOKIE["flg"]=="0"){
-               
-                    $sort="ORDER BY lastname DESC";
-                    setcookie("flg", "1");
-                    break;
-                   }
-                if($_COOKIE["flg"]=="1"){ 
-                     $sort="ORDER BY lastname ASC";
-                     setcookie("flg", "0");
-                    break;
-                }
-           break;
-           default:
-                $sort="ORDER BY firstname ASC";
-              setcookie("flg", "0");
-           break;
+            setcookie("flg", "0");
+            return $query->result_array();
         }
+        if ($_SERVER['REQUEST_METHOD'] === 'GET') {
+            $this->load->database();
+            $this->load->helper('cookie');
+            switch ($_GET['ch']) {
+                case 'f':
+                    if ($_COOKIE["flg"] == "0") {
+                        $sort = "ORDER BY firstname DESC";
+                        setcookie("flg", "1");
+                        break;
+                    }
+                    if ($_COOKIE["flg"] == "1") {
+                        $sort = "ORDER BY firstname ASC";
+                        setcookie("flg", "0");
+                        break;
+                    }
+                    break;
+                case 'l':
+                    if ($_COOKIE["flg"] == "0") {
 
+                        $sort = "ORDER BY lastname DESC";
+                        setcookie("flg", "1");
+                        break;
+                    }
+                    if ($_COOKIE["flg"] == "1") {
+                        $sort = "ORDER BY lastname ASC";
+                        setcookie("flg", "0");
+                        break;
+                    }
+                    break;
+                default:
+                    $sort = "ORDER BY firstname ASC";
+                    setcookie("flg", "0");
+                    break;
+            }
 
-         $query = $this->db->query("select p.emp_id,UPPER (p.firstname)AS firstname, UPPER(p.lastname)
-             as lastname, 
-            p.email, UPPER(p.designation)as designation, p.is_active, UPPER(q.role_name)
-            as role_name,q.role_id from users as p
+            $query = $this->db->query("select p.emp_id, UPPER(p.firstname) as firstname, 
+             UPPER(p.lastname) as lastname, 
+            p.email, UPPER(p.designation)as designation, p.is_active, UPPER(q.role_name) as role_name,q.role_id from users as p
              join 
             user_roles as r on p.emp_id = r.emp_id  join roles as q on r.role_id
             = q.role_id " . $sort);
-              return $query->result_array();
+            return $query->result_array();
+        }
     }
+
+    public function change_password($pass) {
+        $empid = $this->session->userdata("emp_id");
+        $this->load->database();
+        $query = $this->db->query("UPDATE users SET password='$pass'  where emp_id=$empid");
+        return $query;
     }
+
 }
 
 ?>

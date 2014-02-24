@@ -16,53 +16,51 @@ class admin_books extends App_controller {
 //$this->output->enable_profiler(TRUE);
         $bookid = $this->input->get('book_id');
         $this->load->model("books");
-           $this->load->helper("form");
-         $this->load->library("form_validation");
-         $this->form_validation->set_error_delimiters('<div class="error">', '</div>');
+
+        $this->load->helper("form");
+
+        $this->load->library("form_validation");
+        $this->form_validation->set_error_delimiters('<div class="error">', '</div>');
         $this->form_validation->set_rules("book_title", "Book Title", "required");
         $this->form_validation->set_rules("author", "Author Name", "required");
         $this->form_validation->set_rules("publications", "Publications", "required");
         $this->form_validation->set_rules("edition", "Edition", "required");
         $this->form_validation->set_rules("isbn", "Isbn Number", "required");
         $this->form_validation->set_rules("price", "Price", "required");
-         if ($_SERVER['REQUEST_METHOD'] === 'GET') {
+        if ($_SERVER['REQUEST_METHOD'] === 'GET') {
 
-        if (!empty($bookid)) {
+            if (!empty($bookid)) {
 
-            $data["userdata"] = $this->books->get_bookdata_by_id($bookid);
-            $this->layout->view('admin_books_edit', $data);
-        }
-        }else {
-            if($this->form_validation->run() == false) {
-                $bookid = $this->input->post('book_id');
-                
-            $data["userdata"] = $this->books->get_bookdata_by_id($bookid);
-
-
-            $this->layout->view('admin_books_edit', $data);
-        }
-              else{
-
-            $data = array("book_id" => $this->input->post('book_id'),
-                "book_title" => $this->input->post('book_title'),
-                "author" => $this->input->post('author'),
-                "publications" => $this->input->post('publications'),
-                "edition" => $this->input->post('edition'),
-                "isbn" => $this->input->post('isbn'),
-                "price" => $this->input->post('price'),
-                "available" => $this->input->post('available'));
-
-
-            $tre = $this->books->update_books_data($data, $this->input->post('book_id'));
-            if ($tre == true) {
-                header('location: viewbooks?ch=#');
+                $data["userdata"] = $this->books->get_bookdata_by_id($bookid);
+                $this->layout->view('admin_books_edit', $data);
             }
+        } else {
+            if ($this->form_validation->run() == false) {
+                $bookid = $this->input->post('book_id');
+
+                $data["userdata"] = $this->books->get_bookdata_by_id($bookid);
+
+
+                $this->layout->view('admin_books_edit', $data);
+            } else {
+
+                $data = array("book_id" => $this->input->post('book_id'),
+                    "book_title" => $this->input->post('book_title'),
+                    "author" => $this->input->post('author'),
+                    "publications" => $this->input->post('publications'),
+                    "edition" => $this->input->post('edition'),
+                    "isbn" => $this->input->post('isbn'),
+                    "price" => $this->input->post('price'),
+                    "available" => $this->input->post('available'));
+
+
+                $tre = $this->books->update_books_data($data, $this->input->post('book_id'));
+                if ($tre == true) {
+                    header('location: viewbooks?ch=#');
+                }
             }
         }
     }
-
-    
-
 
     public function deletebooks() {
 // $this->output->enable_profiler(TRUE);
@@ -98,7 +96,7 @@ class admin_books extends App_controller {
         } else {
 
             if ($this->form_validation->run() == false) {
-                 $bookid = $_POST["book_id"];
+                $bookid = $_POST["book_id"];
                 $booktitle = $_POST["book_title"];
                 $author = $_POST["author"];
                 $publications = $_POST["publications"];
@@ -203,8 +201,20 @@ class admin_books extends App_controller {
                 $ret = $this->assignbook_model->assignedbook_records($data);
 
                 if ($ret == true) {
+
                     header('location: viewbooks?ch=#');
                 }
+            }
+        }
+    }
+
+    public function count_day() {
+        $this->load->model("user_assigned_books");
+
+        $data["bookdata"] = $this->user_assigned_books->notification();
+        foreach ($data["bookdata"] as $row) {
+            if ($row['day'] >= 7) {
+                $this->sendMail($row);
             }
         }
     }
@@ -213,33 +223,33 @@ class admin_books extends App_controller {
 
         $bookid = $_GET['book_id'];
 
-        $this->load->model(array("assignbook_model", "assignuser_model","user_request"));
+        $this->load->model(array("assignbook_model", "assignuser_model", "user_request"));
 
         if (!empty($bookid)) {
-             
-            $data["bookdata"] = $this->assignbook_model->get_book_by_id($bookid);
-            
 
-           // $data['req_data'] =$this->user_request->fetch_user($bookid);
-           // print_r($data['req_data']);die;
+            $data["bookdata"] = $this->assignbook_model->get_book_by_id($bookid);
+
+
+            // $data['req_data'] =$this->user_request->fetch_user($bookid);
+            // print_r($data['req_data']);die;
             $data['userdata'] = $this->assignuser_model->returnuser_data($bookid);
-           //$re= $this->assignbook_model->return_req_book($data['req_data']);
+            //$re= $this->assignbook_model->return_req_book($data['req_data']);
 
 
             $empid = $data['userdata'][0]['emp_id'];
 
             $ret = $this->assignbook_model->return_book($empid);
-           
-            if($ret==true){
-               
-         
-                     
-           
+
+            if ($ret == true) {
+
+
+
+
                 header('location: viewbooks?ch=#');
-            
-         //   }
+
+                //   }
+            }
         }
-    }
     }
 
     public function request_details() {
@@ -253,24 +263,25 @@ class admin_books extends App_controller {
     }
 
     public function approved_books_records() {
-        $reqid=$_GET['id'];
-          $this->load->model(array("assignbook_model", "assignuser_model","user_request"));
-         $data["req_data"]=$this->user_request->fetch_req($reqid);
-         
-          $bookid=$data['req_data'][0]['book_id'];
-          $empid=$data['req_data'][0]['emp_id'];
-          $data["bookdata"] = $this->assignbook_model->get_book_by_id($bookid);
-          $data["userdata"] = $this->assignuser_model->requser_data($empid);
-          
-          $ret = $this->assignbook_model->assignedbook_records($data);
-          if ($ret == true) {
-           $data["log_data"]=$this->user_request->data_for_req_log();
-           $re= $this->assignbook_model->insert_req_records($data["log_data"]);
-                if($re== true){
-                    header('location: viewbooks?ch=#');
-                }
-          }
+        $reqid = $_GET['id'];
+        $this->load->model(array("assignbook_model", "assignuser_model", "user_request"));
+        $data["req_data"] = $this->user_request->fetch_req($reqid);
+
+        $bookid = $data['req_data'][0]['book_id'];
+        $empid = $data['req_data'][0]['emp_id'];
+        $data["bookdata"] = $this->assignbook_model->get_book_by_id($bookid);
+        $data["userdata"] = $this->assignuser_model->requser_data($empid);
+
+        $ret = $this->assignbook_model->assignedbook_records($data);
+        if ($ret == true) {
+            $data["log_data"] = $this->user_request->data_for_req_log();
+            $re = $this->assignbook_model->insert_req_records($data["log_data"]);
+            if ($re == true) {
+                header('location: viewbooks?ch=#');
+            }
+        }
     }
+
 //     public function admin_approve_books() {
 //         $bookid = $_GET['book_id'];
 //       //  $empid = $_GET['emp_id'];
@@ -288,11 +299,29 @@ class admin_books extends App_controller {
 //         }
 //         
 //     }
-     
 //      public function admin_reject_books() {
 //          
 //      }
-
+    public function sendMail($data) {
+        $this->load->config('config');
+        $email = $data['email'];
+        $btitle = $data['book_title'];
+        $author = $data['author'];
+        $edition = $data['edition'];
+        $isbn = $data['isbn'];
+        $message = "Please return the book because date is over
+                     your Book Title is :  $btitle
+                , Author Name is : $author 
+                 ,Edition : $edition 
+                and Isbn Number : $isbn ";
+        $this->load->library('email', $this->config->config['mail']);
+        $this->email->set_newline("\r\n");
+        $this->email->from($this->config->config['mail']['smtp_user'], 'Tradus Library'); // change it to yours
+        $this->email->to($email); // change it to yours
+        $this->email->subject('Tradus Library');
+        $this->email->message($message);
+        $this->email->send();
+    }
 
 }
 
